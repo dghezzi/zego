@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/backgound_view"
+            android:layout_width ="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_text"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray_text"/>
+
+        </RelativeLayout >
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_marginLeft="5dp"
+            android:id="@+id/type_of_ride_layout"
+            app:layout_widthPercent="19%"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/type_of_ride_image_view"
+                android:layout_centerHorizontal="true"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tondo_standard"/>
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/eta_text_view"
+                Font:customfont="Raleway-Light.ttf"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:textColor="@color/darker_green_text"
+                app:layout_marginBottomPercent="25%"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/eta_console_text_size"
+                android:gravity="center_horizontal"
+                tools:text = "10 min"
+               />
+
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:padding="8dp"
+            android:layout_width ="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/type_of_ride_layout"
+            android:layout_height="wrap_content">
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/pick_up_address_text_view"
+                tools:text = "via del romito 19,pistoia"
+                android:ellipsize="end"
+                android:singleLine="true"
+                app:minTextSize="@dimen/min_text_size"
+                android:hint="@string/search_stating_address"
+                Font:customfont="Raleway-Regular.ttf"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/driver_name_size_console"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </android.support.percent.PercentRelativeLayout>
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/cancel_image_view"-->
+            <!--app:layout_widthPercent="8.3%"-->
+            <!--android:padding="3dp"-->
+            <!--android:visibility="invisible"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--app:layout_marginRightPercent="4%"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:src="@drawable/cancel_x"/>-->
+
+    </android.support.percent.PercentRelativeLayout>
+
+</merge>

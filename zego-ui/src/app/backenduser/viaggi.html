@@ -1,0 +1,243 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+
+
+  <!-- CONTENT -->
+
+
+
+  <md-toolbar>
+    <div class="md-toolbar-tools text-center">
+
+      <span flex>I miei viaggi</span>
+
+
+
+
+
+</div>
+</md-toolbar>
+
+
+<div class="content" style="z-index:100">
+  <!--<div class="user-status">
+  <i class="icon " ng-class="{'draft icon-timer' : vm.user.status == 0,'icon-check ok' : vm.user.status == 1,'icon-block-helper bannato' : vm.user.status == 2}"></i>
+  <md-tooltip>
+  {{vm.user.status == 0 ? 'Utente non approvato' : (vm.user.status == 1 ? 'Utente valido' : 'Utente bannato' )}}
+</md-tooltip>
+</div>-->
+
+
+<div class="white-bg md-whiteframe-4dp" layout="row">
+
+
+  <md-content flex="100" class="easy-reading">
+    <!--<md-tabs md-dynamic-height md-border-bottom>-->
+
+
+      <div layout-padding>
+        <h3>Elenco viaggi</h3>
+        <div class="row containerDateAndType">
+        		<div class="">Settimana dal <strong>
+            {{settimanaCorrente.lunedi | date}}</strong> al <strong>
+            {{settimanaCorrente.domenica | date}}</strong></div>
+
+        </div>
+
+        <div layout="row" style="text-align:center">
+          <md-button class="md-raised md-primary" ng-click="settimanaPrecedente()">Precedente</md-button>
+          <md-button class="md-raised md-primary" ng-click="settimanaSuccessiva()">Successiva</md-button>
+        </div>
+      </div>
+      <div layout-padding>
+        <h3 ng-hide="viaggiPasseggero.length > 0 || viaggiDriver.length > 0">
+          Non sono stati trovati viaggi nella settimana scelta
+        </h3>
+      </div>
+      <md-tabs md-dynamic-height md-border-bottom ng-show="viaggiPasseggero.length > 0 || viaggiDriver.length > 0">
+
+        <md-tab label="Come passeggero" ng-disabled="viaggiPasseggero.length ==0">
+          <table class="simple" ng-table="tabellaViaggiPasseggero">
+
+
+            <tbody>
+              <tr ng-repeat="viaggio in $data" >
+
+                <td title="'Codice'" >{{viaggio.shortid}}</td>
+                <td title="'Partenza'">
+                  {{viaggio.realpuaddr}}<br>
+                  {{viaggio.startdate * 1000 | date : 'medium'}}
+                </td>
+                <td title="'Arrivo'">{{viaggio.realdoaddr}}<br>{{viaggio.enddate * 1000 | date : 'medium'}}</td>
+                <td title="'Prezzo'">{{viaggio.passprice / 100 | number:2}}</td>
+
+
+
+              </tr>
+            </tbody>
+
+          </table>
+          <div class="text-center" layout-padding>
+            <h3>Totale : {{totaleDaPasseggero / 100 | number:2}}</h3>
+          </div>
+
+        </md-tab>
+ <md-tab label="Saldo" ng-disabled="viaggiDriver.length ==0">
+
+  <table class="simple smallresponsive">
+            <tr><td>TOTALE RIMBORSI INCASSATI VIA APP PER CONTO DEL DRIVER</td>
+              <td>{{totalcard  / 100 | number:2}}</td>
+            </tr>
+          <tr><td>TOTALE FEE INCASSATE IN CONTANTE PER CONTO DI ZEGO</td>
+              <td>{{totalcontanti  / 100 | number:2}}</td></tr>
+            <tr><td><h3>Saldo della settimana</h3></td>
+              <td><strong>{{(totalcard-totalcontanti) / 100 | number:2}}</strong></td>
+            </tr>
+         </table>
+
+          <div class="text-center" layout-padding>
+
+         Se il saldo della settimana è positivo, l'importo saraò accreditato sul conto corrente associato al tuo profilo driver</br>
+         L'importo è negativo quando il valore delle fee incassate in contanti è superiore al valore dei rimborsi incassati da Zego via app
+</div>
+
+</md-tab>
+        <md-tab label="Pagamenti in contanti" ng-disabled="viaggiDriver.length ==0">
+
+          <div class="responsivewidth">
+          <table class="simple smallresponsive" >
+            <thead>
+              <tr>
+                <th colspan="5">Pagati in contanti</th>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>Partenza</th>
+                <th>Arrivo</th>
+                <th>Rimborso Driver</th>
+                <th>Fee Zego</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-init="$parent.totalcontanti=$parent.totalcontanti+viaggio.zegofee;$parent.totalcontantidriver=$parent.totalcontantidriver+viaggio.driverfee" ng-repeat="viaggio in viaggiDriver | filter:{ method: 'cash' } ">
+                <td title="'Codice'" >{{viaggio.shortid}}</td>
+                <td title="'Partenza'">
+                  {{viaggio.realpuaddr}}<br>
+                  {{viaggio.startdate * 1000 | date : 'medium'}}
+                </td>
+                <td title="'Arrivo'">{{viaggio.realdoaddr}}<br>{{viaggio.enddate * 1000 | date : 'medium'}}</td>
+                 <td title="'Rimborso Driver'" class="text-right">{{viaggio.driverfee / 100 | number:2}} €</td>
+                <td title="'Fee Zego'" class="text-right">
+                  {{viaggio.zegofee / 100 | number:2}} €
+                </td>
+
+              </tr>
+            </tbody>
+<tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td class="text-right"><strong>{{totalcontantidriver/ 100 | number:2}} €</strong></td></td>
+                  <td class="text-right"><strong> {{totalcontanti/ 100 | number:2}} €</strong></td></td>
+
+                </tr>
+              </tfoot>
+          </table>
+<br/><br/>
+
+
+
+
+        </div>
+
+        </md-tab>
+
+        <md-tab label="Pagamenti via app" ng-disabled="viaggiDriver.length ==0">
+
+          <div class="responsivewidth">
+
+
+          <table class="simple smallresponsive" >
+            <thead>
+              <tr>
+                <th colspan="5">Pagati in app</th>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>Partenza</th>
+                <th>Arrivo</th>
+                <th>Rimborso Driver</th>
+                <th> Fee Zego</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="viaggio in viaggiDriver | filter:card" ng-init="$parent.totalcard=$parent.totalcard+viaggio.driverfee;$parent.totalcardzego=$parent.totalcardzego+viaggio.zegofee">
+                <td title="'Codice'" >{{viaggio.shortid}}</td>
+                <td title="'Partenza'">
+                  {{viaggio.realpuaddr}}<br>
+                  {{viaggio.startdate * 1000 | date : 'medium'}}
+                </td>
+                <td title="'Arrivo'">{{viaggio.realdoaddr}}<br>{{viaggio.enddate * 1000 | date : 'medium'}}</td>
+                 <td title="'Rimborso Driver'" class="text-right">{{viaggio.driverfee / 100 | number:2}} €</td>
+                <td title="'Fee Zego'" class="text-right">
+                  {{viaggio.zegofee / 100 | number:2}} €
+                </td>
+
+              </tr>
+              <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td class="text-right"><strong>{{totalcard / 100 | number:2}} €</strong></td>
+                                    <td class="text-right" style="padding-right: 20px"><strong>{{totalcardzego/ 100 | number:2}} €</strong></td>
+
+                </tr>
+              </tfoot>
+            </tbody>
+
+          </table>
+
+
+        </div>
+
+        </md-tab>
+
+<md-tab ng-if="false" label="Pagamenti Contanti" ng-show="driverdata.id">
+  <md-content class="form-wrapper">
+
+<label >Debito contanti</label>
+          <input  type="text" name="lastname" placeholder="{{userLogged.cashdue ? (userLogged.cashdue/100 | number:2) : 0}}€" ng-readonly="true"
+          >
+
+
+      <div class="text-center">
+
+      </div>
+        <table class="simple" ng-table="tabellaPagamentiContanti" ms-responsive-table>
+          <tbody>
+            <tr ng-repeat="p in $data">
+              <td title="'Importo'">{{p.collected}} </td>
+              <td title="'Rimanente'">{{p.due}}</td>
+              <td title="'Data Pagamento'">{{p.collectdate * 1000 | date : 'medium'}}</td>
+              <td title="'Data Pagamento Zego'"><span ng-if="p.zegopaiddate">{{p.zegopaiddate * 1000 | date : 'medium'}}</span></td>
+
+            </tr>
+          </tbody>
+        </table>
+  </md-content>
+</md-tab>
+
+
+      </md-tabs>
+
+  </md-content>
+
+
+
+
+</div>
+
+</div>
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

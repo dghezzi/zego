@@ -1,0 +1,72 @@
+LOGIN :
+tabella appoggio :
+id / uid / pass +
+api login
+
+
+CONFIGURAZIONI :
+- db :
+      campo type (skebby/ride/stripe)
+      campo min
+      campo max
+
+RICERCA UTENTI :
+{
+  name : // fname || lname,
+  mobile : // mobile,
+  email : // email || wemail,
+  from : 1476823,
+  to : 1495934, // insdate > from && insdate < to,
+  lastseenfrom : 1476823,
+  lastseento : 1495934, // lastseen > lastseenfrom && lastseen < lastseento,
+  page : 1,
+  num: 10,
+  refcode : //refcode
+  driver : 0 | 1 // se è driver,
+  banned : 0 | 1 // se bannato
+  blacklist : 0 | 1 // device in blacklist,
+  channel : // backoffice / app / terzaparte
+  orderby : //nome campo,
+  order : ASC | DESC
+}
+
+
+RICERCA RIDEREQUEST
+{
+  status : //stato della ride
+  puaddr : //indirizzo partenza,
+  doaddr : //indirizzo arrivo,
+  from : 1476823,
+  to : 1495934, // data > from && data < to,
+  driverfullname : //ricerca in nome  cognome driver,
+  drivermobile : // telefono driver
+  driveremail : // email driver
+  driverid : // id driver
+  passengerfullname : //ricerca in nome  cognome driver,
+  passengermobile : // telefono driver
+  passengeremail : // email driver
+  passengerid : // id driver
+  page : 1,
+  num: 10,
+  orderby : //nome campo,
+  order : ASC | DESC
+}
+
+DB : errormsg
+- aggiungere campo note
+
+USER:
+
+-api e struttura rating dato e ricevuto ()
+
+DETTAGLI PAGAMENTI
+Vedo esiste la tabella creditcard su db ma vuota.
+Devo aspettare?
+
+
+API export
+{
+    entity : "user", // o altre in futuro
+    fields :  // campi da esportare, se non presente -> esporta tutto ( boh ora non si usa ma magari può essere utile averlo)
+    filter : // stessi filtri di ricerca
+}

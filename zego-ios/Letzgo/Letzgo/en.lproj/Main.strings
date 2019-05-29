@@ -1,0 +1,348 @@
+
+/* Class = "UIButton"; normalTitle = "Accedi"; ObjectID = "0r1-h7-QIz"; */
+"0r1-h7-QIz.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Mastercard"; ObjectID = "12q-5U-ZgL"; */
+"12q-5U-ZgL.text" = "Mastercard";
+
+/* Class = "UILabel"; text = "Digita il tuo numero di telefono"; ObjectID = "1GQ-Eq-yLK"; */
+"1GQ-Eq-yLK.text" = "Insert your mobile number";
+
+/* Class = "UILabel"; text = "FAQ"; ObjectID = "1fY-f6-IAG"; */
+"1fY-f6-IAG.text" = "FAQ";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "2rK-pA-XxP"; */
+"2rK-pA-XxP.text" = "Expiry";
+
+/* Class = "UITextField"; placeholder = "nome"; ObjectID = "3BO-JW-TZG"; */
+"3BO-JW-TZG.placeholder" = "name";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "3d3-OC-DD9"; */
+"3d3-OC-DD9.text" = "Expiry";
+
+/* Class = "UILabel"; text = "Completa"; ObjectID = "4Jf-OR-6Od"; */
+"4Jf-OR-6Od.text" = "Complete";
+
+/* Class = "UILabel"; text = "333 1234567"; ObjectID = "67h-PH-3lI"; */
+"67h-PH-3lI.text" = "333 1234567";
+
+/* Class = "UILabel"; text = "**** 3423"; ObjectID = "6gc-9R-1VO"; */
+"6gc-9R-1VO.text" = "**** 3423";
+
+/* Class = "UILabel"; text = "Termini e Condizioni"; ObjectID = "75V-xa-nfk"; */
+"75V-xa-nfk.text" = "Terms and Conditions";
+
+/* Class = "UILabel"; text = "12 Settembre 2017 10:55"; ObjectID = "A6Y-Su-Tvs"; */
+"A6Y-Su-Tvs.text" = "12 Settembre 2017 10:55";
+
+/* Class = "UILabel"; text = "I miei passaggi"; ObjectID = "AjY-UO-RzU"; */
+"AjY-UO-RzU.text" = "My Rides";
+
+/* Class = "UILabel"; text = "Modifica telefono"; ObjectID = "BmS-ws-w8U"; */
+"BmS-ws-w8U.text" = "Edit mobile";
+
+/* Class = "UILabel"; text = "I miei passaggi"; ObjectID = "CJe-Nn-60z"; */
+"CJe-Nn-60z.text" = "My Rides";
+
+/* Class = "UILabel"; text = "Nessun passaggio"; ObjectID = "CSx-ue-S31"; */
+"CSx-ue-S31.text" = "No rides yet";
+
+/* Class = "UILabel"; text = "Completa"; ObjectID = "CXn-6e-a8M"; */
+"CXn-6e-a8M.text" = "Complete";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "CyC-di-Yz7"; */
+"CyC-di-Yz7.text" = "9";
+
+/* Class = "UILabel"; text = "Seleziona la città in cui vuoi offrire passaggi"; ObjectID = "D63-c5-NfR"; */
+"D63-c5-NfR.text" = "Select the city where you want to offer rides";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "DFe-Vs-DSH"; */
+"DFe-Vs-DSH.text" = "9";
+
+/* Class = "UILabel"; text = "I miei passaggi"; ObjectID = "Ddc-h9-vg7"; */
+"Ddc-h9-vg7.text" = "My Rides";
+
+/* Class = "UILabel"; text = "Inserisci il tuo numero di telefono"; ObjectID = "DeW-y9-TV8"; */
+"DeW-y9-TV8.text" = "Insert your mobile number";
+
+/* Class = "UILabel"; text = "Pagamento"; ObjectID = "DsU-Hi-VWM"; */
+"DsU-Hi-VWM.text" = "Payment";
+
+/* Class = "UITextField"; placeholder = "cognome"; ObjectID = "Dy8-XQ-XY6"; */
+"Dy8-XQ-XY6.placeholder" = "surname ";
+
+/* Class = "UILabel"; text = "Completa il tuo profilo in pochi passi e attendi la nostra email di attivazione del profilo DRIVER "; ObjectID = "E8J-fR-nYw"; */
+"E8J-fR-nYw.text" = "Complete your profile and wait for an activation email of your Driver profile";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "EQJ-U3-9rp"; */
+"EQJ-U3-9rp.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Salta"; ObjectID = "EeH-l0-Dpu"; */
+"EeH-l0-Dpu.normalTitle" = "Skip";
+
+/* Class = "UITextField"; placeholder = "inserisci codice promo"; ObjectID = "FJf-gm-zTQ"; */
+"FJf-gm-zTQ.placeholder" = "insert promo code";
+
+/* Class = "UILabel"; text = "€ 40,50"; ObjectID = "GBC-ZB-hDf"; */
+"GBC-ZB-hDf.text" = "€ 40,50";
+
+/* Class = "UILabel"; text = "Modifica foto profilo"; ObjectID = "GSl-4R-8UA"; */
+"GSl-4R-8UA.text" = "Edit profile picture";
+
+/* Class = "UILabel"; text = "Nome e Cognome"; ObjectID = "GhF-sX-929"; */
+"GhF-sX-929.text" = "Name and Surname";
+
+/* Class = "UITextField"; placeholder = "cognome"; ObjectID = "HAW-Xo-8Vy"; */
+"HAW-Xo-8Vy.placeholder" = "surname";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "HNY-TN-hAt"; */
+"HNY-TN-hAt.text" = "9";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "HuV-om-RsE"; */
+"HuV-om-RsE.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Hai un codice promo? Inseriscilo."; ObjectID = "ISs-WJ-N9N"; */
+"ISs-WJ-N9N.text" = "Do you have a promo code?";
+
+/* Class = "UILabel"; text = "Riceverai un SMS di verifica"; ObjectID = "JLB-mL-SRc"; */
+"JLB-mL-SRc.text" = "You'll get a verification message";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "KDo-bY-6wm"; */
+"KDo-bY-6wm.text" = "Expiry";
+
+/* Class = "UILabel"; text = "Registrati"; ObjectID = "MFr-5R-HZJ"; */
+"MFr-5R-HZJ.text" = "Sign up";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MQe-lF-Wkc"; */
+"MQe-lF-Wkc.text" = "Label";
+
+/* Class = "UILabel"; text = "Driver"; ObjectID = "MZX-3H-aVs"; */
+"MZX-3H-aVs.text" = "Driver";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "MdI-Ie-KEm"; */
+"MdI-Ie-KEm.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Diventa Driver"; ObjectID = "NkN-nC-M9y"; */
+"NkN-nC-M9y.normalTitle" = "Become Driver";
+
+/* Class = "UITextField"; placeholder = "cognome"; ObjectID = "OH3-o1-FJZ"; */
+"OH3-o1-FJZ.placeholder" = "surname";
+
+/* Class = "UILabel"; text = "Completa"; ObjectID = "OgF-Gs-CG1"; */
+"OgF-Gs-CG1.text" = "Complete";
+
+/* Class = "UIButton"; normalTitle = "Salva"; ObjectID = "Oxk-YG-WeQ"; */
+"Oxk-YG-WeQ.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Inviato un SMS a 349 3448124, inserisci il PIN qui sotto."; ObjectID = "Pjk-yM-Nrd"; */
+"Pjk-yM-Nrd.text" = "Inviato un SMS a 349 3448124, inserisci il PIN qui sotto.";
+
+/* Class = "UILabel"; text = "Promo"; ObjectID = "Qef-zl-OOi"; */
+"Qef-zl-OOi.text" = "Promo";
+
+/* Class = "UIButton"; normalTitle = "Nuova foto"; ObjectID = "QwW-OC-JFq"; */
+"QwW-OC-JFq.normalTitle" = "New picture";
+
+/* Class = "UIButton"; normalTitle = "Registrati"; ObjectID = "RH3-77-xQ3"; */
+"RH3-77-xQ3.normalTitle" = "Sign up";
+
+/* Class = "UILabel"; text = "+39"; ObjectID = "TWR-MX-VUg"; */
+"TWR-MX-VUg.text" = "+39";
+
+/* Class = "UIButton"; normalTitle = "Completa Profilo"; ObjectID = "Uc9-Nu-fUO"; */
+"Uc9-Nu-fUO.normalTitle" = "Complete Profile";
+
+/* Class = "UILabel"; text = "l'email inserita appartiene ad un altro utente"; ObjectID = "Uwx-y4-kCa"; */
+"Uwx-y4-kCa.text" = "l'email inserita appartiene ad un altro utente";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "VEV-Rr-Z5e"; */
+"VEV-Rr-Z5e.placeholder" = "email";
+
+/* Class = "UIButton"; normalTitle = "Supporto"; ObjectID = "WYw-gb-crj"; */
+"WYw-gb-crj.normalTitle" = "Support";
+
+/* Class = "UILabel"; text = "+39"; ObjectID = "YAH-50-NyE"; */
+"YAH-50-NyE.text" = "+39";
+
+/* Class = "UILabel"; text = "Codice Promo"; ObjectID = "YaM-Z6-Ew2"; */
+"YaM-Z6-Ew2.text" = "Promo code";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "YeO-Lu-GyB"; */
+"YeO-Lu-GyB.text" = "Label";
+
+/* Class = "UILabel"; text = "Riceverai un SMS di verifica"; ObjectID = "aF2-fa-wMB"; */
+"aF2-fa-wMB.text" = "You'll get a verification message";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "anh-Ax-ipZ"; */
+"anh-Ax-ipZ.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Completa con Facebook"; ObjectID = "arY-kC-gk5"; */
+"arY-kC-gk5.normalTitle" = "Complete with Facebook";
+
+/* Class = "UILabel"; text = "Tutorial"; ObjectID = "au0-2c-2MF"; */
+"au0-2c-2MF.text" = "Tutorial";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bBI-Wq-vB5"; */
+"bBI-Wq-vB5.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Salva"; ObjectID = "bBp-qa-iaP"; */
+"bBp-qa-iaP.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "c7S-4W-h61"; */
+"c7S-4W-h61.text" = "Info";
+
+/* Class = "UIButton"; normalTitle = "Salta"; ObjectID = "cEq-xt-x8C"; */
+"cEq-xt-x8C.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Conferma"; ObjectID = "cEr-4L-2oT"; */
+"cEr-4L-2oT.normalTitle" = "Confirm";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "cih-jl-fCq"; */
+"cih-jl-fCq.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Conferma"; ObjectID = "ckd-wP-ktm"; */
+"ckd-wP-ktm.normalTitle" = "Confirm";
+
+/* Class = "UILabel"; text = "Non hai ancora nessun metodo di pagamento"; ObjectID = "cqD-93-ffe"; */
+"cqD-93-ffe.text" = "You don't have a payment method registered yet";
+
+/* Class = "UILabel"; text = "L’app verifica la carta con un’operazione di 1€ che non prevede addebito. Potresti ricevere un SMS dalla tua banca."; ObjectID = "cuW-zv-I10"; */
+"cuW-zv-I10.text" = "Zego will verify you credit card with a 0.5 EUR preauthorization. You may receive an SMS from your bank.";
+
+/* Class = "UILabel"; text = "Diventa Driver"; ObjectID = "cyw-rv-fQ2"; */
+"cyw-rv-fQ2.text" = "Become a Driver";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "dc1-Lp-QsC"; */
+"dc1-Lp-QsC.text" = "Expiryy";
+
+/* Class = "UILabel"; text = "Riceverai un SMS di verifica"; ObjectID = "diZ-bU-oGU"; */
+"diZ-bU-oGU.text" = "You'll get a verification message";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "e6s-m1-Uek"; */
+"e6s-m1-Uek.text" = "Label";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "eE4-fv-07m"; */
+"eE4-fv-07m.text" = "9";
+
+/* Class = "UILabel"; text = "Metodo di pagamento"; ObjectID = "eQ0-Zf-b4Q"; */
+"eQ0-Zf-b4Q.text" = "Payment method";
+
+/* Class = "UILabel"; text = "#GGFFVVDD"; ObjectID = "epv-iG-dXv"; */
+"epv-iG-dXv.text" = "#GGFFVVDD";
+
+/* Class = "UILabel"; text = "+39"; ObjectID = "f94-bW-Z7d"; */
+"f94-bW-Z7d.text" = "+39";
+
+/* Class = "UIButton"; normalTitle = "Invia di nuovo"; ObjectID = "gTv-LV-9Dz"; */
+"gTv-LV-9Dz.normalTitle" = "Send Again";
+
+/* Class = "UILabel"; text = "PIN di verifica"; ObjectID = "gg1-GF-Xuh"; */
+"gg1-GF-Xuh.text" = "Verification PIN";
+
+/* Class = "UILabel"; text = "Digita il tuo numero di telefono"; ObjectID = "h8t-ja-bPc"; */
+"h8t-ja-bPc.text" = "Insert your mobile number";
+
+/* Class = "UILabel"; text = "Passeggero"; ObjectID = "hTf-gS-C1T"; */
+"hTf-gS-C1T.text" = "Passenger";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "i9r-G6-b0e"; */
+"i9r-G6-b0e.text" = "Info";
+
+/* Class = "UILabel"; text = "11/2018"; ObjectID = "iAg-3F-YMC"; */
+"iAg-3F-YMC.text" = "11/2018";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "iFH-12-m5e"; */
+"iFH-12-m5e.text" = "Expiry";
+
+/* Class = "UIButton"; normalTitle = "Accedi con Facebook"; ObjectID = "iIZ-8w-MFB"; */
+"iIZ-8w-MFB.normalTitle" = "Sign up with Facebook";
+
+/* Class = "UIButton"; normalTitle = "Salta"; ObjectID = "iOb-fZ-5CQ"; */
+"iOb-fZ-5CQ.normalTitle" = "Skip";
+
+/* Class = "UILabel"; text = "l'email inserita appartiene ad un altro utente"; ObjectID = "iz2-xQ-gId"; */
+"iz2-xQ-gId.text" = "l'email inserita appartiene ad un altro utente";
+
+/* Class = "UILabel"; text = "Non hai ricevuto l’SMS?"; ObjectID = "jh1-DF-JcM"; */
+"jh1-DF-JcM.text" = "Didn\'t get the SMS?";
+
+/* Class = "UILabel"; text = "Sito Web"; ObjectID = "jh4-Td-r0s"; */
+"jh4-Td-r0s.text" = "Web site";
+
+/* Class = "UILabel"; text = "LUCA7907"; ObjectID = "k3F-Oy-kGk"; */
+"k3F-Oy-kGk.text" = "LUCA7907";
+
+/* Class = "UIButton"; normalTitle = "Aggiungi carta"; ObjectID = "kbv-hA-77O"; */
+"kbv-hA-77O.normalTitle" = "Add a card";
+
+/* Class = "UITextField"; placeholder = "nome"; ObjectID = "kiX-EH-V1A"; */
+"kiX-EH-V1A.placeholder" = "name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kun-Lz-1O3"; */
+"kun-Lz-1O3.text" = "Label";
+
+/* Class = "UILabel"; text = "Offri passaggi"; ObjectID = "lnW-r0-i1T"; */
+"lnW-r0-i1T.text" = "Give rides";
+
+/* Class = "UILabel"; text = "Profilo"; ObjectID = "n8w-Ge-cRT"; */
+"n8w-Ge-cRT.text" = "Profile";
+
+/* Class = "UILabel"; text = "Metodo di Pagamento"; ObjectID = "nTa-pU-56p"; */
+"nTa-pU-56p.text" = "Payment method";
+
+/* Class = "UILabel"; text = "Contattaci"; ObjectID = "o5O-Vs-VRv"; */
+"o5O-Vs-VRv.text" = "Contact us";
+
+/* Class = "UILabel"; text = "Il PIN inserito non è corretto"; ObjectID = "oS9-S0-vbl"; */
+"oS9-S0-vbl.text" = "Wrong PIN";
+
+/* Class = "UIButton"; normalTitle = "Inserisci codice"; ObjectID = "pef-kK-j94"; */
+"pef-kK-j94.normalTitle" = "Insert promo code";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "plN-2B-dcj"; */
+"plN-2B-dcj.text" = "Expiry";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qPQ-Ec-Mt5"; */
+"qPQ-Ec-Mt5.text" = "Label";
+
+/* Class = "UILabel"; text = "Profilo"; ObjectID = "qgO-iV-ssr"; */
+"qgO-iV-ssr.text" = "Profile";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "rM0-bw-4nA"; */
+"rM0-bw-4nA.text" = "Expiry";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "rif-xS-9QB"; */
+"rif-xS-9QB.text" = "Expiry";
+
+/* Class = "UILabel"; text = "Promo"; ObjectID = "udU-Ay-RDl"; */
+"udU-Ay-RDl.text" = "Promo";
+
+/* Class = "UILabel"; text = "Scadenza"; ObjectID = "uif-BY-ubO"; */
+"uif-BY-ubO.text" = "Expiry";
+
+/* Class = "UILabel"; text = "333 1234567"; ObjectID = "urf-u6-zUD"; */
+"urf-u6-zUD.text" = "333 1234567";
+
+/* Class = "UITextField"; placeholder = "nome"; ObjectID = "uyq-Ym-snf"; */
+"uyq-Ym-snf.placeholder" = "nome";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "v1M-vd-xdf"; */
+"v1M-vd-xdf.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Accedi"; ObjectID = "vFq-gK-aJp"; */
+"vFq-gK-aJp.text" = "Login";
+
+/* Class = "UILabel"; text = "Nessuna promo attiva"; ObjectID = "vtB-2L-VvZ"; */
+"vtB-2L-VvZ.text" = "No active promo";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "w3m-G2-GVh"; */
+"w3m-G2-GVh.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Privacy"; ObjectID = "wIg-gd-Cg8"; */
+"wIg-gd-Cg8.text" = "Privacy";
+
+/* Class = "UILabel"; text = "333 1234567"; ObjectID = "xXl-lG-U43"; */
+"xXl-lG-U43.text" = "333 1234567";
+
+/* Class = "UILabel"; text = "Consiglia Zego"; ObjectID = "xwG-Bw-4Hc"; */
+"xwG-Bw-4Hc.text" = "Share to get 5€";

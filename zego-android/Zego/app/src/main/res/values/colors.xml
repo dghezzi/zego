@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#3F51B5</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#FF4081</color>
+  <color name="green_zego">#00BD9C</color>
+  <color name="green_zego_pressed">#00A483</color>
+  <color name="white_pressed">#E6E6E6</color>
+  <color name="gray_text">#7F7F7F</color>
+  <color name="darker_green_text">#007562</color>
+  <color name="gray_button">#818181</color>
+  <color name="gray_keyboard_button">#454545</color>
+  <color name="blue_fb_pressed">#234081</color>
+  <color name="blue_fb">#3C599A</color>
+  <color name="red_error">#f31c02</color>
+  <color name="green_zego_with_alpha">#9800a483</color>
+  <color name="gray_circle">#c6c3c3</color>
+  <color name="transparent_black_app">#a0262626</color>
+  <color name="black_t">#b2000000</color>
+  <color name="black_text">#090909</color>
+  <color name="gray_text_app">#474747</color>
+  <color name="pink">#E45FB9</color>
+  <color name="pink_simbolo">#CA68B4</color>
+  <color name="orange_simbolo">#DF7030</color>
+  <color name="red_cancel">#BE0022</color>
+  <color name="red_cancel_pressed">#A50009</color>
+  <color name="red_transparent">#b3f31c02</color>
+  <color name="black_no_gps_background">#7f000000</color>
+  <color name="green_zego_transparent">#e900bd9c</color>
+  <color name="gray_tab">#F2F2F2</color>
+  <color name="yellow_splash">#f3e500</color>
+
+</resources>

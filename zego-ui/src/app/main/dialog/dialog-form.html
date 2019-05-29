@@ -1,0 +1,68 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content style="min-width: 600px">
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+    <form name="lang" ng-submit="salva()" class="md-inline-form" novalidate>
+
+      <div layout="column" layout-gt-xs="row">
+        <md-input-container flex>
+            <label>Titolo</label>
+            <input required type="text" name="firstname" md-maxlength="50" ng-model="dialog.title"
+                   placeholder="Titolo">
+        </md-input-container>
+      </div>
+<div layout="column" layout-gt-xs="row">
+        <md-input-container flex>
+            <label>Messaggio</label>
+            <input required type="text" name="firstname" md-maxlength="40" ng-model="dialog.message"
+                   placeholder="Messaggio">
+        </md-input-container>
+
+      </div>
+
+      <div layout="column" layout-gt-xs="row">
+        <md-input-container flex>
+           <label>Valido da</label>
+           <md-datepicker required ng-model="dialog.validfrom" name="validfrom"></md-datepicker>
+
+         </md-input-container>
+
+        <md-input-container flex>
+           <label>Valido a</label>
+           <md-datepicker required ng-model="dialog.validto" name="validto"></md-datepicker>
+
+         </md-input-container>
+       </div>
+
+    <!--  <div layout="column" layout-gt-xs="row" style="width:300px">
+        <md-input-container flex="100">
+            <label>Messaggio</label>
+            <div class="md-resize-wrapper">
+              <textarea ng-model="dialog.message" md-maxlength="150" max-rows="8" rows="1">
+              </textarea><div class="md-resize-handle" style="touch-action: pan-y;"></div>
+            </div>
+        </md-input-container>
+
+      </div>-->
+
+
+        <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                   ng-disabled="user.$invalid || user.$pristine">
+            Salva
+        </md-button>
+    </form>
+
+</div>
+
+  </md-dialog-content>
+</md-dialog>

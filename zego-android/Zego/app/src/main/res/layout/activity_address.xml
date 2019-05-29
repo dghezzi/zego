@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_address"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.AddressActivity">
+
+    <include layout="@layout/header" android:id="@+id/header"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/save_button"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <it.sharethecity.mobile.letzgo.customviews.ItalicRelewayEditTextView
+                android:id="@+id/autocomplete_text"
+                android:textColor="@color/gray_keyboard_button"
+                android:textSize="20sp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:hint="roewrioweorewew"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:layout_toLeftOf="@+id/cancel_button"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ImageButton
+                android:layout_alignParentRight="true"
+                android:id="@+id/cancel_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/cancel_x"
+                android:scaleType="fitCenter"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/cancel_button"
+                android:background="@color/gray_text"/>
+
+
+        </RelativeLayout>
+
+
+        <ListView
+            android:id="@+id/suggested_places_list_view"
+            android:visibility="gone"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:visibility="gone"
+        android:id="@+id/progress_wheel"
+        android:layout_width="@dimen/hud_dimen"
+        android:layout_height="@dimen/hud_dimen"
+        android:layout_centerInParent="true"
+        wheel:matProg_barColor="@android:color/white"
+        android:background="@color/green_zego_with_alpha"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:background="@drawable/green_button_selector"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+</RelativeLayout>

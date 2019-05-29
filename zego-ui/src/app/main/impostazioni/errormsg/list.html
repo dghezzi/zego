@@ -1,0 +1,103 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Messaggi di errore</span>
+            </div>
+            <div class="title">Messaggi di errore</div>
+        </div>
+
+
+    </div>
+    <!-- / HEADER -->
+
+
+
+        <md-toolbar>
+            <div class="md-toolbar-tools text-right">
+              <span flex></span>
+              <md-button class="md-raised primary-button md-primary"
+                         ng-click="showAdvanced(event)">
+                  <md-icon md-font-icon="icon-plus"></md-icon>
+                  <span>Aggiungi messaggio</span>
+              </md-button>
+
+
+              <span flex></span>
+
+
+               <md-button ng-click="exportAll()"   class="md-fab md-mini md-primary md-hue-2" aria-label="Esporta">
+    <md-tooltip  >Esporta</md-tooltip>
+    <i class="icon icon-export"></i>
+
+  </md-button>
+<span style="width:30px"></span>
+
+
+              <span style="width:30px"></span>
+            </div>
+          </md-toolbar>
+
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+        <div class="white-bg md-whiteframe-4dp">
+            <table class="simple  row-border hover" ng-table="tabella" ms-responsive-table>
+              <!--  <thead>
+
+                    <tr>
+
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Codice</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Lingua</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Nome</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Messaggio</span>
+                            </div>
+                        </th>
+
+
+                    </tr>
+
+                </thead>-->
+
+                <tbody>
+                    <tr ng-repeat="conf in $data">
+
+
+                        <td title="'Codice'" sortable="'code'" filter="{code : 'text'}">{{ conf.code }}</td>
+                        <td title="'Lingua'" sortable="'lang'" filter="{lang : 'text'}">{{ conf.lang }}</td>
+                        <td title="'Titolo'" sortable="'title'" filter="{title : 'text'}">{{ conf.title }}</td>
+
+                        <td title="'Messaggio'" sortable="'message'" filter="{message : 'text'}">{{ conf.message }}</td>
+
+                                                <td>
+                                                  <md-button ng-click="modifica(event,conf)">Modifica</md-button>
+                                                </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

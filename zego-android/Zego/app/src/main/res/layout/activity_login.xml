@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_sign_up_tel_number"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.SignUpTelNumberActivity">
+
+    <include layout="@layout/header" android:id="@+id/header"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.RegularRelewayTextView
+        android:id="@+id/first_text"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/gray_text"
+        android:text="@string/insert_mobile_number"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/cell_layout"
+        android:orientation="horizontal"
+        android:layout_below="@+id/first_text"
+        android:layout_width="match_parent"
+        android:weightSum="100"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_weight="13"
+            android:id="@+id/spinner_country_layout"
+            android:layout_width="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/spinner_layout"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_height="30dp"
+                android:weightSum="2"
+                android:layout_width="match_parent">
+                <Spinner
+                    android:id="@+id/spinner_country"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.6"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.1"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/arrow_down"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@id/spinner_layout"
+                android:layout_width="match_parent"
+                android:background="@color/gray_text"
+                android:layout_height="0.5dp"/>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="65"
+            android:layout_height="match_parent">
+            <it.sharethecity.mobile.letzgo.customviews.RegularRelewayTextView
+                android:id="@+id/country_prefix_field"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                tools:text="+39"
+                android:textColor="@color/gray_keyboard_button"
+                android:textSize="@dimen/tel_number_size"
+                android:gravity="center"
+                android:layout_height="40dp"/>
+
+            <it.sharethecity.mobile.letzgo.customviews.RegularRelewayTextView
+                android:id="@+id/cell_field"
+                android:background="@android:color/transparent"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/country_prefix_field"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textSize="@dimen/tel_number_size"
+                android:singleLine="true"
+                android:maxLength="14"
+                tools:text = "rwer342432432"
+                android:layout_height="40dp"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/divider"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@id/cell_field"
+                android:layout_width="match_parent"
+                android:background="@color/gray_text"
+                android:layout_height="0.5dp"/>
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/hint_error"
+                android:layout_below="@+id/divider"
+                android:layout_marginTop="3dp"
+                android:singleLine="true"
+                wheel:minTextSize="9sp"
+                Font:customfont="Raleway-Italic.ttf"
+                android:textColor="@color/gray_text"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_sms"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <it.sharethecity.mobile.letzgo.customviews.CustomNumberKeyBoard
+        android:id="@+id/keyboard"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/cell_layout"
+        android:layout_above="@+id/fb_button"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/fb_button"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/avanti_button"
+        android:background="@drawable/fb_button_selector"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/fb_logo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fb_logo_mini"
+            />
+        <it.sharethecity.mobile.letzgo.customviews.BoldRelewayTextView
+            android:id="@+id/complete_with_fb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fb_text_size"
+            android:text="@string/login_with_fb"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:visibility="gone"
+        android:id="@+id/progress_wheel"
+        android:layout_width="@dimen/hud_dimen"
+        android:layout_height="@dimen/hud_dimen"
+        android:layout_centerInParent="true"
+        wheel:matProg_barColor="@android:color/white"
+        android:background="@color/green_zego_with_alpha"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <Button
+        android:id="@+id/avanti_button"
+        android:background="@color/gray_button"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white"
+        android:text="@string/ahead"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+</RelativeLayout>

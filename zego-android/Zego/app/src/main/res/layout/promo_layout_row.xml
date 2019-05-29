@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view_layout"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="7.5dp"
+    android:layout_marginTop="7.5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/main_linear_layout"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/promo_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            Font:customfont="Raleway-Regular.ttf"
+            android:textColor="@color/darker_green_text"
+            android:textSize="@dimen/promo_name_text_size"
+            tools:text="titolo promo"/>
+
+        <LinearLayout
+            android:layout_below="@+id/promo_name_text_view"
+            android:weightSum="2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--<it.sharethecity.mobile.letzgo.customviews.MyFontTextView-->
+                        <!--android:id="@+id/code_label_text_view"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--Font:customfont="Raleway-Regular.ttf"-->
+                        <!--android:textColor="@color/black_text"-->
+                        <!--android:textSize="@dimen/promo_labels_text_size"-->
+                        <!--android:text="@string/code_label"/>-->
+
+                        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                            android:id="@+id/code_value_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            Font:customfont="Raleway-Italic.ttf"
+                            android:textColor="@color/gray_text"
+                            android:textSize="@dimen/promo_code_text_size"
+                            tools:text="xx2345"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+
+                        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                            android:id="@+id/expiry_label_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            Font:customfont="Raleway-Regular.ttf"
+                            android:textColor="@color/black_text"
+                            android:textSize="@dimen/promo_labels_text_size"
+                            android:text="@string/expiry_label"/>
+
+                        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                            android:id="@+id/expiry_date_text_view"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            Font:customfont="Raleway-Regular.ttf"
+                            android:textColor="@color/black_text"
+                            android:textSize="@dimen/promo_labels_text_size"
+                            tools:text="11/07/21"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+
+                <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                    android:id="@+id/promo_type_text_view"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    Font:customfont="Raleway-Regular.ttf"
+                    android:textColor="@color/darker_green_text"
+                    android:textSize="@dimen/type_promo_text_size"
+                    android:textStyle="bold"
+                    tools:text="-20%"/>
+                <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/promo_type_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    Font:customfont="Raleway-Regular.ttf"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/promo_label_type_text_size"
+                    tools:text="sconto percentuale"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

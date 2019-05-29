@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="7.5dp"
+    android:layout_marginTop="7.5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/card_layout"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="@drawable/tap_effect_service_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                Font:customfont="Raleway-Regular.ttf"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/date_ride_history_text_size"
+                tools:text="12 Settembre 2016 - 22:35"/>
+
+            <View
+                android:id="@+id/tipoCorsaView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="6dp"
+                android:layout_toLeftOf="@+id/code_text_view"
+                android:background="@color/pink_simbolo"/>
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/code_text_view"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:gravity="center_vertical|right"
+                Font:customfont="Raleway-Regular.ttf"
+                android:textColor="@color/darker_green_text"
+                android:textSize="@dimen/code_ride_history_text_size"
+                tools:text="#DF3456"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1.4"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/pu_icon"
+                        android:layout_width="@dimen/ride_history_icon_dimen"
+                        android:layout_height="@dimen/ride_history_icon_dimen"
+                        android:scaleType="fitCenter"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icona_pickup"/>
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/pu_address_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_toRightOf="@+id/pu_icon"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="4dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginRight="4dp"
+                        Font:minTextSize="8sp"
+                        Font:customfont="Raleway-Regular.ttf"
+                        android:textColor="@color/gray_text"
+                        android:textSize="@dimen/address_ride_history_text_size"
+                        tools:text="Via Rossi 10 ,Milano"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/do_icon"
+                        android:layout_width="@dimen/ride_history_icon_dimen"
+                        android:layout_height="@dimen/ride_history_icon_dimen"
+                        android:scaleType="fitCenter"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icona_dropoff"/>
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/do_address_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_toRightOf="@+id/do_icon"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="4dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        Font:minTextSize="8sp"
+                        android:layout_marginRight="4dp"
+                        Font:customfont="Raleway-Regular.ttf"
+                        android:textColor="@color/gray_text"
+                        android:textSize="@dimen/address_ride_history_text_size"
+                        tools:text="Via Rossi 10 ,Milano"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_weight="0.6"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/paymentMethodImg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="fitCenter"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/cardgreen"/>
+                </RelativeLayout>
+
+
+                <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                    android:id="@+id/ride_cost_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical|right"
+                    android:layout_gravity="bottom"
+                    Font:customfont="Raleway-SemiBold.ttf"
+                    android:textColor="@color/darker_green_text"
+                    android:textSize="@dimen/cost_ride_history_text_size"
+                    tools:text="30,50 €"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

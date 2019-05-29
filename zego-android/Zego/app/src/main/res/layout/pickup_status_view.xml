@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/service_selector_layout"
+        android:id="@+id/service"
+        android:visibility="gone"
+        android:layout_marginLeft = "5dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pick_up_console"
+        android:layout_marginBottom = "10dp"
+        />
+
+    <ImageButton
+        android:id="@+id/my_position_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight = "5dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/pick_up_console"
+        android:src="@drawable/localize"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.PickUpView
+        android:id="@+id/pick_up_console"
+        android:layout_above="@+id/confirm_starting_point_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/confirm_starting_point_button"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/green_button_selector"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white"
+        android:text="@string/confirm_starting_point"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+</merge>

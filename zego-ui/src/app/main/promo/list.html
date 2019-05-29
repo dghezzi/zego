@@ -1,0 +1,111 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Gestione promo</span>
+            </div>
+            <div class="title">Gestione promo</div>
+        </div>
+
+
+    </div>
+    <!-- / HEADER -->
+
+
+    <md-toolbar>
+        <div class="md-toolbar-tools text-right">
+          <span flex></span>
+          <md-button class="md-raised reference-button md-primary"
+                    ui-sref="app.promonew()">
+              <md-icon md-font-icon="icon-plus"></md-icon>
+              <span>Aggiungi promo</span>
+          </md-button>
+
+
+          <span flex></span>
+           <md-button ng-click="exportAll()"   class="md-fab md-mini md-primary md-hue-2" aria-label="Esporta">
+    <md-tooltip  >Esporta</md-tooltip>
+    <i class="icon icon-export"></i>
+
+  </md-button>
+          <span style="width:30px"></span>
+        </div>
+      </md-toolbar>
+
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+        <div class="white-bg md-whiteframe-4dp">
+            <table ng-table="tabella"  class="simple row-border hover" ms-responsive-table >
+              <!--<thead>
+
+                    <tr>
+                      <th class="secondary-text">
+                          <div class="table-header">
+                              <span class="column-title">Codice</span>
+                          </div>
+                      </th>
+
+                      <th class="secondary-text">
+                          <div class="table-header">
+                              <span class="column-title">Titolo</span>
+                          </div>
+                      </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Valida da</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">fino a</span>
+                            </div>
+                        </th>
+
+                    </tr>
+
+                </thead>-->
+                <tbody>
+                    <tr ng-repeat="appversion in $data">
+                      <td sortable="'code'" title="'Codice'" filter="{code : 'text'}">
+
+                        {{appversion.code}}
+                      </td>
+                      <td sortable="'promotitle'" title="'Titolo'" filter="{promotitle : 'text'}">
+
+                        {{appversion.promotitle}}
+                      </td>
+                      <td sortable="'validfrom'" title="'Valida da'">
+                        {{appversion.validfrom * 1000 | date   :'medium'}}
+                      </td>
+                      <td sortable="'validto'" title="'Fino a'">
+
+                            {{appversion.validto * 1000 | date   :'medium'}}
+
+                      </td>
+<td sortable="'currentusages'" title="'# Usi'">
+
+                        {{appversion.currentusages}}
+</td>
+
+
+                        <td>
+                          <md-button ui-sref="app.promoedit({id:appversion.id})">Modifica</md-button>
+                          <md-button ui-sref="app.promonew({id:appversion.id})">Duplica</md-button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

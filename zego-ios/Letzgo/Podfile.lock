@@ -1,0 +1,117 @@
+PODS:
+  - AFNetworking (1.3.4)
+  - AppsFlyerFramework (4.6.3)
+  - AWSCognito (2.4.6):
+    - AWSCore (= 2.4.6)
+  - AWSCore (2.4.6)
+  - AWSS3 (2.4.6):
+    - AWSCore (= 2.4.6)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - EMCCountryPickerController (1.3.3)
+  - FBSDKCoreKit (4.14.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.14.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.14.0):
+    - FBSDKCoreKit
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
+  - HCSStarRatingView (1.4.5)
+  - ISO8601DateFormatterValueTransformer (0.6.1):
+    - RKValueTransformers (~> 1.1.0)
+  - MBProgressHUD (1.0.0)
+  - NSObject-ObjectMap (2.3.1)
+  - RestKit (0.24.1):
+    - RestKit/Core (= 0.24.1)
+  - RestKit/Core (0.24.1):
+    - RestKit/CoreData
+    - RestKit/Network
+    - RestKit/ObjectMapping
+  - RestKit/CoreData (0.24.1):
+    - RestKit/ObjectMapping
+  - RestKit/Network (0.24.1):
+    - AFNetworking (~> 1.3.0)
+    - RestKit/ObjectMapping
+    - RestKit/Support
+    - SOCKit
+  - RestKit/ObjectMapping (0.24.1):
+    - ISO8601DateFormatterValueTransformer (~> 0.6.0)
+    - RestKit/Support
+    - RKValueTransformers (~> 1.1.0)
+  - RestKit/Support (0.24.1):
+    - TransitionKit (~> 2.1.0)
+  - RKValueTransformers (1.1.3)
+  - SCLAlertView-Objective-C (1.0.6)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SOCKit (1.1)
+  - Stripe (9.1.0)
+  - Toast (3.1.0)
+  - TransitionKit (2.1.1)
+  - UIAlertController+Blocks (0.9.2)
+  - UIImage-Categories (1.0.0)
+
+DEPENDENCIES:
+  - AppsFlyerFramework
+  - AWSCognito
+  - AWSCore
+  - AWSS3
+  - EMCCountryPickerController (~> 1.0)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - GoogleMaps
+  - GooglePlaces
+  - HCSStarRatingView (~> 1.4.5)
+  - MBProgressHUD
+  - NSObject-ObjectMap (~> 2.0)
+  - RestKit (~> 0.24.0)
+  - SCLAlertView-Objective-C
+  - SDWebImage (~> 3.7)
+  - Stripe
+  - Toast (~> 3.1.0)
+  - UIAlertController+Blocks
+  - UIImage-Categories
+
+SPEC CHECKSUMS:
+  AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
+  AppsFlyerFramework: 6a30709676082f2e453ed3d9c13a8706fbd4b158
+  AWSCognito: 761e811df8ec3d418274ad4248b4ac2e4727e65b
+  AWSCore: 402048153597591f2ec54b0f650b88dfb3a1b6ef
+  AWSS3: 3ded64fc949e6b95e4ad80d8bee3a97199033c4e
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  EMCCountryPickerController: ff6836b71d605ba8cfe5f087d2ceec51d89f3e46
+  FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
+  FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
+  FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
+  HCSStarRatingView: bff3f89314d3b5013ce826ea11897d3129ff6b8c
+  ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  NSObject-ObjectMap: 3223c0c994a8e3de44ccb74ddf3e63c86821c015
+  RestKit: 1987b5efef289c6b27bd980714d6ca48d3871b78
+  RKValueTransformers: e5ed67e3811229b616fe01bddeeafe3bb337b1b9
+  SCLAlertView-Objective-C: ca78280817e66e74366b78579350dee2ff277e23
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SOCKit: c7376ac262bea9115b8f749358f762522a47d392
+  Stripe: f9acdd48bd3e4f1b4a91ed260317982db7a2ed65
+  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
+  TransitionKit: 3a14b6acc7cf2d1dd3e454e24dbad1cfab9a1ef1
+  UIAlertController+Blocks: 80e28b92523fb58aba4d1bccec013d5a0b0bddb2
+  UIImage-Categories: a0593f6a7991c99016b9ecadfbd38b3717ff1a73
+
+PODFILE CHECKSUM: e23f488965b2d898d113d3428e8e8feb8c0d8a04
+
+COCOAPODS: 1.1.1

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_row"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="50dp">
+
+
+    <ImageView
+        android:id="@+id/left_icon_image_view"
+        android:layout_width="wrap_content"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/menu_help"
+        android:layout_height="match_parent" />
+
+    <it.sharethecity.mobile.letzgo.customviews.RegularRelewayTextView
+        android:id="@+id/nav_label_text_view"
+        android:layout_width="match_parent"
+        android:textColor="@color/gray_keyboard_button"
+        tools:text ="Profilo"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_toRightOf="@+id/left_icon_image_view"
+        android:layout_toLeftOf="@+id/give_lift_checkbox"
+        android:textSize="@dimen/text_size_lable_nav_drawer"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent" />
+
+    <CheckBox
+
+        android:id="@+id/give_lift_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:button="@null"
+        android:background="@drawable/give_lift_check_box_selector"/>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_text"/>
+
+</RelativeLayout>

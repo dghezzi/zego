@@ -1,0 +1,504 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+      <div class="breadcrumb" layout="row" layout-align="start center">
+        <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+        <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+        <span class="parent">Utenti</span>
+      </div>
+      <div class="title">Utenti</div>
+      <br>
+
+    </div>
+
+
+    <!--<div layout="row" layout-align="start center">
+    <md-button class="md-raised primary-button md-primary"
+    href="/user/new">
+    <md-icon md-font-icon="icon-plus"></md-icon>
+    <span>Aggiungi utente</span>
+  </md-button>
+</div>-->
+
+</div>
+<!-- / HEADER -->
+
+
+<md-toolbar>
+  <div class="md-toolbar-tools text-right">
+    <span flex></span>
+    <md-button class="md-raised primary-button md-primary"
+    href="/user/new">
+    <md-icon md-font-icon="icon-plus"></md-icon>
+    <span>Aggiungi utente</span>
+  </md-button>
+
+
+  <span flex></span>
+
+
+  <md-button  ng-click="exportAll()"  class="md-raised primary-button md-primary"  aria-label="Esporta">
+    <md-icon md-font-icon="icon-export"></md-icon>
+    <span>Esporta Utenti</span>
+
+  </md-button>
+
+
+    <md-button href="{{apibase}}user/adminexport"  class="md-raised primary-button md-primary" aria-label="Esporta admin">
+
+   <md-icon md-font-icon="icon-export"></md-icon>
+    <span>Esporta Amministratori</span>
+
+  </md-button>
+
+
+<span style="width:30px"></span>
+
+</div>
+</md-toolbar>
+
+<!-- CONTENT -->
+<div class="content">
+
+
+<!--
+  <div layout="column" layout-gt-sm="row">
+  <ms-widget flippable="true" flex>
+    <ms-widget-front class="padding-16 md-white-bg">
+
+        <div class="pt-8 pb-32 ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
+          <div class="light-blue-fg font-size-52 line-height-52 ng-binding">{{numeroUtenti}}</div>
+          <div class="h3 secondary-text font-size-14 font-weight-500 ng-binding">UTENTI TOTALI</div>
+      </div>
+
+      <div class="text-center">
+        <a class="btn" href="" ng-click="vediTutti()">Vedi tutti gli utenti</a>
+      </div>
+
+
+    </ms-widget-front>
+
+</ms-widget>
+<ms-widget flippable="true" flex>
+  <ms-widget-front class="padding-16 md-white-bg">
+
+      <div class="pt-8 pb-32 ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
+        <div class="teal-fg font-size-52 line-height-52 ng-binding">{{numeroDrivers}}</div>
+        <div class="h3 secondary-text font-size-14 font-weight-500 ng-binding">DRIVERS</div>
+    </div>
+    <div class="text-center">
+      <a class="btn" href="" ng-click="vediSoloDrivers()">Vedi solo drivers</a>
+    </div>
+  </ms-widget-front>
+
+</ms-widget>
+<ms-widget flippable="true" flex>
+  <ms-widget-front class="padding-16 md-white-bg">
+
+      <div class="pt-8 pb-32 ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
+        <div class="teal-300-fg font-size-52 line-height-52 ng-binding">{{numeroRiders}}</div>
+        <div class="h3 secondary-text font-size-14 font-weight-500 ng-binding">RIDERS</div>
+    </div>
+
+    <div class="text-center">
+      <a class="btn" href="" ng-click="vediSoloRiders()">Vedi solo riders</a>
+    </div>
+  </ms-widget-front>
+
+</ms-widget>
+<ms-widget flippable="true" flex>
+  <ms-widget-front class="padding-16 md-white-bg">
+
+
+      <div class="pt-8 pb-32 ng-scope layout-align-center-center layout-column" layout="column" layout-align="center center">
+        <div class="teal-300-fg font-size-52 line-height-52 ng-binding">{{numeroLastWeek}}</div>
+        <div class="h3 secondary-text font-size-14 font-weight-500 ng-binding">ULTIMA SETTIMANA</div>
+    </div>
+
+    <div class="text-center">
+      <a class="btn" href="" ng-click="vediUltimiIscritti()">Vedi ultimi iscritti</a>
+    </div>
+
+  </ms-widget-front>
+
+</ms-widget>
+</div>
+
+-->
+  <div class="white-bg md-whiteframe-4dp dataTables_wrapper">
+    <br>
+
+
+
+    <div class="top">
+      <button class="btn btn-filtri  font-size-12" ng-click="filtriVisibili = !filtriVisibili" ng-class="{'aperto' : filtriVisibili}">
+        <i class="icon icon-filter-variant font-size-12"></i>
+        {{!filtriVisibili ? 'Mostra filtri' : 'Nascondi filtri'}}</button>
+
+
+        <button class="btn  font-size-12 right" ng-show="filtriVisibili " ng-click="resettaFiltri()">
+          <i class="icon icon-filter-remove-outline font-size-12" ></i> Resetta filtri</button>
+
+
+
+          <button class="btn btn-save font-size-12 right" ng-show="filtriVisibili" ng-click="salvaFiltri()">
+            <i class="icon icon-content-save font-size-12"></i> Salva e filtra</button>
+
+            <form ng-submit="salvaFiltri()" novalidate form-wrapper flex="100" class="form-filter" style="font-size:1em" ng-show="filtriVisibili">
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+              <md-container layout-padding layout-gt-sm="row">
+                <div flex="60">
+                    <h4>Dati utente</h4>
+                    <div layout="column" layout-gt-sm="row">
+                      <md-input-container flex>
+                        <label>Nome</label>
+                        <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.filter.like.fname"
+                        placeholder="Nome"
+                        >
+                      </md-input-container>
+
+                      <md-input-container flex>
+                        <label>Cognome</label>
+                        <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.filter.like.lname"
+                        placeholder="Cognome"
+                        >
+                      </md-input-container>
+
+                      <md-input-container flex>
+                        <label>Numero di telefono</label>
+                        <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.filter.like.mobile"
+                        placeholder="Numero di telefono"
+                        >
+                      </md-input-container>
+
+                      <md-input-container flex>
+                        <label>Email</label>
+                        <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.filter.like.email"
+                        placeholder="Email"
+                        >
+                      </md-input-container>
+                    </div>
+
+
+                    <div layout="column" layout-gt-sm="row">
+                      <md-input-container flex>
+                        <label>Refcode</label>
+                        <input   type="text" name="refcode" ng-model="vm.filter.like.refcode"
+                        placeholder="Refcode"
+                        >
+                      </md-input-container>
+
+
+                      <md-input-container  flex>
+                          <label>Tipo</label>
+                          <md-select placeholder="Tipo" ng-model="vm.filter.simple.umode">
+                            <md-option ng-value="undefined">
+                               Tutti
+                            </md-option>
+
+                            <md-option ng-value="'rider'">
+                               Rider
+                            </md-option>
+                            <md-option ng-value="'driver'">
+                               Driver
+                            </md-option>
+                          </md-select>
+                      </md-input-container>
+
+                      <md-input-container  flex>
+                          <label>Candrive</label>
+                          <md-select placeholder="Tipo" ng-model="vm.filter.simple.candrive">
+                            <md-option ng-value="undefined">
+                               Tutti
+                            </md-option>
+                            <md-option ng-value="1">
+                               SI
+                            </md-option>
+                            <md-option ng-value="0">
+                               NO
+                            </md-option>
+                          </md-select>
+                      </md-input-container>
+
+
+                      <!--<md-input-container  flex>
+                          <label>Tipo utente</label>
+                          <md-select placeholder="Tipo utente" ng-model="vm.filter.simple.utype">
+                            <md-option ng-value="'admin'">
+                               Admin
+                            </md-option>
+                            <md-option ng-value="'user'">
+                               User
+                            </md-option>
+                          </md-select>
+                      </md-input-container>-->
+
+
+                      <md-input-container  flex>
+                          <label>Stato</label>
+                          <md-select placeholder="Stato" ng-model="vm.filter.simple.status">
+                            <md-option ng-value="undefined">
+                               Tutti
+                            </md-option>
+
+                            <md-option ng-value="'1'">
+                               Attivo
+                            </md-option>
+                            <md-option ng-value="'2'">
+                               Bannato
+                            </md-option>
+                            <md-option ng-value="'0'">
+                               In progress
+                            </md-option>
+                          </md-select>
+                      </md-input-container>
+
+
+                    </div>
+                    <div layout="column" layout-gt-sm="row">
+                    <!--<md-input-container flex>
+                      <md-switch ng-model="vm.filter.simple.status" aria-label="Switch 2" ng-true-value="'2'" ng-false-value="'0'" class="md-warn">
+                        Filtra solo utenti bannati ? {{vm.filter.banned && vm.filter.banned == 1 ? 'SI' : 'NO'}}
+                      </md-switch>
+                    </md-input-container>-->
+
+                      <md-input-container  flex>
+                        <label>Stato carta</label>
+                        <md-select placeholder="Stato carta" ng-model="vm.filter.simple.payok">
+                          <md-option ng-value="undefined">
+                             Tutti
+                          </md-option>
+                          <md-option ng-value="'1'">
+                             Verificato
+                          </md-option>
+                          <md-option ng-value="'0'">
+                             Non verificato
+                          </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container  flex>
+                        <label>Stato numero di telefono</label>
+                        <md-select placeholder="Stato numero di telefono" ng-model="vm.filter.simple.mobok">
+                          <md-option ng-value="undefined">
+                             Tutti
+                          </md-option>
+                          <md-option ng-value="'1'">
+                             Verificato
+                          </md-option>
+                          <md-option ng-value="'0'">
+                             Non verificato
+                          </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container  flex>
+                        <label>Sistema operativo</label>
+                        <md-select placeholder="Sistema operativo" ng-model="vm.filter.simple.os">
+                          <md-option ng-value="undefined">
+                             Tutti
+                          </md-option>
+
+                          <md-option ng-value="'Android'">
+                             Android
+                          </md-option>
+                          <md-option ng-value="'iOS'">
+                             iOS
+                          </md-option>
+
+                        </md-select>
+                    </md-input-container>
+
+
+
+                  </div>
+
+                  <br>
+                  <div layout="column" layout-gt-sm="row">
+                  <md-input-container flex>
+                        <label>RT status</label>
+                        <md-select ng-model="vm.filter.simple.rtstatus">
+                        <md-option ng-repeat="stato in rtstatus" value="{{stato.value}}">
+                        {{stato.label}}
+                      </md-option>
+                    </md-select>
+              </md-input-container>
+              <md-input-container flex>
+                <label>Device id (imei)</label>
+                <input   type="text" name="refcode" ng-model="vm.filter.simple.deviceid"
+                placeholder="Device id(imei)"
+                >
+              </md-input-container>
+            </div>
+                  <!--<div layout="column" layout-gt-sm="row">
+                    <md-input-container flex>
+                      <md-switch ng-model="vm.filter.blacklist" aria-label="Switch 2" ng-true-value="'1'" ng-false-value="'0'" class="md-warn">
+                        Filtra solo utenti con device in blacklist ? {{vm.filter.blacklist && vm.filter.blacklist == 1 ? 'SI' : 'NO'}}
+                      </md-switch>
+                    </md-input-container>
+                  </div>-->
+
+                </div>
+
+
+                <div layout="column" flex="40">
+
+                    <h4>Data di iscrizione</h4>
+                    <md-input-container flex>
+                      <label class="md-no-float">Da</label>
+                      <md-datepicker ng-model="vm.filter.range.insdate.from" name="dateField"
+                      md-max-date="vm.filter.range.insdate.to"  md-open-on-focus></md-datepicker>
+
+                    </md-input-container >
+                    <md-input-container flex>
+                      <label class="md-no-float">A</label>
+                      <md-datepicker ng-model="vm.filter.range.insdate.to" name="dateField" md-min-date="vm.filter.range.insdate.from" md-open-on-focus
+                      ></md-datepicker>
+
+                    </md-input-container>
+
+                    <h4>Ultmo login</h4>
+                    <md-input-container flex>
+                      <label class="md-no-float">Da</label>
+                      <md-datepicker ng-model="vm.filter.range.lastseen.from" name="dateField"
+                      md-max-date="vm.filter.range.lastseen.to"  md-open-on-focus></md-datepicker>
+
+                    </md-input-container >
+                    <md-input-container flex>
+                      <label class="md-no-float">A</label>
+                      <md-datepicker ng-model="vm.filter.range.lastseen.to" name="dateField" md-min-date="vm.filter.range.lastseen.from" md-open-on-focus
+                      ></md-datepicker>
+
+                    </md-input-container>
+
+                </div>
+
+
+              </md-container>
+            </form>
+          </div>
+          <md-container ng-hide="true" layout-padding layout-gt-sm="row">
+
+            <div class="filtri-selezionati" layout-padding ng-repeat="(chiave,filtro) in vm.filter" class="row" ng-if="vm.filter[chiave]!=undefined && vm.filter[chiave]!= null">
+              <label>{{chiave}} : {{filtro }}<i ng-click="vm.filter[chiave]=null" class="icon icon-cancel">
+                <md-tooltip>Rimuovi filtro</md-tooltip>
+              </i></label>
+            </div>
+          </md-container>
+
+
+          <div class="table-progress" ng-class="{'loading' : loadingTable}">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+
+          <table class="simple responsive row-border hover" id="tabella" ng-table="tabella" ms-responsive-table >
+
+            <tbody>
+              <tr ng-repeat="user in $data">
+
+                <!--<td><a ui-sref="app.useredit({id: user.id})">{{ user.id }}</a></td>-->
+
+                <td >
+                  <i class="icon icon-nest-thermostat switch" ng-class="{'active' : user.candrive}">
+                    <md-tooltip md-direction="top">
+                      {{user.candrive ? 'Può guidare' : 'Non può guidare'}}
+                    </md-tooltip>
+                  </i>
+                  <i class="icon icon-cellphone-iphone switch" ng-class="{'active' : user.mobok}">
+                    <md-tooltip md-direction="top">
+                      {{user.mobok ? 'Numero di cellulare verificato' : 'Numero di cellulare non verificato'}}
+                    </md-tooltip>
+                  </i>
+                  <i class="icon icon-credit-card switch" ng-class="{'active' : user.payok}">
+                    <md-tooltip md-direction="top">
+                      {{user.payok ? 'Metodo di pagamento verificato' : 'Metodo di pagamento non verificato'}}
+                    </md-tooltip>
+                  </i>
+                  <i class="icon icon-apple" ng-show="{{user.os == 'iOS'}}">
+                    <md-tooltip md-direction="top">
+                      iOS
+                    </md-tooltip></i>
+                    <i class="icon icon-android" ng-show="{{user.os == 'Android'}}">
+                      <md-tooltip md-direction="top">
+                        Android
+                      </md-tooltip>
+                    </i>
+
+
+                    <i class="icon debt switch icon-currency-eur" ng-class="{'active' : user.debt && user.debt!=0}">
+                      <md-tooltip md-direction="top" ng-show="user.debt && user.debt!=0">
+                        Importo rimasto da pagare
+                      </md-tooltip>
+                      <md-tooltip md-direction="top" ng-show="!user.debt || user.debt==0">
+                        Nessun importo rimasto da pagare
+                      </md-tooltip>
+                    </i>
+
+
+                  </td>
+
+
+                  <td title="'Nome'" sortable="'lname'" ng-show="tableColumns.fullname">{{ user.fname }} {{user.lname}}</td>
+                  <td title="'Status'" sortable="'status'" >{{ user.status == 1 ? 'Attivo' : (user.status == 2  ?'Bannato':'In progress')   }}</td>
+
+
+                  <td title="'Telefono'" sortable="'mobile'" ng-show="tableColumns.phone">{{ user.prefix }} {{user.mobile}}</td>
+                  <td title="'Email'" sortable="'email'" ng-show="tableColumns.email">{{ user.email}}</td>
+
+
+                  <td title="'Inserimento'" sortable="'insdate'" ng-show="tableColumns.insdate">{{ user.insdate * 1000 | date : 'medium' }}</td>
+                  <td title="'Ultimo login'" sortable="'lastseen'" ng-show="tableColumns.lastseen">{{ user.lastseen * 1000 | date : 'medium' }}</td>
+                  <td title="'Azioni'" class="azioni" header-class="azioni">
+
+
+                    <md-button class="md-icon-button launch" ui-sref="app.useredit({id: user.id})"><i class="icon icon-pencil"></i>
+                    </md-button>
+
+
+                    </md-button>
+                  </td>
+
+
+                </tr>
+              </tbody>
+            </table>
+
+
+
+      <!--      <div class="bottom">
+              <div class="left">
+                <div class="length">
+
+                  <div class="dataTables_length" id="DataTables_Table_0_length">
+                    <label>Visualizza <select name="asd" ng-model="pagination.num">
+                      <option ng-value="5">5</option>
+                      <option ng-value="10" selected>10</option>
+                      <option ng-value="25">25</option>
+                      <option ng-value="50">50</option>
+                      <option ng-value="100">100</option>
+                    </select> Risultati</label></div>
+
+
+
+                  </div></div>
+                  <div class="right">
+                    <div class="pagination">
+                      <div class="dataTables_paginate paging_simple" id="DataTables_Table_0_paginate">
+                        <a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" id="DataTables_Table_0_previous" ng-hide="pagination.page == 0 " ng-click="vm.prevPage()"><i class="icon icon-chevron-left"></i> Pagina precedente</a>
+                        Pagina {{pagination.page + 1}}
+                        <a class="paginate_button next" aria-controls="DataTables_Table_0" ng-hide="vm.users.length < pagination.num " ng-click="vm.nextPage()" tabindex="0" id="DataTables_Table_0_next">Prossima pagina
+                          <i class="icon icon-chevron-right"></i>
+                        </a>
+                      </div></div></div></div>
+
+-->
+                    </div>
+
+
+
+
+                  </div>
+                  <!-- / CONTENT -->
+
+                </div>

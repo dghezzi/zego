@@ -1,0 +1,65 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content>
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+  <p>{{messaggioErrore}}</p>
+    <md-button ng-show="messaggioErrore && messaggioErrore!=''" ng-click="messaggioErrore=''">Ok</md-button>
+    <form ng-show="!messaggioErrore || messaggioErrore==''"  name="lang" ng-submit="salva()" class="md-inline-form" novalidate>
+
+      <div layout="column" layout-gt-xs="row">
+        <md-input-container flex>
+            <label>Chiave</label>
+            <input type="text" ng-model="conf.k">
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>Valore</label>
+            <input type="text" ng-model="conf.val">
+        </md-input-container>
+
+
+
+      </div>
+
+      <div layout="column" layout-gt-xs="row">
+        <md-input-container flex="80">
+            <label>Descrizione</label>
+            <div class="md-resize-wrapper">
+              <textarea ng-model="conf.descr" md-maxlength="150" max-rows="8" rows="1">
+              </textarea><div class="md-resize-handle" style="touch-action: pan-y;"></div>
+            </div>
+        </md-input-container>
+
+      </div>
+
+      <div layout="column" layout-gt-xs="row">
+        <md-input-container flex="60">
+            <label>Pubblica?</label>
+            <md-switch ng-model="conf.pub" aria-label="Switch 1" ng-true-value="1" ng-false-value="0">
+                {{conf.pub ? "SI" : "NO"}}
+            </md-switch>
+        </md-input-container>
+
+      </div>
+
+
+
+        <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                   ng-disabled="user.$invalid || user.$pristine">
+            Salva configurazione
+        </md-button>
+    </form>
+
+</div>
+
+  </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatSeekBar
+            android:id="@+id/tip_seek_bar"
+            android:splitTrack="false"
+            style="@style/tallerBarStyle"
+            android:thumb="@drawable/thumb_tip"
+            android:progressTint="@color/green_zego_pressed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:layout_below="@+id/tip_seek_bar"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/price_text_view"
+            Font:customfont="Raleway-Regular.ttf"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:textColor="@color/darker_green_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+
+</merge>

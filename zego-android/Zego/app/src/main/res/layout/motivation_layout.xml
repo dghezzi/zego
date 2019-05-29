@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+
+
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/motivation_title"
+        Font:customfont="Raleway-Semibold.ttf"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:layout_height = "wrap_content"
+        android:textColor="@color/black_text"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22sp"
+        tools:text = "Richiesta Motivazione"
+        />
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/motivation_question"
+        Font:customfont="Raleway-Regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:textColor="@color/black_text"
+        android:gravity="center"
+        android:textSize="19sp"
+        android:layout_marginTop="10dp"
+       android:layout_gravity="center_horizontal"
+        tools:text = "30,45 €"
+        />
+
+    <ListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/motivation_answers"
+        android:dividerHeight="0.5dp"
+        android:divider="@color/gray_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/cancel_request_button"
+        Font:customfont="Raleway-Regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height = "45dp"
+        android:textColor="@color/darker_green_text"
+        android:gravity="center"
+        android:textSize="19sp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text = "@string/close"
+        />
+
+</LinearLayout>

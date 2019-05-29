@@ -1,0 +1,138 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+
+      <div class="title row" layout-align="start center">
+        <div layout="column" style="margin-bottom: 30px;" layout-gt-sm="row">
+
+          <span flex style="display: flex;justify-content: center;align-items: center;text-align: left">
+          Nuova zona
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="start center">
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <md-toolbar>
+      <div class="md-toolbar-tools text-right">
+        <span flex></span>
+        <md-button class="md-raised" ng-click="salva()" >
+          <span>Salva</span>
+        </md-button>
+        <md-button class="md-raised md-primary" ng-disabled="!poligono.r" ng-click="ricomincia()">
+          <md-tooltip>Ridisegna la zona sulla mappa</md-tooltip>
+            Ridisegna
+        </md-button>
+
+        <span flex></span>
+
+      </div>
+    </md-toolbar>
+  <div class="content">
+
+
+  <ui-gmap-google-map center='map.center' control="map.control" zoom='map.zoom' events="map.events">
+
+    <ui-gmap-drawing-manager
+    options='drawingManagerOptions'
+    control='drawingManagerControl'>
+  </ui-gmap-drawing-manager>
+
+  </ui-gmap-google-map>
+
+  <br>
+  <h3>Dati zona</h3>
+  <div flex layout="row">
+
+    <div flex layout="column">
+
+      <md-input-container  >
+        <input  type="text" name="name" ng-model="item.name" placeholder="Nome della zona"
+        >
+
+
+      </md-input-container>
+
+      <md-input-container  >
+        <label>Raggio ingaggio driver (m)</label>
+        <input  type="number" name="name" ng-model="item.driverradius" placeholder="Raggio ingaggio driver (m)"
+        >
+      </md-input-container>
+      <md-input-container  >
+        <label>Prezzo per km in cent</label>
+        <input  type="number" name="name" ng-model="item.priceperkm" placeholder="Prezzo per km in cent"
+        >
+      </md-input-container>
+
+      <md-input-container  >
+        <label>Base price in cent</label>
+        <input  type="number" name="name" ng-model="item.baseprice" placeholder="Prezzo per km in cent"
+        >
+      </md-input-container>
+
+    </div>
+    <div flex layout="column">
+
+       <md-input-container  >
+         <label>Numero driver ingaggiati per richiesta</label>
+         <input  type="number" name="name" ng-model="item.drivercandidates" placeholder="Numero driver ingaggiati per richiesta"
+         >
+       </md-input-container>
+
+       <md-input-container  >
+         <label>Distanza minima obfuscation in metri (0 = disattiva)</label>
+         <input  type="number" name="name" ng-model="item.obfuscationradius" placeholder="Distanza minima obfuscation (0 = disattiva)"
+         >
+       </md-input-container>
+
+       <md-input-container  >
+         <label>Intervallo in secondi tra gli ingaggi dei driver</label>
+         <input  type="number" name="name" ng-model="item.driverinterleaving" placeholder="Intervallo in secondi tra gli ingaggi dei driver"
+         >
+       </md-input-container>
+
+       <md-input-container  >
+         <label>Numero di driver visualizzati</label>
+         <input  type="number" name="name" ng-model="item.driverradiusnum" placeholder="Numero di driver visualizzati"
+         >
+       </md-input-container>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+  <div layout="column" layout-align="start left">
+
+
+
+
+    <h2>Servizi associati</h2>
+    <div layout="row" layout-align="start center">
+
+      <md-checkbox ng-model="serviziAssociati[c.id].check" aria-label="Checkbox 1" ng-true-value="true" ng-false-value="false"  ng-repeat="c in serviziDisponibili">
+            {{c.name}}
+      </md-checkbox>
+
+
+      </div>
+  </div>
+
+
+
+</div>
+</div>

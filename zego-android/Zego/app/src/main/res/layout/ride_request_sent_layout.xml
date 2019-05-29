@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/req_sent_text_view"
+        android:background="@android:color/white"
+        android:padding="4dp"
+        Font:customfont="Raleway-Regular.ttf"
+        android:layout_above="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:text="@string/your_request_has_been_sent"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        app:layout_marginBottomPercent="3%"
+        android:layout_marginTop="-6dp"
+        android:layout_above="@+id/cancel_request_button"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:indeterminate="true"/>
+
+    <RelativeLayout
+        android:id="@+id/cancel_request_button"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        app:layout_heightPercent="10%">
+
+       <ImageView
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:scaleType="fitCenter"
+           android:layout_marginRight="15dp"
+           android:layout_toLeftOf="@+id/cancel_req_text_view"
+           android:layout_centerVertical="true"
+           android:src="@drawable/annulla"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/cancel_req_text_view"
+            Font:customfont="Raleway-SemiBold.ttf"
+            android:textSize="19sp"
+            android:layout_centerInParent="true"
+            android:text = "@string/cancel_request"
+            android:layout_toRightOf="@+id/pickup_indicator"
+            android:layout_toLeftOf="@+id/pickup_cancel_img"
+            android:textColor="@color/red_cancel"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+
+</merge>

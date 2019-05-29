@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/backgound_view"
+        android:layout_width ="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@android:color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_text"/>
+
+    </RelativeLayout>
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/driver_profile_image_layout"
+            android:layout_marginLeft="5dp"
+            app:layout_widthPercent="23%"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/grenn_circle_stroke"/>
+
+            <ImageView
+                android:id="@+id/driver_profile_image_view"
+                android:padding="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user_placeholder"/>
+
+        </RelativeLayout>
+
+
+        <android.support.percent.PercentRelativeLayout
+            android:padding="5dp"
+            app:layout_widthPercent="54%"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/driver_car_image_layout"
+            android:layout_toRightOf="@+id/driver_profile_image_layout"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/driver_rating_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:layout_centerHorizontal="true"
+                />
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/car_info_text_view"
+                android:layout_below="@+id/driver_rating_image_view"
+                android:text = "Ford mondeo TDCI blu"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/gray_text"
+                android:textSize="@dimen/driver_car_text_size_console"
+                app:minTextSize="@dimen/min_text_size"
+                android:layout_width="match_parent"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:gravity="center_horizontal"
+                Font:customfont="Raleway-SemiBold.ttf"
+                android:layout_weight="1"
+                android:layout_height="0dp" />
+        </android.support.percent.PercentRelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/driver_car_image_layout"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            app:layout_widthPercent="23%"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/grenn_circle_stroke"/>
+
+            <ImageView
+                android:id="@+id/driver_car_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:padding="1dp"
+                android:src="@drawable/car_placeholder"/>
+        </RelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</merge>

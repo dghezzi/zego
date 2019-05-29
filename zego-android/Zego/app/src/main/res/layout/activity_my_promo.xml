@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_my_promo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.MyPromoActivity">
+
+
+    <include layout="@layout/header" android:id="@+id/header"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/promo_for_card_only"
+        Font:customfont="Raleway-SemiBold.ttf"
+        android:textColor="@color/gray_text_app"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:layout_below="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/promo_only_by_card"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/promos_recycler_view"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/promo_for_card_only"
+        android:layout_above="@+id/add_new_promo_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:visibility="gone"
+        android:id="@+id/progress_wheel"
+        android:layout_width="@dimen/hud_dimen"
+        android:layout_height="@dimen/hud_dimen"
+        android:layout_centerInParent="true"
+        wheel:matProg_barColor="@android:color/white"
+        android:background="@color/green_zego_with_alpha"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/no_promo_text_view"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        Font:customfont="Raleway-SemiBold.ttf"
+        android:textColor="@color/gray_text_app"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="@dimen/no_ride_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_promo"
+        />
+
+    <Button
+        android:id="@+id/add_new_promo_button"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:background="@drawable/green_button_selector"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:layout_width="match_parent"
+        android:text="@string/add_new_promo"
+        android:layout_height="45dp" />
+
+</RelativeLayout>

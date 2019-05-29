@@ -1,0 +1,28 @@
+<md-toolbar class="navigation-header md-whiteframe-1dp" layout="row" layout-align="space-between center">
+    <div class="logo" layout="row" layout-align="start center">
+
+        <img src="http://zegoapp.com/_res/css/app/logo/letzgo.png">
+        <!--
+        <span class="logo-image">F</span>
+
+        <span class="logo-text">FUSE</span>-->
+    </div>
+
+
+    <md-icon class="fold-toggle s18" md-font-icon="icon-backburger" hide show-gt-sm
+             ng-click="vm.toggleMsNavigationFolded()"></md-icon>
+
+
+</md-toolbar>
+
+<ms-navigation class="scrollable" folded="vm.folded" ms-scroll="vm.msScrollOptions"></ms-navigation>
+
+
+
+<a ui-sref="app.logout()" class="logout-btn"><md-icon md-font-icon="icon-logout" class="icon"></md-icon>Logout</a>
+<div class="bo-version">V {{version.number}}
+<md-tooltip md-direction="top">
+  {{version.date}} -
+  {{version.message}}
+</md-tooltip>
+</div>

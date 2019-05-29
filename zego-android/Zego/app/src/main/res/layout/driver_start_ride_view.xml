@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <ImageButton
+        android:id="@+id/driver_my_position_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight = "8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/info_ride"
+        android:src="@drawable/localize"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.DriverInfoRideView
+        android:layout_above="@+id/passenger_info_view"
+        android:id="@+id/info_ride"
+        android:background="@android:color/white"
+        android:layout_marginBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.PassengerInfoView
+        android:id="@+id/passenger_info_view"
+        android:layout_above="@+id/pudo_layout"
+        android:layout_marginBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.StartStopView
+        android:id="@+id/pudo_layout"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/pu_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_above="@+id/buttons_layout"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:padding="10dp"-->
+        <!--android:layout_height="50dp">-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/pu_indicator"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_width="15dp"-->
+            <!--android:layout_height="15dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:src="@drawable/puntogrigio"/>-->
+        <!--<it.sharethecity.mobile.letzgo.customviews.MyFontTextView-->
+            <!--android:id="@+id/pu_add_text_view"-->
+            <!--Font:customfont="Raleway-Regular.ttf"-->
+            <!--android:textSize="17sp"-->
+            <!--android:clickable="true"-->
+            <!--app:minTextSize="@dimen/min_text_size"-->
+            <!--android:layout_toRightOf="@+id/pu_indicator"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:singleLine="true"-->
+            <!--android:ellipsize="end"-->
+            <!--tools:text = "via san piero a caggiana"-->
+            <!--android:layout_toLeftOf="@+id/nav_img_button"-->
+            <!--android:textColor="@color/black_text"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:layout_height="match_parent"/>-->
+        <!--<ImageButton-->
+            <!--android:id="@+id/nav_img_button"-->
+            <!--android:padding="3dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:src="@drawable/nav"/>-->
+    <!--</RelativeLayout>-->
+
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="45dp">
+
+        <Button
+            android:id="@+id/cancel_ride_button"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="33%"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:background="@android:color/white"
+            android:layout_height="match_parent"  />
+
+        <Button
+            android:id="@+id/start_ride_button"
+            app:layout_widthPercent="67%"
+            android:padding="4dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/start_ride"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/green_button_selector"
+            android:layout_height="match_parent" />
+
+    </android.support.percent.PercentRelativeLayout>
+
+</RelativeLayout>

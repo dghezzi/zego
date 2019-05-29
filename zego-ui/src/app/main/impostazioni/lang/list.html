@@ -1,0 +1,100 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Lang</span>
+            </div>
+            <div class="title">Lingue disponibili</div>
+        </div>
+
+
+    </div>
+    <!-- / HEADER -->
+
+
+
+
+        <md-toolbar>
+            <div class="md-toolbar-tools text-right">
+              <span flex></span>
+              <md-button class="md-raised primary-button md-primary"
+                         ng-click="showAdvanced(event)">
+                  <md-icon md-font-icon="icon-plus"></md-icon>
+                  <span>Aggiungi lingua</span>
+              </md-button>
+
+
+              <span flex></span>
+
+            </div>
+          </md-toolbar>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+
+
+
+        <div class="white-bg md-whiteframe-4dp">
+
+
+
+            <table ng-table="tabella" class="simple  row-border hover" ms-responsive-table>
+                <!--<thead>
+
+                    <tr>
+                      <th class="secondary-text">
+                          <div class="table-header">
+                              <span class="column-title">Id</span>
+                          </div>
+                      </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Lingua</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Codice</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Ordine</span>
+                            </div>
+                        </th>
+
+
+                    </tr>
+
+                </thead>-->
+                <tbody>
+                    <tr ng-repeat="lingua in $data">
+
+                        <td title="'id'" sortable="'id'"><a ui-sref="app.useredit({id: user.id})">{{ lingua.id }}</a></td>
+                        <td title="'lang'" sortable="'lang'">{{ lingua.lang }}</td>
+                        <td title="'isocode'" sortable="'isocode'">{{ lingua.isocode }}</td>
+                      <!--<td title="'order'" sortable="'order'">{{ lingua.order }}</td>-->
+                        <td>
+
+                          <md-button class="md-icon-button launch" href="" ng-click="modifica(event,lingua)"><i class="icon icon-pencil"></i>
+                          </md-button>
+
+                          <md-button class="md-icon-button launch" href="" ng-click="delete(lingua)"><i class="icon icon-delete"></i>
+                          </md-button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

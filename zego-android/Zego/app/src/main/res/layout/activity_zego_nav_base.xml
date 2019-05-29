@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.ZegoNavBaseActivity"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+        <!--<com.pnikosis.materialishprogress.ProgressWheel-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/progress_wheel"-->
+            <!--android:layout_width="@dimen/hud_dimen"-->
+            <!--android:layout_height="@dimen/hud_dimen"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--wheel:matProg_barColor="@android:color/white"-->
+            <!--android:background="@color/green_zego_with_alpha"-->
+            <!--wheel:matProg_progressIndeterminate="true" />-->
+    </RelativeLayout>
+
+
+
+    <include layout="@layout/nav_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"/>
+
+</android.support.v4.widget.DrawerLayout>

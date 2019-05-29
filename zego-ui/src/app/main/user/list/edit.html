@@ -1,0 +1,1659 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+
+      <div class="title row" layout-align="start center">
+        <div layout="column" style="margin-bottom: 30px;" layout-gt-sm="row">
+          <div flex>
+
+            <figure class="user-img" ng-click="vediFoto(event)">
+
+
+              <img src="{{vm.user.img ? vm.user.img : '/assets/images/userplaceholder.png'}}">
+            </figure>
+          </div>
+          <span flex style="display: flex;justify-content: center;align-items: center;text-align: left">
+            {{vm.user.fname}} {{vm.user.lname}}
+          </span>
+
+
+         <div style="visibility: hidden">
+           <div class="md-dialog-container" id="myDialog">
+             <md-dialog layout-padding>
+               <figure class="user-img-lg">
+                 <img src="{{vm.user.img ? vm.user.img : '/assets/images/userplaceholder.png'}}">
+               </figure>
+
+               <div class="row">
+
+                <md-button class="md-raised md-primary" ng-click="vm.user.img='';chiudiFoto()">Elimina</md-button>
+                <md-button ng-click="chiudiFoto()">Chiudi</md-button>
+              </div>
+             </md-dialog>
+           </div>
+         </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="start center">
+
+
+
+
+
+    </div>
+  </div>
+  <!-- / HEADER -->
+
+  <!-- CONTENT -->
+
+
+
+  <md-toolbar>
+    <div class="md-toolbar-tools text-right">
+      <span flex></span>
+
+
+      <md-button class="md-raised md-primary reference-button"  type="submit" form="formUser">
+        <md-icon class="icon icon-floppy"></md-icon> Salva modifiche
+      </md-button>
+
+
+      <!--<md-button ng-click="attivaModifica()" ng-show="navigazione.mode != 'edit'">
+        <md-icon class="icon icon-pencil"></md-icon> Modifica utente
+      </md-button>-->
+
+
+
+      <md-button ng-click="kill()" ng-show="navigazione.mode == 'edit'">
+        <md-icon class="icon icon-logout"></md-icon> Slogga utente
+      </md-button>
+
+
+
+
+
+
+
+
+
+      <!--<md-button class="md-button md-raised" ng-click="annullaModifica()" ng-show="navigazione.mode == 'edit'">
+        <md-icon class="icon icon-cancel"></md-icon> Annulla modifica
+      </md-button>-->
+
+
+    <span flex></span>
+
+  </div>
+  </md-toolbar>
+
+
+  <div class="content" style="z-index:100">
+    <div class="user-status">
+      <i class="icon " ng-class="{'draft icon-timer' : vm.user.status == 0,'icon-check ok' : vm.user.status == 1,'icon-block-helper bannato' : vm.user.status == 2}"></i>
+      <md-tooltip>
+        {{vm.user.status == 0 ? 'Utente non approvato' : (vm.user.status == 1 ? 'Utente valido' : 'Utente bannato' )}}
+      </md-tooltip>
+    </div>
+
+
+    <div class="white-bg md-whiteframe-4dp" layout="row">
+
+
+      <md-content flex="80">
+
+       <form id="formUser" ng-submit="((!driverdata || !driverdata.id) || (formUser.iban.$valid && formUser.cap.$valid)) && salva()" name="formUser" class="md-inline-form" >
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Dati utente">
+
+
+            <div layout="row">
+
+              <!-- BASIC FORM -->
+              <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+
+<br>
+<br>
+
+
+
+                  <div layout="column" layout-gt-sm="row">
+                    <md-input-container flex>
+                      <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.user.utype"
+                      placeholder="Tipo utente"
+                      required >
+                      <div ng-messages="user.fname.$error"
+                      role="alert">
+                      <div ng-message="required">
+                        <span>Inserisci il nome.</span>
+                      </div>
+                    </div>
+                  </md-input-container>
+
+
+                </div>
+
+
+
+                <div layout="column" layout-gt-sm="row" ng-if="vm.user.utype=='admin'">
+                  <md-input-container flex>
+
+                       <input type="password" name="firstname" ng-model="vm.newpassword"
+                       placeholder="New password"
+                       >
+
+
+                </md-input-container>
+              </div>
+
+
+                <div layout="column" layout-gt-sm="row">
+                  <md-input-container flex>
+                    <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.user.fname"
+                    placeholder="Nome"
+                    >
+                    <div ng-messages="user.fname.$error"
+                    role="alert">
+                    <div ng-message="required">
+                      <span>Inserisci il nome.</span>
+                    </div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex>
+                  <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="vm.user.lname" placeholder="Cognome"
+                  >
+                  <div ng-messages="user.lname.$error"
+                  role="alert">
+                  <div ng-message="required">
+                    <span>Inserisci il cognome.</span>
+                  </div>
+                </div>
+              </md-input-container>
+
+
+              <md-input-container flex>
+                <input  type="text" readonly name="rating" value="{{vm.user.davg | number : 2}}" placeholder="Rating come driver">
+              </md-input-container>
+              <md-input-container flex>
+                <input  type="text" readonly name="rating" value="{{vm.user.pavg| number : 2}}" placeholder="Rating come passeggero">
+              </md-input-container>
+
+            </div>
+
+            <div layout="column" layout-gt-sm="row">
+
+              <md-input-container  flex>
+                  <label>Sesso</label>
+                  <md-select placeholder="Sesso" ng-model="vm.user.gender">
+                    <md-option ng-value="null">
+                       Non selezionato
+                    </md-option>
+                    <md-option ng-value="'male'">
+                       Uomo
+                    </md-option>
+                    <md-option ng-value="'female'">
+                       Donna
+                    </md-option>
+                  </md-select>
+              </md-input-container>
+
+
+              <md-input-container flex>
+                <input ng-readonly="navigazione.mode=='info'" type="email" required name="email" ng-model="vm.user.email"
+                placeholder="Email"
+                required>
+                <div ng-messages="user.email.$error"
+                role="alert">
+                <div ng-message="required">
+                  <span>Inserisci la mail.</span>
+                </div>
+              </div>
+            </md-input-container>
+
+
+
+
+            <md-input-container flex>
+              <input ng-readonly="navigazione.mode=='info'" type="email" name="email" ng-model="vm.user.wemail"
+              placeholder="Email di lavoro"
+              >
+              <div ng-messages="user.email.$error"
+              role="alert">
+              <div ng-message="required">
+                <span>Inserisci la mail.</span>
+              </div>
+            </div>
+          </md-input-container>
+
+        </div>
+
+
+
+        <!--
+        <div layout="column" layout-gt-xs="row">
+        <md-input-container flex>
+        <label>City</label>
+        <input type="text" name="city" ng-model="vm.user.city">
+      </md-input-container>
+
+      <md-input-container flex>
+      <label>State</label>
+      <md-select ng-model="vm.user.state">
+      <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+      {{state.abbrev}}
+    </md-option>
+  </md-select>
+</md-input-container>
+
+<md-input-container flex>
+<label>Postal Code</label>
+<input name="postalcode" ng-model="vm.user.postalCode" placeholder="12345"
+required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+<div ng-messages="user.postalcode.$error" role="alert" multiple>
+<div ng-message="required"><span>You must supply a postal code.</span></div>
+<div ng-message="pattern"><span>That doesn't look like a valid postal code.</span></div>
+<div ng-message="md-maxlength">
+<span>Postal code can't be longer than 5 characters.</span>
+</div>
+</div>
+</md-input-container>
+</div>
+-->
+
+<div layout="column" layout-gt-xs="row">
+  <md-input-container flex>
+    <label>Prefisso</label>
+    <input ng-readonly="navigazione.mode=='info'" required type="text" name="city" ng-model="vm.user.prefix">
+  </md-input-container>
+
+  <md-input-container flex>
+    <label>Telefono</label>
+    <input ng-readonly="navigazione.mode=='info'" required type="text" name="city" ng-model="vm.user.mobile">
+  </md-input-container>
+
+
+</div>
+
+
+<div layout="column" layout-gt-xs="row">
+  <md-input-container flex>
+    <label>Refcode</label>
+    <input    type="text" ng-model="vm.user.refcode">
+  </md-input-container>
+
+
+  <div flex ng-if="vm.referente">
+      <div layout="column" layout-gt-xs="row">
+        <md-input-container  >
+
+              <label>Referente</label>
+              <input  readonly  type="text" name="city" ng-value="vm.referente.fname + ' ' +vm.referente.lname ">
+
+        </md-input-container>
+        <div flex>
+          <md-button ui-sref="app.useredit({id: vm.referente.id})">Vedi scheda
+                    </md-button>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+<div layout="column" layout-gt-xs="row" >
+  <md-input-container flex>
+    <label>Facebook ID</label>
+    <input  readonly="navigazione.mode!='edit'"  type="text" name="city" ng-model="vm.user.fbid">
+  </md-input-container>
+
+  <div flex ng-if="vm.user.fbid!=undefined && vm.user.fbid!=''">
+    <md-button class="md-raised md-primary" ng-click="disassociaUtente()" ng-disabled="navigazione.mode!='edit'">
+      Disassocia utente da facebook
+    </md-button><br>
+    <small ng-if="navigazione.mode!='edit'">
+      Attiva la modifica per disassociare
+    </small>
+  </div>
+</div>
+
+
+
+
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+
+
+</md-tab>
+
+
+
+<md-tab label="Dati driver" ng-if="driverdata && driverdata.id">
+          <div layout="row">
+
+            <!-- BASIC FORM -->
+            <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+
+              <br>
+              <br>
+
+                <div layout="column" layout-gt-sm="row">
+                  <md-input-container flex>
+                    <label>Nome</label>
+                    <input  type="text" name="firstname" ng-model="vm.user.fname"
+                    placeholder="Nome"
+                    >
+                    <div ng-messages="user.fname.$error"
+                    role="alert">
+                    <div ng-message="required">
+                      <span>Inserisci il nome.</span>
+                    </div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex>
+                  <label>Cognome</label>
+                  <input  type="text" name="lastname" ng-model="vm.user.lname" placeholder="Cognome"
+                  >
+                  <div ng-messages="user.lname.$error"
+                  role="alert">
+                  <div ng-message="required">
+                    <span>Inserisci il cognome.</span>
+                  </div>
+                </div>
+              </md-input-container>
+
+
+
+            </div>
+
+            <div layout="column" layout-gt-sm="row">
+              <md-input-container flex="10">
+                <label class="md-no-float">Data di nascita</label>
+                <md-datepicker  ng-model="vm.user.birthdate" md-open-on-focus></md-datepicker>
+
+              </md-input-container >
+              <!--<div flex>
+              <md-radio-group ng-model="data.group1">
+              <md-radio-button value="Apple" class="md-primary"> Nato in italia</md-radio-button>
+              <md-radio-button value="Banana"> Nato all'estero </md-radio-button>
+
+            </md-radio-group>
+          </div>-->
+          <md-input-container flex="40">
+            <!--<label >Comune di nascita</label>-->
+            <!--<input  type="text" name="lastname" ng-model="driverdata.birthcity" placeholder="Comune di nascita"
+            >-->
+
+
+            <md-autocomplete    md-min-length="2"  md-selected-item="driverdata.birthcity" md-search-text="searchText" md-items="item in getCities(searchText)" md-item-text="item.name"
+            md-floating-label="Comune di nascita"
+            >
+            <span md-highlight-text="searchText">{{item.name}}</span>
+          </md-autocomplete>
+
+
+
+
+          </md-input-container >
+
+
+          <!--<md-input-container flex>
+          <label >Nazione</label>
+          <input  type="text" name="lastname" ng-model="driverdata.birthcountry" placeholder="Nazione di nascita"
+          >
+
+          </md-input-container >
+-->
+
+
+      <md-input-container flex>
+            <label>Nazione di nascita</label>
+            <md-select  ng-model="driverdata.birthcountry">
+            <md-option ng-repeat="state in stati" ng-value="state.name">
+            {{state.name}}
+          </md-option>
+        </md-select>
+
+
+    </md-input-container >
+
+
+
+          <!--<md-input-container flex>
+          <label>Stato di nascita</label>
+          <md-select ng-model="driverdata.birthcountry">
+          <md-option ng-repeat="state in stati" value="{{state.abbrev}}">
+          {{state.abbrev}}
+          </md-option>
+          </md-select>
+          </md-input-container>-->
+
+          </div>
+          <div layout="column" layout-gt-sm="row">
+          <md-input-container flex>
+          <label >Codice fiscale</label>
+          <input type="text" name="lastname" ng-model="driverdata.cf" placeholder="Codice fiscale"
+          >
+          <span class="error">{{cferrore}}</span>
+          </md-input-container >
+
+
+          <md-input-container flex>
+          <label >Città scelta per guidare</label>
+          <input type="text" name="lastname" ng-model="driverdata.area" placeholder="Città scelta per guidare"
+          >
+
+          </md-input-container >
+
+
+          </div>
+
+
+          <div layout="column" layout-gt-sm="row">
+
+          <md-input-container flex>
+          <label >Indirizzo di residenza</label>
+          <input  type="text" name="lastname" ng-model="driverdata.address" placeholder="Indirizzo di residenza"
+          >
+
+          </md-input-container >
+          <md-input-container flex>
+
+
+          <md-autocomplete  md-min-length="2" md-selected-item="driverdata.city" md-search-text="cercaTestoRes" md-items="item in getCitiesRes(cercaTestoRes)" md-item-text="item.name"
+          md-floating-label="Comune di residenza"
+          >
+          <span md-highlight-text="searchText">{{item.name}}</span>
+          </md-autocomplete>
+          </md-input-container >
+
+          <md-input-container flex>
+          <label >CAP</label>
+          <input  type="text" name="cap" ng-pattern="/^[0-9]*$/" ng-step="1" ng-model="driverdata.cap" placeholder="CAP"
+          >
+           <div ng-messages="formUser.cap.$error"
+                    role="alert">
+                    <div ng-message="pattern">
+                      <span>Inserisci solo cifre numeriche</span>
+                    </div>
+                  </div>
+          </md-input-container >
+          </div>
+
+<div layout="column" layout-gt-sm="row">
+
+          <md-input-container flex>
+          <label >Debito contanti</label>
+          <input  type="text" name="lastname" placeholder="{{vm.user.cashdue ? (vm.user.cashdue/100 | number:2) : 0}}€" ng-readonly="true"
+          >
+          <span class="error">{{ibanerror}}</span>
+
+          </md-input-container >
+          </div>
+
+
+          <div layout="column" layout-gt-sm="row">
+
+          <md-input-container flex>
+          <label >IBAN per accredito</label>
+          <input  type="text" name="iban" ng-model="driverdata.iban" placeholder="Iban per accredito" ng-iban />
+            <div ng-messages="formUser.iban.$error"
+                    role="alert">
+
+                    <div ng-message="ngIban">
+                      <span>Questo campo deve contenere un IBAN valido</span>
+                    </div>
+                  </div>
+          <span class="error">{{ibanerror}}</span>
+
+          </md-input-container >
+          </div>
+
+
+          </div>
+          <!-- / BASIC FORM -->
+
+          <!-- BASIC FORM DATA -->
+
+          <!-- / BASIC FORM DATA -->
+          </div>
+</md-tab>
+
+<md-tab label="Dati Auto" ng-if="driverdata && driverdata.id">
+
+
+  <div layout="row">
+
+    <!-- BASIC FORM -->
+    <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+      <figure style="max-width:400px;position:relative;display:block;margin:0 auto">
+        <img ng-src="{{driverdata.carimg}}">
+      </figure>
+
+      <md-button ng-show="driverdata.carimg && driverdata.carimg != ''" ng-click="eliminaFotoAuto()">Elimina foto</md-button>
+
+      <div ng-show="!driverdata.carimg || driverdata.carimg == ''">
+              <div class="" flex="80">
+
+                      <h3  class="ng-binding">Immagine veicolo</h3>
+
+
+                      <h3 style="" >
+                          <input   type="file" name="" data-id="{{allegato.id}}" onchange="angular.element(this).scope().carImgCambiato(this)">
+
+                           <div layout="row" ng-show="false" ng-show="uploadInCorso[allegato.id]">
+                               <div flex="20">
+                                <md-progress-circular  md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                               </div>
+                               <div flex="80" style="text-align:left">Upload del file in corso</div>
+                            </div>
+
+                      </h3>
+
+
+              </div>
+      </div>
+
+
+      <br>
+        <div layout="column" layout-gt-sm="row">
+
+
+          <div layout="column" layout-gt-sm="row" flex>
+            <div layout="column" flex>
+                <!--
+                <md-input-container flex>
+                  <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="driverdata.brand"
+                  placeholder="Brand"
+                  >
+                  <div ng-messages="user.fname.$error"
+                  role="alert">
+                  <div ng-message="required">
+                    <span>Inserisci il nome.</span>
+                  </div>
+                </div>
+              </md-input-container>
+            -->
+
+              <md-input-container flex>
+                    <label>Brand</label>
+                    <md-select  ng-model="driverdata.brand">
+                    <md-option ng-repeat="m in listaManufacturer" ng-value="m.manufacturer">
+                    {{m.manufacturer}}
+                  </md-option>
+                </md-select>
+
+
+            </md-input-container >
+
+              <md-input-container flex>
+                <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="driverdata.model"
+                placeholder="Model"
+                >
+                <div ng-messages="user.fname.$error"
+                role="alert">
+                <div ng-message="required">
+                  <span>Inserisci il nome.</span>
+                </div>
+              </div>
+            </md-input-container>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div layout="column" layout-gt-sm="row">
+                    <md-input-container flex>
+                      <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="driverdata.plate" placeholder="
+                      Plate"
+                      >
+                      <div ng-messages="user.lname.$error"
+                      role="alert">
+                      <div ng-message="required">
+                        <span>Inserisci il cognome.</span>
+                      </div>
+                    </div>
+                  </md-input-container>
+
+                  <md-input-container flex>
+                    <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="driverdata.color" placeholder="Color"
+                    >
+                    <div ng-messages="user.lname.$error"
+                    role="alert">
+                    <div ng-message="required">
+                      <span>Inserisci il cognome.</span>
+                    </div>
+                  </div>
+                </md-input-container>
+
+        </div>
+
+  <div layout="column" layout-gt-sm="row">
+
+    <md-input-container flex>
+      <input ng-readonly="navigazione.mode=='info'" type="number"  name="seat" ng-model="driverdata.seat"
+      placeholder="Sedute"
+      >
+
+  </md-input-container>
+
+
+  <md-input-container flex>
+    <input ng-readonly="navigazione.mode=='info'" type="number" name="year" ng-model="driverdata.year"
+    placeholder="Anno"
+    >
+
+</md-input-container>
+</div>
+
+
+  <div layout="column" layout-gt-sm="row">
+<md-list flex class="flex-gt-sm-100">
+  <md-list-item  class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+    <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+      <h3 class="ng-binding">{{driverdata.insdate  | date : 'medium'}}</h3>
+      <p class="ng-binding">Data inserimento veicolo</p>
+    </div>
+  </md-list-item>
+
+
+  <md-list-item  class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+    <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+      <h3 ng-show="driverdata.moddate" class="ng-binding">{{driverdata.moddate  | date : 'medium'}}</h3>
+       <h3 ng-show="!driverdata.moddate" class="ng-binding">N.D.</h3>
+      <p class="ng-binding">Data modifica </p>
+    </div>
+  </md-list-item>
+
+
+</md-list>
+
+</div>
+
+
+
+
+
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+
+
+</md-tab>
+<md-tab label="Documenti" ng-if="driverdata && driverdata.id">
+
+
+
+                  <div layout="row">
+
+                    <!-- BASIC FORM -->
+                    <div class="form-wrapper md-whiteframe-1dp" flex="100">
+      <br>
+      <br>
+
+
+
+                        <md-input-container flex>
+                          <label class="md-no-float">Scadenza patente</label>
+                          <md-datepicker ng-required="true" md-current-view="year" ng-model="driverdata.docexpdate" name="dateField" placeholder="Scadenza patente"
+                           md-open-on-focus ></md-datepicker>
+
+                        </md-input-container >
+
+
+
+
+
+                        <div layout="column documento" layout-gt-sm="row"  >
+
+                        <div class="padding-top-15" flex="20">
+                                 <div layout="column" layout-gt-sm="row">
+
+
+                                 <div flex style="text-align: center">
+                                <i class="icon icon-file switch s20" ng-class="{'active' : driverdata.insuranceimg && driverdata.insuranceimg!=''}"  >
+                                  <md-tooltip md-direction="top">
+                                   {{allegato.file ?'File caricato' : 'File non caricato'}}
+                                  </md-tooltip>
+
+                                </i>
+                                </div>
+                             </div>
+                        </div>
+
+                          <div class="" flex="80">
+                              <div layout="row">
+                                  <h3 flex="50" class="ng-binding">Foto patente front</h3>
+
+
+                                  <h3 style="text-align: right;" flex="50">
+                                      <input   type="file" name="" ng-show="!driverdata.insuranceimg || driverdata.insuranceimg==''"  data-id="{{allegato.id}}" onchange="angular.element(this).scope().assicurazioneCambiato(this)">
+                                      <div ng-show="driverdata.insuranceimg && driverdata.insuranceimg!=''">
+                                         <a class="btn small" href="{{driverdata.insuranceimg}}" target="_blank"><i class="icon icon-eye"></i></a>
+                                         <a class="btn small" href="" ng-click="cancellaDocumento('insuranceimg')" target="_blank"><i class="icon icon-delete"></i></a>
+                                      </div>
+
+                                       <div layout="row" ng-show="false" ng-show="uploadInCorso[allegato.id]">
+                                           <div flex="20">
+                                            <md-progress-circular  md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                           </div>
+                                           <div flex="80" style="text-align:left">Upload del file in corso</div>
+                                        </div>
+
+                                  </h3>
+                              </div>
+
+                          </div>
+                      </div>
+
+
+
+
+
+
+                      <div layout="column documento" layout-gt-sm="row"  >
+
+                      <div class="padding-top-15" flex="20">
+                               <div layout="column" layout-gt-sm="row">
+
+
+                               <div flex style="text-align: center">
+                              <i class="icon icon-file switch s20" ng-class="{'active' : driverdata.docimg && driverdata.docimg!=''}"  >
+                                <md-tooltip md-direction="top">
+                                 {{allegato.file ?'File caricato' : 'File non caricato'}}
+                                </md-tooltip>
+
+                              </i>
+                              </div>
+                           </div>
+                      </div>
+
+                        <div class="" flex="80">
+                            <div layout="row">
+                                <h3 flex="50" class="ng-binding">Foto patente back </h3>
+
+
+                                <h3 style="text-align: right;" flex="50">
+                                    <input   type="file" name="" ng-show="!driverdata.docimg || driverdata.docimg==''"  data-id="{{allegato.id}}" onchange="angular.element(this).scope().patenteCambiato(this)">
+                                    <div ng-show="driverdata.docimg && driverdata.docimg!=''">
+                                       <a class="btn small" href="{{driverdata.docimg}}" target="_blank"><i class="icon icon-eye"></i></a>
+                                       <a class="btn small" href="" ng-click="cancellaDocumento('docimg')" target="_blank"><i class="icon icon-delete"></i></a>
+                                    </div>
+
+                                     <div layout="row" ng-show="false" ng-show="uploadInCorso[allegato.id]">
+                                         <div flex="20">
+                                          <md-progress-circular  md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                         </div>
+                                         <div flex="80" style="text-align:left">Upload del file in corso</div>
+                                      </div>
+
+                                </h3>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+</md-tab>
+
+
+<md-tab label="Indirizzi" ng-disabled="navigazione.mode!='edit'">
+  <md-content class="form-wrapper">
+
+    <md-list flex class="flex-gt-sm-100">
+      <md-list-item ng-click="popupIndirizzo(event,indirizzo)" class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-repeat="indirizzo in vm.listaOfAddress">
+        <div class="indirizzo-mini-map">
+          <!--<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+          -->
+
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center={{indirizzo.lat}},{{indirizzo.lng}}&size=100x50&zoom=7&key=AIzaSyBqzrTWq8JKZTiJ2OasE4-DbQW8phviCbU">
+
+        </div>
+
+        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+          <h3 class="ng-binding">{{indirizzo.type}} / {{indirizzo.address}}</h3>
+          <p class="ng-binding">Inserito : {{indirizzo.insdate * 1000 | date : 'medium'}}  </p>
+          <p>Lat : {{indirizzo.lat}}  Lng : {{indirizzo.lng}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+
+</md-tab>
+
+
+
+<md-tab label="Ingaggi" ng-disabled="navigazione.mode!='edit'" ng-if="vm.user.candrive==1">
+  <md-content class="form-wrapper">
+
+
+    <table class="simple" ng-table="tabellaIngaggi" ms-responsive-table>
+
+
+          <tbody>
+            <tr ng-repeat="ingaggio in $data">
+
+              <td title="'Data'"  sortable="'created'">{{ingaggio.created * 1000 | date : 'medium'}}</td>
+              <td title="'Ride'" filter="{shortid : 'text'}" sortable="'rid'">{{ingaggio.rid}}</td>
+              <td><a class="md-icon-button launch" ui-sref="app.riderequestedit({id: ingaggio.rid})"><i class="icon icon-eye"> </i>
+                </a></td>
+
+
+              <td>   </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+  </md-content>
+</md-tab>
+
+<md-tab label="I miei viaggi" ng-disabled="navigazione.mode!='edit'">
+  <md-content class="form-wrapper">
+
+    <h2 ng-show="viaggiPasseggero.length == 0 && viaggiDriver.length == 0">Nessun viaggio effettuato</h2>
+
+
+
+    <md-tabs ng-show="viaggiPasseggero.length > 0 || viaggiDriver.length > 0">
+
+      <md-tab label="Come passeggero" ng-disabled="viaggiPasseggero.length ==0">
+        <table class="simple" ng-table="tabellaViaggiPasseggero" ms-responsive-table>
+
+
+          <tbody>
+            <tr ng-repeat="viaggio in $data">
+              <td title="'Status'"  sortable="'status'">{{requestStatusLabel[viaggio.status]}}</td>
+              <td title="'Richiesta'"  sortable="'reqdate'">{{viaggio.reqdate * 1000 | date : 'medium'}}</td>
+              <td title="'Codice'" filter="{shortid : 'text'}" sortable="'shortid'">{{viaggio.shortid}}</td>
+              <td title="'Rating'" filter="{passrating : 'text'}" sortable="'passrating'">{{viaggio.passrating}}</td>
+              <td title="'Driver id'" filter="{pid : 'text'}" sortable="'shortid'"><a ui-sref="app.useredit({id:viaggio.did})" target="_blank">{{viaggio.did}}</a></td>
+              <td>  <md-button class="md-icon-button launch" ui-sref="app.riderequestedit({id: viaggio.id})"><i class="icon icon-eye"></i>
+                </md-button></td>
+            </tr>
+          </tbody>
+
+        </table>
+      </md-tab>
+
+      <md-tab label="Come driver" ng-disabled="viaggiDriver.length ==0">
+        <table class="simple" ng-table="tabellaViaggiDriver" ms-responsive-table>
+
+
+          <tbody>
+            <tr ng-repeat="viaggio in $data">
+              <td title="'Status'" sortable="'status'">{{requestStatusLabel[viaggio.status]}}</td>
+              <td title="'Richiesta'" sortable="'reqdate'">{{viaggio.reqdate * 1000 | date : 'medium'}}</td>
+              <td title="'Codice'" filter="{shortid : 'text'}" sortable="'shortid'">{{viaggio.shortid}}</td>
+                <td title="'Rating'" filter="{drivrating : 'number'}" sortable="'drivrating'">{{viaggio.drivrating}}</td>
+              <td title="'Pass id'" filter="{did : 'text'}" sortable="'shortid'"><a ui-sref="app.useredit({id:viaggio.pid})" target="_blank">{{viaggio.pid}}</a></td>
+              <td>  <md-button class="md-icon-button launch" ui-sref="app.riderequestedit({id: viaggio.id})"><i class="icon icon-eye"></i>
+                </md-button></td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </md-tab>
+
+    </md-tabs>
+  </md-content>
+
+</md-tab>
+
+
+<md-tab label="Pin inviati" ng-disabled="navigazione.mode!='edit'">
+  <md-content class="form-wrapper">
+    <md-button  ng-click="inviaPin(event)" class="md-raised md-primary">
+      <md-icon class="icon icon-message-processing"></md-icon> Invia nuovo pin
+    </md-button>
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Pin</th>
+          <th>Inviato</th>
+          <th>Scade</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="pin in vm.pins">
+          <td>{{pin.pin}}</td>
+          <td>{{pin.sentdate * 1000 | date : 'medium'}}</td>
+          <td>{{pin.expirydate * 1000 | date : 'medium'}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </md-content>
+
+</md-tab>
+
+<md-tab label="Promo" ng-disabled="!vm.user.id">
+
+
+   <div layout-padding layout="column">
+
+     <label>Associa una nuovo promo all'utente</label>
+      <md-input-container flex="40">
+        <!--<label >Comune di nascita</label>-->
+        <!--<input  type="text" name="lastname" ng-model="driverdata.birthcity" placeholder="Comune di nascita"
+        >-->
+
+          <md-autocomplete    md-min-length="2" ng-model="nuovapromo" md-selected-item="nuovapromo" md-search-text="searchText" md-items="item in searchPromo(searchText)" md-item-text="item.promotitle"
+            md-floating-label="Cerca promo"
+          >
+                <span md-highlight-text="searchText">{{item.promotitle}} - codice : {{item.code}}</span>
+          </md-autocomplete>
+      </md-input-container >
+
+
+      <br><br>
+
+
+      <table class="simple  row-border hover" ng-table="tabellaPromoAssociate" ms-responsive-table>
+
+
+          <tbody>
+              <tr ng-repeat="promo in $data">
+
+
+
+                  <td title="'Code'" >{{ promo.promo.code }}</td>
+                  <td title="'Redeem'" sortable="'redeemdate'" filter="{redeemdate : 'text'}">{{ promo.redeemdate * 1000 | date : 'medium' }}</td>
+                  <td title="'Scadenza'" sortable="'expirydate'" filter="{expirydate : 'text'}">{{ promo.expirydate * 1000 | date : 'medium' }}</td>
+                  <td title="'Usata'" sortable="'usagedate'" filter="{usagedate : 'text'}">
+                    <span ng-show="promo.usagedate">{{ promo.usagedate * 1000 | date : 'medium' }}</span></td>
+                    <td title="'Stato'" sortable="'burnt'" filter="{burnt : 'number'}">
+                      <span ng-show="promo.burnt=='0'">Da usare</span>
+                      <span ng-show="promo.burnt=='1'">Usata</span>
+                      <span ng-show="promo.burnt=='2'">Overused</span>
+                    </td>
+
+                  <td >
+                    <md-button class="md-icon-button launch" href="" ng-click="deletePromo(promo)"><i class="icon icon-delete"></i>
+                    </md-button>
+                  </td>
+
+              </tr>
+          </tbody>
+      </table>
+
+</div>
+
+
+
+</md-tab>
+<md-tab label="Device" ng-disabled="!vm.user.deviceid">
+  <md-content class="form-wrapper">
+
+  <!--  <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="!vm.deviceInBlacklist">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon icon-check switch s40" ng-class="{'active' : true}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">Device attivo </h3>
+        <p class="ng-binding"> Il device è attualmente attivo, non inserito in blacklist </p>
+      </div>
+
+      <div class="md-secondary-container"> /div>
+    </md-list-item>-->
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon s30" ng-class="{'icon-android' : vm.user.os == 'Android','icon-apple' : vm.user.os == 'iOS'}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.vos}} </h3>
+        <p class="ng-binding"> Versione Sistema operativo </p>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+        <md-icon   class="ng-scope md-default-theme" >
+          <i class="icon icon-cellphone-android s30"></i>
+        </md-icon>
+
+
+        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+          <h3 class="ng-binding">{{vm.user.vapp}} </h3>
+  <p class="ng-binding"> Versione Applicazione </p>
+        </div>
+
+        <div class="md-secondary-container"> </div>
+      </md-list-item>
+
+
+
+    <!--<md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="vm.deviceInBlacklist">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon icon-block-helper switch s40" ng-class="{'active' : true}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">Device bloccato </h3>
+        <p class="ng-binding"> Il device è attualmente bloccato, è stato inserito in blacklist </p>
+      </div>
+
+
+    </md-list-item>-->
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="vm.deviceInBlacklist">
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">Inserito in blacklist il {{vm.deviceInBlacklist.blacklistdate *1000 | date :'medium'}} </h3>
+        <p class="ng-binding">Motivazione : {{vm.deviceInBlacklist.blacklistreason}}</p>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">{{vm.user.device}} </h3>
+        <p class="ng-binding">Device</p>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">{{vm.user.deviceid}} </h3>
+        <p class="ng-binding">Device id</p>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+    <!--<p>
+      <md-button class="md-button md-raised md-primary" ng-click="blacklistDevice(event,vm.user.deviceid)" ng-show="!vm.deviceInBlacklist">Inserisci in blacklist</md-button>
+      <md-button class="md-button md-raised md-primary" ng-click="blacklistDeviceRimuovi(event,vm.user.deviceid)" ng-show="vm.deviceInBlacklist">Rimuovi da blacklist</md-button>
+    </p>-->
+
+  </md-content>
+</md-tab>
+<md-tab label="Ultime posizioni">
+  <md-content class="form-wrapper">
+      <div class="text-center">
+        <md-button ng-click="caricaUltimePosizioni()">
+          <md-tooltip>Clicca per refreshare</md-tooltip>
+          <md-icon md-font-icon="icon-refresh" ng-show="!loadingUltimePosizioni"></md-icon>
+
+          <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-show="loadingUltimePosizioni"></md-progress-circular>
+
+        </md-button>
+      </div>
+        <table class="simple" ng-table="tabellaUltimePosizioni" ms-responsive-table>
+          <tbody>
+            <tr ng-repeat="pos in $data">
+              <td title="'Lat'">{{pos.lat}}</td>
+              <td title="'Lng'">{{pos.lng}}</td>
+              <td title="'Data/Ora'">{{pos.ldate * 1000 | date : 'medium'}}</td>
+            </tr>
+          </tbody>
+        </table>
+  </md-content>
+</md-tab>
+
+
+<md-tab label="Pagamenti Contanti" ng-show="driverdata.id">
+  <md-content class="form-wrapper">
+      <div class="text-center">
+
+      </div>
+        <table class="simple" ng-table="tabellaPagamentiContanti" ms-responsive-table>
+          <tbody>
+            <tr ng-repeat="p in $data">
+              <td title="'Importo'">{{p.collected}}</td>
+              <td title="'Rimanente'">{{p.due}}</td>
+              <td title="'Data Pagamento'">{{p.collectdate * 1000 | date : 'medium'}}</td>
+              <td title="'Data Pagamento Zego'"><span ng-if="p.zegopaiddate">{{p.zegopaiddate * 1000 | date : 'medium'}}</span></td>
+               <td ><a ui-sref="app.useredit({id: p.did})" >Driver</a> <a ui-sref="app.riderequestedit({id: p.rid})" >Request</a></td>
+            </tr>
+          </tbody>
+        </table>
+  </md-content>
+</md-tab>
+
+
+<md-tab label="Altre informazioni">
+
+  <md-tabs>
+    <md-tab label="Informazioni generali">
+
+      <md-content class="form-wrapper">
+
+        <md-list flex class="flex-gt-sm-100">
+          <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3 class="ng-binding">{{vm.user.lastseen * 1000 | date : 'medium'}}</h3>
+              <p class="ng-binding"> Ultimo login </p>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3 class="ng-binding">{{vm.user.insdate * 1000 | date : 'medium'}}</h3>
+              <p class="ng-binding"> Data inserimento </p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3 class="ng-binding">{{vm.user.channel ? vm.user.channel : 'App'}}</h3>
+              <p class="ng-binding"> Canale di acquisizione </p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3 ng-show="vm.user.modddate" class="ng-binding">{{vm.user.modddate * 1000 | date : 'medium'}}</h3>
+              <h3 ng-show="!vm.user.modddate" class="ng-binding">N.D.</h3>
+              <p class="ng-binding"> Data modifica </p>
+            </div>
+          </md-list-item>
+
+
+          <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="vm.user.status == 2">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3 class="ng-binding">Utente bannato per {{vm.user.banreason}}</h3>
+              <p class="ng-binding"> Scadenza ban {{vm.user.banexpdate *1000 | date : 'medium'}} </p>
+            </div>
+          </md-list-item>
+
+
+          <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="vm.user.status == 2">
+            <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+              <h3 class="ng-binding">Note sull'utente</h3>
+            </div>
+          </md-list-item>
+
+
+
+        </md-list>
+
+<br/><br/>
+
+
+
+        <md-input-container style="margin-left: 12px" class="md-block">
+          <label>Note</label>
+          <textarea md-maxlength="1024" type="text" name="refcode" ng-model="vm.user.note"
+          placeholder="Note" rows="5"></textarea>
+       </md-input-container>
+
+      </md-content>
+  </md-tab>
+    <md-tab label="Chiamate effettuate e ricevute">
+      <table class="simple" ng-table="tabellaChiamate" ms-responsive-table>
+
+
+        <tbody>
+          <tr ng-repeat="chiamata in $data">
+            <td title="'Da'"  sortable="'callsrc'"><a ui-sref="app.useredit({id: chiamata.callsrc})">{{chiamata.callsrc}}</a></td>
+            <td title="'A chi'"  sortable="'calldst'"><a ui-sref="app.useredit({id: chiamata.calldst})">{{chiamata.calldst}}</a></td>
+            <td title="'Ride'"  sortable="'calldst'"><a ui-sref="app.riderequestedit({id: chiamata.rid})">{{chiamata.rid}}</a></td>
+            <td title="'Data'"  sortable="'calldst'">{{chiamata.calldate *1000 | date : 'medium'}}</td>
+            <td title="'Stato'"  sortable="'apiresult'">
+              <span ng-show="chiamata.apiresult==0">OK</span>
+              <span ng-show="chiamata.apiresult==1">User not found</span>
+              <span ng-show="chiamata.apiresult==2">Connection not found</span>
+
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+
+    </md-tab>
+
+
+  </md-tabs>
+  <!-- fine tab interno-->
+</md-tab>
+
+<md-tab label="Esporta" ng-if="driverdata && driverdata.id">
+
+
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+                      <div layout="column" layout-gt-sm="row">
+          <md-input-container flex>
+            <label class="md-no-float">Da</label>
+            <md-datepicker ng-change="changeDa(da)" ng-model="da" name="dateField"
+            md-max-date="a" md-open-on-focus ></md-datepicker>
+
+          </md-input-container >
+
+          <md-input-container flex  >
+            <label class="md-no-float">A</label>
+            <md-datepicker ng-change="changeA(a)" ng-model="a" name="dateField"
+            md-min-date="da" class="md-no-float" md-open-on-focus></md-datepicker>
+
+          </md-input-container >
+
+</div>
+
+                     <div layout="column" layout-gt-sm="row">
+
+                     <md-button class="md-raised reference-button" href="{{apibase}}export/saldodriver/{{vm.user.id}}/{{daf}}/{{af}}" target="_blank">Movimenti Driver</md-button>
+          </div>
+
+        </div>
+
+</md-tab>
+</md-tabs>
+</form>
+</md-content>
+
+
+
+
+<div class="form-wrapper form-data-wrapper md-whiteframe-1dp">
+
+
+
+  <!--  <md-button ng-disabled="navigazione.mode == 'edit'" ng-click="bannaUtente(event)" ng-show="vm.user.status !=2">
+      <md-icon class="icon icon-block-helper"></md-icon> Banna utente
+    </md-button>-->
+
+
+
+  <md-list flex class="flex-gt-sm-100 scheda-utente-side">
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="vm.user.debt && vm.user.debt!=0">
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">
+          {{vm.user.debt / 100 | number : 2}} €
+        </h3>
+
+
+        <p ng-show="vm.user.rtstatus == 100">Importo rimasto da pagare</p>
+
+        <a href="" class="btn btn-default font-size-10 btn-save" ng-click="sbloccaGratuitamente()">Sblocca gratuitamente</a>
+        <a href="" class="btn btn-default font-size-10" ng-click="ritentaPagamento()">Ritenta pagamento</a>
+        <br><br>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="driverdata.id" ng-click="cambiaStatoDocumenti()">
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">
+          Stato driver
+      </h3>
+        <p ng-show="driverdata.status == 1">Richiesta effettuata</p>
+        <p ng-show="driverdata.status == 5">Documenti inviati, da controllare</p>
+
+        <p ng-show="driverdata.status == 2">Documenti confermati</p>
+        <p ng-show="driverdata.status == 3">Documenti respinti</p>
+        <p ng-show="driverdata.status == 4">In attesa di nuovi documenti</p>
+
+        <p ng-show="driverdata.status == 6">Documenti scaduti</p>
+
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">
+          Realtime status
+      </h3>
+
+
+  <p ng-show="vm.user.rtstatus == 100">PASSENGER_IDLE</p>
+  <p ng-show="vm.user.rtstatus == 101">PASSENGER_REQUEST_SENT</p>
+  <p ng-show="vm.user.rtstatus == 102">PASSENGER_WAITING_DRIVER</p>
+  <p ng-show="vm.user.rtstatus == 103">PASSENGER_ONRIDE</p>
+  <p ng-show="vm.user.rtstatus == 104">PASSENGER_PAYMENT_DUE</p>
+  <p ng-show="vm.user.rtstatus == 105">PASSENGER_FEEDBACK_DUE</p>
+
+
+  <p ng-show="vm.user.rtstatus == 200">DRIVER_IDLE</p>
+  <p ng-show="vm.user.rtstatus == 201">DRIVER_ANSWERING</p>
+  <p ng-show="vm.user.rtstatus == 202">DRIVER_PICKINGUP</p>
+  <p ng-show="vm.user.rtstatus == 203">DRIVER_ONRIDE</p>
+  <p ng-show="vm.user.rtstatus == 204">DRIVER_FEEDBACKDUE</p>
+
+      <a href="" ng-click="unlockUser()">Reset dello stato</a>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">
+          Modalità
+      </h3>
+
+
+  <p ng-show="vm.user.umode == 'rider'">Rider</p>
+  <p ng-show="vm.user.umode == 'driver'">Driver</p>
+
+
+
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" >
+      <md-icon   class="ng-scope md-default-theme" ng-click="vm.user.status==2 ? debannaUtente(event) : bannaUtente(event)">
+        <i class="icon s30 " ng-class="{'draft icon-timer' : vm.user.status == 0,'icon-check ok' : vm.user.status == 1,'icon-block-helper bannato' : vm.user.status == 2}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding" ng-click="vm.user.status==2 ? debannaUtente(event) : bannaUtente(event)">
+          Stato
+        </h3>
+        <p>{{vm.user.status == 0 ? 'Utente non approvato' : (vm.user.status == 1 ? 'Utente valido' : 'Utente bannato' )}}</p>
+
+        <p ng-show="vm.user.status==1"><a href="" ng-click="bannaUtente(event)">Banna utente</a>
+        <p ng-show="vm.user.status==2"><a href="" ng-click="debannaUtente(event)">Togli Ban</a>
+        <p ng-show="vm.user.status==2"><a href="" ng-click="fraudReset()">Togli frode</a>
+                        </p>
+        <!--
+        <md-button class="md-raised md-primary" ng-if="navigazione.mode != 'new'" ng-click="bannaUtente(event)" ng-show="vm.user.status !=2">
+          <md-icon class="icon icon-block-helper"></md-icon> Banna utente
+        </md-button>
+        <md-button ng-if="navigazione.mode != 'new'"   ng-click="debannaUtente(event)" ng-show="vm.user.status ==2"  >
+          <md-icon class="icon icon-block-helper"></md-icon> Togli ban
+        </md-button>
+      -->
+
+        <!--<p class="ng-binding"> Versione app </p>-->
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+<br>
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="!vm.deviceInBlacklist" >
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon icon-check switch s30" ng-class="{'active' : true}"></i>
+        <md-tooltip>
+            Il device è attualmente attivo, non inserito in blacklist
+        </md-tooltip>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">Device attivo </h3>
+        <p ng-show="!vm.deviceInBlacklist && vm.user.deviceid!=undefined">
+          <a href="" ng-click="vm.deviceInBlacklist ? blacklistDeviceRimuovi(event,vm.user.deviceid) : blacklistDevice(event,vm.user.deviceid) ">Inserisci in blacklist</a>
+        </p>
+
+      </div>
+
+
+      <!--<p>
+        <md-button class="md-button md-raised md-primary" ng-click="blacklistDevice(event,vm.user.deviceid)" ng-show="!vm.deviceInBlacklist">Inserisci in blacklist</md-button>
+        <md-button class="md-button md-raised md-primary" ng-click="blacklistDeviceRimuovi(event,vm.user.deviceid)" ng-show="vm.deviceInBlacklist">Rimuovi da blacklist</md-button>
+      </p>-->
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="driverdata && driverdata.id"  >
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon {{vm.user.bitmask==16 ? 'icon-check' : 'icon-checkbox-blank-outline'}} switch s30" ng-class="{'active' : vm.user.bitmask==16}"></i>
+        <md-tooltip>
+            Driver Control&trade;  {{vm.user.bitmask==16 ? 'attivo' : 'non attivo'}}
+        </md-tooltip>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">Driver Control&trade; {{vm.user.bitmask==16 ? 'attivo' : 'non attivo'}} </h3>
+        <p >
+          <a href="" ng-click="toggleDriverControl()">{{vm.user.bitmask==16 ? 'Disattiva' : 'Attiva'}}</a>
+        </p>
+
+      </div>
+
+
+      <!--<p>
+        <md-button class="md-button md-raised md-primary" ng-click="blacklistDevice(event,vm.user.deviceid)" ng-show="!vm.deviceInBlacklist">Inserisci in blacklist</md-button>
+        <md-button class="md-button md-raised md-primary" ng-click="blacklistDeviceRimuovi(event,vm.user.deviceid)" ng-show="vm.deviceInBlacklist">Rimuovi da blacklist</md-button>
+      </p>-->
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" ng-show="vm.deviceInBlacklist" ng-click="vm.deviceInBlacklist ? blacklistDeviceRimuovi(event,vm.user.deviceid) : blacklistDevice(event,vm.user.deviceid) ">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon icon-block-helper switch s40" ng-class="{'active' : true}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }"  >
+        <h3 class="ng-binding">Device bloccato </h3>
+        <p ><a href="" ng-click="vm.deviceInBlacklist ? blacklistDeviceRimuovi(event,vm.user.deviceid) : blacklistDevice(event,vm.user.deviceid) ">Inserisci in blacklist</a>
+
+      </div>
+
+
+    </md-list-item>
+
+
+  <!--    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon icon-cellphone-android s30"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.vapp}} </h3>
+
+      </div>
+
+      <div class="md-secondary-container"> </div>
+    </md-list-item>
+
+
+   <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon s30" ng-class="{'icon-android' : vm.user.os == 'Android','icon-apple' : vm.user.os == 'iOS'}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.vos}} </h3>
+
+      </div>
+
+      <div class="md-secondary-container"> </div>
+    </md-list-item>
+
+-->
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+
+      <md-icon   class="ng-scope md-default-theme" ng-click="cambiaCanDrive()">
+        <i class="icon icon-nest-thermostat switch s30" ng-class="{'active' : vm.user.candrive==1}"></i>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.candrive ? 'Può guidare' : 'Non può guidare'}} </h3>
+        <!--<p class="ng-binding"> L'utente ha abilitao la funzione per driver? </p>-->
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon   class="ng-scope md-default-theme" ng-click="vm.user.mobok = !vm.user.mobok ? 1 : 0">
+        <i class="icon icon-cellphone-iphone switch s30" ng-class="{'active' : vm.user.mobok}"></i>
+        <md-tooltip>
+          Clicca per modificare
+        </md-tooltip>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.mobok ? 'Cellulare verificato' : 'Cellulare non verificato'}} </h3>
+        <!--<p class="ng-binding"> L'utente ha verificato il numero di cellulare? </p>-->
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon   class="ng-scope md-default-theme">
+        <i class="icon icon-cash switch s30" ng-class="{'active' : vm.user.payok}"></i>
+
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.payok ? 'Metodo di pagamento verificato' : 'Metodo di pagamento non verificato'}} </h3>
+
+       <p class="ng-binding" ng-if="vm.user.stripeid"><a target="_blank" href="https://dashboard.stripe.com/customers/{{vm.user.stripeid}}">Scheda stripe</a></p>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+     <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon ng-click="vm.user.cardonly = !vm.user.cardonly ? 1 : 0">
+        <i class="icon icon-credit-card switch s30" ng-class="{'active' : vm.user.cardonly}" ></i>
+
+
+        <md-tooltip>
+          Clicca per modificare
+        </md-tooltip>
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.cardonly ? 'Solo carte di credito' : 'Carte di credito/contanti'}} </h3>
+
+
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+    <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+      <md-icon   class="ng-scope md-default-theme" >
+        <i class="icon icon-message-text switch s30" ng-class="{'active' : vm.user.pushid}"></i>
+
+      </md-icon>
+
+
+      <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+        <h3 class="ng-binding">{{vm.user.pushid ? 'Notifiche push attivate' : 'Notifiche push disattivate'}} </h3>
+        <p class="ng-binding">{{vm.user.pushid ? "Attivo" : 'Nessun pushid presente'}} </p>
+      </div>
+
+      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+    </md-list-item>
+
+
+
+  </md-list>
+
+
+
+
+
+
+  <!--<div class="json-data-wrapper">
+  <pre>{{vm.user | json}}</pre>
+</div>-->
+</div>
+
+
+
+</div>
+
+</div>
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

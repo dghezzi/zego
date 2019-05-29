@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <include layout="@layout/header_nav_drawer_layout" android:id="@+id/header_nav"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/header_nav"
+        android:layout_above="@+id/become_driver_button"
+        android:id="@+id/nav_list_view"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/become_driver_button"
+        android:background="@drawable/green_button_selector"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="50sp">
+
+        <ImageView
+            android:id="@+id/become_driver_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/become_driver"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/become_driver_text_view"
+            android:layout_toRightOf="@+id/become_driver_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            Font:customfont="Raleway-Regular.ttf"
+            android:textSize="20sp"
+            Font:minTextSize="10sp"
+            android:singleLine="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:text="@string/become_driver"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

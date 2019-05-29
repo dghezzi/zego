@@ -1,0 +1,66 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content>
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+    <form name="lang" ng-submit="salva()" class="md-inline-form" novalidate>
+
+      <div layout="column" layout-gt-xs="row">
+
+        <md-input-container flex>
+
+            <p>
+              Cambia lo stato dei documenti.
+
+            </p>
+
+
+        </md-input-container>
+
+      </div>
+
+      <md-input-container  flex>
+          <label>Stato driver</label>
+          <md-select placeholder="Stato driver" ng-model="item.status">
+            <md-option ng-value="'1'">
+              Richiesta effettuata
+            </md-option>
+            <md-option ng-value="'2'">
+               Documenti confermati
+            </md-option>
+            <md-option ng-value="'3'">
+               Documenti respinti
+            </md-option>
+            <md-option ng-value="'4'">
+               In attesa di nuovi documenti
+            </md-option>
+            <md-option ng-value="'5'">
+               Documenti inviati, da controllare
+            </md-option>
+            <md-option ng-value="'6'">
+               Documenti scaduti
+            </md-option>
+          </md-select>
+      </md-input-container>
+
+
+
+        <md-button type="submit" class="md-raised md-primary" aria-label="Submit"
+                   ng-disabled="user.$invalid || user.$pristine">
+            Salva
+        </md-button>
+    </form>
+
+</div>
+
+  </md-dialog-content>
+</md-dialog>

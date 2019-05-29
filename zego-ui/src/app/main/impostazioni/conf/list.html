@@ -1,0 +1,110 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Configurazioni</span>
+            </div>
+            <div class="title">Configurazioni</div>
+        </div>
+
+
+    </div>
+    <!-- / HEADER -->
+
+
+    <md-toolbar>
+        <div class="md-toolbar-tools text-right">
+          <span flex></span>
+          <md-button class="md-raised primary-button md-primary"
+                     ng-click="showAdvanced(event)">
+              <md-icon md-font-icon="icon-plus"></md-icon>
+              <span>Aggiungi configurazione</span>
+          </md-button>
+
+
+          <span flex></span>
+          <md-button export-name="zego-app-configurazioni" fast-export="{{vm.confList}}" class="md-fab md-mini md-primary md-hue-2" aria-label="Eat cake">
+            <md-tooltip>Export veloce</md-tooltip>
+            <i class="icon icon-export"></i>
+
+
+          </md-button>
+          <span style="width:30px"></span>
+        </div>
+      </md-toolbar>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+        <div class="white-bg md-whiteframe-4dp">
+            <table class="simple  row-border hover" ng-table="tabella" id="tabella" ms-responsive-table >
+                <!--<thead>
+
+                    <tr>
+                      <th class="secondary-text">
+                          <div class="table-header">
+                              <span class="column-title">Pubblica</span>
+                          </div>
+                      </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Chiave</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Valore</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Descrizione</span>
+                            </div>
+                        </th>
+
+
+
+                    </tr>
+
+                </thead>-->
+                <tbody>
+                    <tr ng-repeat="conf in $data">
+                      <td title="'Pubblica'" sortable="'pub'" >
+
+                        <md-switch ng-model="conf.pub" ng-change="aggiornaElemento(conf)" aria-label="Switch 1" ng-true-value="1" ng-false-value="0" >
+                          {{ conf.pub ? "SI" : "NO" }}
+                       </md-switch>
+
+                      </td>
+                      <td title="'Chiave'" sortable="'k'" filter="{k : 'text'}">
+
+                          {{conf.k}}
+
+                      </td>
+
+                        <td title="'Valore'" sortable="'val'" filter="{val : 'text'}">{{ conf.val }}</td>
+
+
+                        <td title="'Descrizione'" sortable="'descr'" filter="{descr : 'text'}">{{ conf.descr }}</td>
+
+                        <td title="'Azioni'">
+                          <md-button class="md-icon-button launch" ng-click="modifica(event,conf)"><i class="icon icon-pencil"></i>
+                          </md-button>
+
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

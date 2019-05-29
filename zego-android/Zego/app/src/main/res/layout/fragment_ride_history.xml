@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="it.sharethecity.mobile.letzgo.fragments.RideHistoryFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ride_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/no_ride_text_view"
+        tools:text = "Carlo Pianelli"
+        android:visibility="gone"
+        android:ellipsize="end"
+        app:minTextSize="@dimen/min_text_size"
+        android:singleLine="true"
+        android:layout_centerInParent="true"
+        Font:customfont="Raleway-SemiBold.ttf"
+        android:textColor="@color/gray_text_app"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="@dimen/no_ride_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_ride"
+        />
+</RelativeLayout>

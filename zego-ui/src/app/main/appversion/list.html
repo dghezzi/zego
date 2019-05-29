@@ -1,0 +1,128 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Versioni app</span>
+            </div>
+            <div class="title">Versioni app</div>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+
+    <md-toolbar>
+        <div class="md-toolbar-tools text-right">
+          <span flex></span>
+          <md-button class="md-raised reference-button md-primary"
+                    ng-click="showAdvanced(event)">
+              <md-icon md-font-icon="icon-plus"></md-icon>
+              <span>Aggiungi versione</span>
+          </md-button>
+
+
+          <span flex></span>
+          <md-button export-name="zego-app-versioni" fast-export="{{vm.appversionList}}" class="md-fab md-mini md-primary md-hue-2" aria-label="Eat cake">
+            <md-tooltip>Export veloce</md-tooltip>
+            <i class="icon icon-export"></i>
+
+
+          </md-button>
+          <span style="width:30px"></span>
+
+        </div>
+      </md-toolbar>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+        <div class="white-bg md-whiteframe-4dp">
+            <table ng-table="tabella" id="tabella"   class="simple row-border hover" ms-responsive-table >
+              <!--
+              <thead>
+
+                    <tr>
+                      <th class="secondary-text">
+                          <div class="table-header">
+                              <span class="column-title">OS</span>
+                          </div>
+                      </th>
+
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Versione</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Status</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Data di rilascio</span>
+                            </div>
+                        </th>
+
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Azioni</span>
+                            </div>
+                        </th>
+
+                    </tr>
+
+                </thead>-->
+                <tbody>
+                    <tr ng-repeat="appversion in $data">
+                      <td title="'OS'" sortable="'os'">
+
+                        <i class="icon icon-apple" ng-show="{{appversion.os == 0}}">
+                          <md-tooltip md-direction="top">
+                              iOS
+                           </md-tooltip></i>
+                        <i class="icon icon-android" ng-show="{{appversion.os == 1}}">
+                          <md-tooltip md-direction="top">
+                              Android
+                           </md-tooltip>
+                         </i>
+
+                      </td>
+                      <td title="'Versione'" sortable="'vers'">
+
+                          {{appversion.vers}}
+
+                      </td>
+                      <td title="'Status'" sortable="'status'">
+
+                          {{appversion.status}}
+
+                      </td>
+
+                      <td title="'Data di rilascio'" sortable="'releasedate'">{{ appversion.releasedate * 1000 | date : 'medium' }}</td>
+
+                      <td title="'Data phase out'" sortable="'deprecatedate'">{{ appversion.deprecatedate * 1000 | date : 'medium' }}</td>
+
+                        <!--<td>{{ appversion.note }}</td>-->
+
+                        <td title="Azioni">
+
+                          <md-button class="md-icon-button launch" ng-click="modifica(event,appversion)"><i class="icon icon-pencil"></i>
+                          </md-button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

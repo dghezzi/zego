@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_ride_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.RideDetailsActivity">
+
+    <include layout="@layout/header" android:id="@+id/header"/>
+
+    <WebView
+        android:id="@+id/web_view_ride_details"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/support_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:visibility="gone"
+        android:id="@+id/progress_wheel"
+        android:layout_width="@dimen/hud_dimen"
+        android:layout_height="@dimen/hud_dimen"
+        android:layout_centerInParent="true"
+        wheel:matProg_barColor="@android:color/white"
+        android:background="@color/green_zego_with_alpha"
+        wheel:matProg_progressIndeterminate="true" />
+
+
+    <Button
+        android:id="@+id/support_button"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:background="@drawable/green_button_selector"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:layout_width="match_parent"
+        android:text="@string/support_ride"
+        android:layout_height="45dp" />
+
+</RelativeLayout>

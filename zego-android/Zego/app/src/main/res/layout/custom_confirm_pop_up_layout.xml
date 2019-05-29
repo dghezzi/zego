@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:background="@android:color/transparent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <RelativeLayout
+        android:background="@drawable/popo_up_canvas_drawable"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/title_pop_up"
+                android:layout_marginTop="50dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                tools:text="Cool News!"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/body_pop_up"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/black"
+                android:textSize="17dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/pop_up_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/green_button_selector"/>
+
+
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/pop_up_cancel_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/green_button_selector"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/white_circle_pop_up_shape"
+        android:layout_width="wrap_content"
+        android:padding="4dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image_pop_up"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="4dp"
+            android:background="@drawable/grey_circle_button"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car_pop_up"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

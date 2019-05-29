@@ -1,0 +1,649 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+
+
+  <!-- CONTENT -->
+
+
+
+  <ui-gmap-google-map center='map.center' zoom='map.zoom' class="mappa" ng-class="{'mappa-chiusa' : !mappa.aperta}">
+
+    <ui-gmap-marker
+          idKey="'ciao'"
+          coords='{latitude : item.lat,longitude : item.lng}'
+
+          >
+   </ui-gmap-marker>
+
+  </ui-gmap-google-map>
+
+
+  <md-toolbar>
+    <div class="md-toolbar-tools text-right">
+      <span flex></span>
+
+
+
+
+
+      <md-button ng-click="mappa.aperta = !mappa.aperta">
+
+        <md-icon md-font-icon="icon-chevron-down" ng-hide="mappa.aperta"></md-icon>
+        <md-icon md-font-icon="icon-chevron-up" ng-show="mappa.aperta"></md-icon>
+        {{mappa.aperta ? 'Chiudi mappa' : 'Apri mappa'}}
+      </md-button>
+
+    <span flex></span>
+
+  </div>
+  </md-toolbar>
+
+  <div class="text-center">
+    <div md-colors="500">
+      <br>
+        <small>status:</small>
+        <h2 class="inline">
+          {{requestStatusLabel[riderequest.status]}}
+        </h2>
+        <h3 ng-if="riderequest.status == 7 || riderequest.status == 8">- {{riderequest.abortreason}} -</h3>
+        <h3 ng-if="riderequest.status == 4 || riderequest.status == 5">- {{riderequest.cancelreason}} -</h3>
+    </div>
+  </div>
+
+  <div class="content" style="z-index:100">
+
+
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Dati richiesta">
+
+
+        <div flex layout="row">
+
+          <div class="column" layout="row" flex>
+
+            <div flex layout="column">
+              <h4>Dati generali : </h4>
+
+              <md-input-container flex>
+                <input readonly type="text" readonly name="id" value="{{requestStatusLabel[riderequest.status]}}" placeholder="Stato della ride">
+              </md-input-container>
+
+
+                      <md-input-container flex>
+                <input style="{{riderequest.reqlevel==2 ? 'color: #f7a4e4; font-weight: bold' : ''}}" readonly type="text" readonly name="id" value="{{riderequest.reqlevel==0 ? 'Standard' : riderequest.reqlevel==2 ? 'Corsa Rosa' : riderequest.reqlevel==4 ? 'Corsa Control' : ''}}" placeholder="Livello">
+              </md-input-container>
+
+
+
+       <md-input-container flex>
+                <input readonly type="text" readonly name="id" value="{{riderequest.method=='card' ? 'Carta di Credito' : 'Contanti'}}" placeholder="Metodo">
+              </md-input-container>
+
+
+
+
+
+
+              <div class="column" layout="row" flex>
+                <md-input-container flex>
+                  <input  type="text" readonly name="id" ng-model="riderequest.id" placeholder="ID">
+                </md-input-container>
+                <md-input-container flex>
+                  <input  type="text" readonly name="id" ng-model="riderequest.shortid" placeholder="Ride code">
+                </md-input-container>
+
+              </div>
+
+
+
+              <div class="column" layout="row" flex>
+                <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.reqdate *1000 | date : 'medium'}}" placeholder="Requested time">
+                  </md-input-container>
+                </div>
+                    <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.assigndate *1000 | date : 'medium'}}" placeholder="Accept time">
+                  </md-input-container>
+                </div>
+              </div>
+
+              <div class="column" layout="row" ng-if="riderequest.status == 7 || riderequest.status == 8 " flex>
+                <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.abortdate *1000 | date : 'medium'}}" placeholder="Abort time">
+                  </md-input-container>
+                </div>
+                    <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.abortreason}}" placeholder="Abort reason">
+                  </md-input-container>
+                </div>
+              </div>
+
+              <div class="column" layout="row" ng-if="riderequest.status == 11 " flex>
+                <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.abortdate *1000 | date : 'medium'}}" placeholder="Terminated time">
+                  </md-input-container>
+                </div>
+
+              </div>
+
+              <div class="column" layout="row" ng-if="riderequest.status == 4 || riderequest.status == 5 || riderequest.status==14" flex>
+                <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.canceldate *1000 | date : 'medium'}}" placeholder="Cancel time">
+                  </md-input-container>
+                </div>
+                    <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.cancelreason}}" placeholder="Cancel reason">
+                  </md-input-container>
+                </div>
+              </div>
+
+
+              <div class="column" layout="row" flex>
+                <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.startdate *1000 | date : 'medium'}}" placeholder="Start time">
+                  </md-input-container>
+                </div>
+                    <div flex>
+                  <md-input-container flex>
+                    <input  type="text" readonly name="id" value="{{riderequest.enddate *1000 | date : 'medium'}}" placeholder="End time">
+                  </md-input-container>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+        <div flex layout="row">
+          <div flex layout="column">
+
+
+            <div class="column" layout="r ow" flex>
+                <div flex>
+                    <h4>Passeggero</h4>
+                    <div class="column" layout="row" flex>
+                      <md-input-container flex>
+                        <input  type="text" readonly name="id" ng-value="passenger.fname+' '+passenger.lname" placeholder="Nome">
+                      </md-input-container>
+                      <md-input-container flex>
+                        <input  type="text" readonly name="id" ng-model="riderequest.pid" placeholder="Passenger id">
+                      </md-input-container>
+                    </div>
+                    <div flex>
+                      <a ui-sref="app.useredit({id:riderequest.pid})" target="_blank" class="btn">Vedi scheda passeggero</a>
+                    </div>
+                    <br>
+
+
+                </div>
+                <div flex>
+                    <h4>Driver</h4>
+                    <div class="column" layout="row" flex>
+                      <md-input-container flex>
+                        <input  type="text" readonly name="id" ng-value="driver.fname+' '+driver.lname" placeholder="Nome">
+                      </md-input-container>
+                      <md-input-container flex>
+                        <input  type="text" readonly name="id" ng-model="riderequest.did" placeholder="Driver id">
+                      </md-input-container>
+                    </div>
+
+                    <div flex>
+                      <a ui-sref="app.useredit({id:riderequest.did})" target="_blank" class="btn">Vedi scheda driver</a>
+                    </div>
+                    <br>
+
+
+
+
+              </div>
+
+
+
+          </div>
+        </div>
+        </div>
+
+
+    <div flex layout="row">
+      <div flex layout="column">
+
+
+        <div class="column" layout="column" flex>
+          <!--
+          <md-input-container flex>
+            <input  type="text" readonly name="id" ng-model="riderequest.numpass" placeholder="Numero passeggeri">
+          </md-input-container>
+        -->
+          <label>Numero passeggeri</label>
+          <h4>{{riderequest.numpass + 1}}</h4>
+        </div>
+
+
+      </div>
+    </div>
+    <div flex layout="row">
+
+      <div class="column" layout="row" flex>
+
+        <div flex layout="column">
+          <h4>Partenza : </h4>
+
+
+          <md-input-container flex>
+            <input  type="text" readonly name="name" ng-model="riderequest.puaddr" placeholder="PU Addre">
+          </md-input-container>
+
+
+          <div class="column" layout="row" flex>
+            <md-input-container flex>
+              <input  type="text" readonly name="name" ng-model="riderequest.pulat" placeholder="PU Lat">
+            </md-input-container>
+            <md-input-container flex>
+              <input  type="text" readonly name="name" ng-model="riderequest.pulng" placeholder="PU Lng">
+            </md-input-container>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="column" layout="row" flex>
+
+        <div flex layout="column">
+          <h4>Arrivo : </h4>
+          <md-input-container flex>
+            <input  type="text" readonly name="name" ng-model="riderequest.doaddr" placeholder="DO Addr">
+          </md-input-container>
+
+
+          <div class="column" layout="row" flex>
+            <md-input-container flex>
+              <input  type="text" readonly name="name" ng-model="riderequest.dolat" placeholder="DO Lat">
+            </md-input-container>
+            <md-input-container flex>
+              <input  type="text" readonly name="name" ng-model="riderequest.dolng" placeholder="DO Lng">
+            </md-input-container>
+          </div>
+
+
+
+
+          <div class="column" layout="row" flex>
+            <md-input-container flex>
+              <input  type="text" readonly name="name" value="{{riderequest.extmeters / 1000 | number : 2}}" placeholder="Km stimati">
+            </md-input-container>
+            <!--<md-input-container flex>
+              <input  type="text" readonly name="name" value="{{riderequest.extseconds}}" placeholder="Tempo stimato">
+            </md-input-container>-->
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </md-tab>
+  <md-tab label="Drivers">
+      <table class="simple" ng-table="tabellaDrivers" ms-responsive-table>
+        <tbody>
+          <tr ng-repeat="driver in $data" ng-class="{'accepted' : driver.status == 4,'rejected' : driver.status == 3 }">
+            <td title="'Driver id'" sortable="'did'"><a ui-sref="app.useredit({id : driver.did})">{{driver.did}}
+
+            {{driver.fname}}
+            {{driver.lname}}
+            </a></td>
+            <td title="'Status'" sortable="'status'">{{requestDriverStatus[driver.status]}}</td>
+            <td title="'Distanza'" sortable="'dmeters'">{{driver.dmeters}} m</td>
+            <td title="'D Tempo'" sortable="'dsec'">{{driver.dsec | secondsToDateTime | date:'HH:mm:ss'}}</td>
+            <td title="'Accettata'" sortable="'accepted'"><span ng-if="driver.accepted">{{driver.accepted * 1000 | date:'medium'}}</span></td>
+          </tr>
+        </tbody>
+
+      </table>
+  </md-tab>
+
+  <md-tab label="Ride">
+
+
+
+        <div flex layout="row">
+          <div class="column" layout="row" flex>
+              <div flex layout="column">
+               <br>
+
+                <div class="column text-center" layout="column" flex>
+                  <!--<i class="icon icon-star" ng-repeat="s in [1,2,3,4,5] | limitTo:(riderequest.drivrating ? 6-riderequest.drivrating : 0)"></i>
+                  <i ng-click="riderequest.drivrating=s-1" class="icon icon-star-outline" ng-repeat="s in [1,2,3,4,5] | limitTo:(riderequest.drivrating?riderequest.drivrating-1 : 5)"></i>-->
+
+
+                  <div flex>
+                    <label>Driver rating (ricevuto)</label>
+
+                    <br>
+                    <i ng-click="riderequest.drivrating=s+1;updateRating('driver',s+1)" ng-repeat="s in [0,1,2,3,4]" ng-class="{'icon-star-outline' : (!riderequest.drivrating || riderequest.drivrating <= s),'icon-star' :(riderequest.drivrating && riderequest.drivrating > s)  }"></i>
+
+                    <p ng-if="passengerFeedback && passengerFeedback.reason">Reason : {{passengerFeedback.reason}}</p>
+                  </div>
+                    <br>   <br>
+                  <div flex>
+                    <label>Passenger rating (ricevuto)</label>
+                    <br>
+                    <i ng-click="riderequest.passrating=s+1;updateRating('rider',s+1);" ng-repeat="s in [0,1,2,3,4]" ng-class="{'icon-star-outline' : (!riderequest.passrating || riderequest.passrating <= s),'icon-star' :(riderequest.passrating && riderequest.passrating > s)  }"></i>
+                    <p ng-if="driverFeedback && driverFeedback.reason">Reason : {{driverFeedback.reason}}</p>
+                  </div>
+                    <br>  <br>
+
+                </div>
+              </div>
+          </div>
+
+          <div class="column" layout="row" flex>
+
+            <div flex layout="column">
+              <h4>Partenza : </h4>
+
+              <md-input-container flex>
+                <input  type="text" name="name" ng-model="riderequest.realpuaddr" placeholder="Real PU Addre">
+              </md-input-container>
+
+
+
+              <div class="column" layout="row" flex>
+                <md-input-container flex>
+                  <input  type="text" readonly name="name" ng-model="riderequest.realpulat" placeholder="Real PU Lat">
+                </md-input-container>
+                <md-input-container flex>
+                  <input  type="text" readonly name="name" ng-model="riderequest.realpulng" placeholder="Real PU Lng">
+                </md-input-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="column" layout="row" flex>
+
+            <div flex layout="column">
+              <h4>Arrivo : </h4>
+
+              <md-input-container flex>
+                <input  type="text" name="name" ng-model="riderequest.realdoaddr" placeholder="Real DO Addr">
+              </md-input-container>
+
+
+
+              <div class="column" layout="row" flex>
+                <md-input-container flex>
+                  <input  type="text" readonly name="name" ng-model="riderequest.realdolat" placeholder="Real DO Lat">
+                </md-input-container>
+                <md-input-container flex>
+                  <input  type="text" readonly name="name" ng-model="riderequest.realdolng" placeholder="Real DO Lng">
+                </md-input-container>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="text-right">
+          <md-button class="md-raised md-primary" ng-click="salva()">Salva</md-button>
+        </div>
+
+  </md-tab>
+
+
+
+  <md-tab label="Dati pagamento">
+
+
+
+
+    <!--
+        <div flex layout="row">
+
+          <h2>Stato pagamento principale : {{riderequest.chargestatus}}</h2>
+
+
+
+        </div>
+
+        <div class="text-left">
+          <md-button ng-if="riderequest.chargestatus == 'captured'" class="md-raised md-primary" ng-click="refund()">Rimborsa</md-button>
+
+
+          <md-button ng-if="riderequest.chargestatus == 'authorized'" class="md-raised md-primary" ng-click="refund()">Rimborsa</md-button>
+          <md-button ng-if="riderequest.chargestatus == 'authorized'" class="md-raised md-primary" ng-click="capture()">Cattura</md-button>
+        </div>
+      -->
+
+        <br>
+        <div>
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{requestStatusLabel[riderequest.status]}}" placeholder="Stato della ride">
+          </md-input-container>
+
+
+
+        </div>
+
+
+
+
+        <h3>SELECTED PRICE</h3>
+
+
+        <div layout="row">
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{riderequest.extprice/ 100 | number :2}}" placeholder="Extimate price">
+          </md-input-container>
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{riderequest.passprice/ 100 | number :2}}" placeholder="Passenger price">
+          </md-input-container>
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{(riderequest.driverfee + riderequest.zegofee)/ 100 | number :2}}" placeholder="Driver price">
+          </md-input-container>
+
+
+        </div>
+
+
+        <h3>DISCOUNTS</h3>
+
+        <div layout="row">
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{(riderequest.driverfee + riderequest.zegofee)/ 100 | number :2}}" placeholder="Totale lordo">
+          </md-input-container>
+
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{riderequest.discount / 100 | number :2}}" placeholder="Sconto promozionale">
+          </md-input-container>
+
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{(riderequest.stripezegofee + riderequest.stripedriverfee)/ 100 | number :2}}" placeholder="Totale netto">
+          </md-input-container>
+        </div>
+
+
+
+
+        <h3>NET PRICE</h3>
+
+        <div layout="row">
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{(riderequest.stripezegofee + riderequest.stripedriverfee)/ 100 | number :2}}" placeholder="Totale netto">
+          </md-input-container>
+
+        <!--  <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{riderequest.refund / 100 | number :2}}" placeholder="Refunds">
+          </md-input-container>
+        -->
+          <md-input-container flex>
+            <input readonly type="text" readonly name="id" value="{{(riderequest.stripezegofee + riderequest.stripedriverfee - riderequest.refund)  / 100 | number :2}}" placeholder="Pagato">
+          </md-input-container>
+
+          <md-input-container flex>
+           <input readonly type="text" readonly name="id" value="{{riderequest.stripezegofee/ 100 | number :2}}" placeholder="Zego fee">
+         </md-input-container>
+
+         <md-input-container flex>
+           <input readonly type="text" readonly name="id" value="{{riderequest.stripedriverfee / 100 | number :2}}" placeholder="Driver fee">
+         </md-input-container>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!--<div layout="row">
+          <h4>Totale pagato : {{ (riderequest.driverfee + riderequest.zegofee - riderequest.discount) / 100 | number:2 }} €</h4>
+
+
+        </div>-->
+
+
+        <div ng-show="riderequest.promoid">
+        <h3 >Promo applicata :</h3>
+        <a class="btn" ui-sref="app.promoedit({id:userpromoApplicata.pid})">Vai alla scheda promo </a>
+        <br>
+        </div>
+        <br>
+
+
+
+        <div>
+
+          <md-button class="md-raised md-primary" ng-if="riderequest.status!=15" ng-click="annullaViaggio()">Annulla viaggio</md-button>
+          <md-button ng-if="riderequest.status!=11"  class="md-raised md-primary" ng-click="creaNuovoPagamento()">Crea nuovo pagamento</md-button>
+
+          <md-button ng-show="riderequest.charge && riderequest.charge!='' && riderequest.charge.indexOf('0_')!==0 && riderequest.charge.indexOf('req')!==0" href="https://dashboard.stripe.com/payments/{{riderequest.charge}}" class="md-raised md-primary" target="_blank">Scheda stripe</md-button>
+
+          <md-button ng-show="riderequest.charge && riderequest.charge!='' && riderequest.charge.indexOf('0_')!==0 && riderequest.charge.indexOf('req')===0" href="https://dashboard.stripe.com/test/logs/{{riderequest.charge}}" class="md-raised md-primary" target="_blank">Log stripe</md-button>
+
+          <md-button class="md-raised md-primary" ng-if="riderequest.status == 15" ng-click="editaDatiPagamento()">Edita dati pagamento</md-button>
+
+
+
+        </div>
+        <div>
+          <h2>Azioni Pagamenti</h2>
+
+            <!--<md-button class="md-raised md-primary" ng-click="creaNuovoPagamento()">Crea nuovo pagamento</md-button>
+            -->
+
+            <div class="responsivewidth">
+          <table class="simple" ng-table="tabellaPagamenti">
+
+            <tr ng-repeat="a in $data">
+
+                <td title="'Actor'">{{a.actor}}</td>
+                <td title="'Tipo'">{{a.actiontype}}</td>
+                <td title="'Captured'">{{a.capture/100 | number:2}} €</td>
+                 <td title="'Refunded'">{{a.refund/100 | number:2}} €</td>
+                  <td title="'Data'">{{a.actiondate*1000 | date}}</td>
+                  <td title=""><a ng-show="a.chargeid.indexOf('ch_') == 0" href="https://dashboard.stripe.com/payments/{{a.chargeid}}" class="md-raised md-primary" target="_blank">Scheda stripe </a></td>
+
+
+
+              </tr>
+
+          </table>
+          </div>
+
+        </div>
+  </md-tab>
+  <md-tab label="Actions">
+
+       <table class="simple" ng-table="tabellaUseraction" ms-responsive-table>
+        <tbody>
+          <tr ng-repeat="action in $data">
+            <td title="'User'" sortable="'driver.did'"><a target="_blank" ui-sref="app.useredit({id : action.uid})">{{action.uid}}
+            </a></td>
+            <td title="'Umode'" sortable="'driver.did'">{{action.umode}} </td>
+
+            <td title="'Type'" sortable="'type'">{{action.type}}</td>
+            <td title="'Insdate'" sortable="'type'">{{action.insdate *1000 | date : 'medium'}}</td>
+
+            <td title="'Errdata'" sortable="'type'">{{action.errdata}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+
+
+  </md-tab>
+
+
+    <md-tab label="Notifications">
+
+       <table class="simple" ng-table="tabellaNotifications" ms-responsive-table>
+        <tbody>
+          <tr ng-repeat="notification in $data"  >
+
+             <td title="'User'" sortable="'notification.uid'"><a target="_blank" ui-sref="app.useredit({id : notification.uid})">{{notification.uid}}
+            </a></td>
+            <td title="'Message'" sortable="'driver.did'">{{notification.message}} </td>
+
+            <td title="'Status'" sortable="'type'">{{notificationStatus[notification.status]}}</td>
+
+            <td title="'Sentdate'" sortable="'type'">{{notification.sentdate *1000 | date : 'medium'}}</td>
+            <td title="'Notbefore'" sortable="'type'">
+
+
+              <span ng-if="!notification.notbefore  || notification.notbefore == 0">Immediate</span>
+              <span ng-if="notification.notbefore > 0">{{notification.notbefore *1000 | date : 'medium'}}</span>
+            </td>
+
+
+          </tr>
+        </tbody>
+
+      </table>
+
+
+
+  </md-tab>
+
+
+</md-tabs>
+
+  </div>
+
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

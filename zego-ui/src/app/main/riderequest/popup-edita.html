@@ -1,0 +1,77 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content>
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+    <form name="lang" ng-submit="salva()" class="md-inline-form" novalidate>
+
+      <div layout="column" layout-gt-xs="row">
+
+
+      </div>
+
+      <div layout="column" layout-gt-xs="column">
+        <md-input-container flex>
+            <label>driverfee</label>
+              <input type="text" ng-model="item.driverfee"> 
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>zegofee</label>
+              <input type="text" ng-model="item.zegofee"> 
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>stripedriverfee</label>
+              <input type="text" ng-model="item.stripedriverfee"> 
+        </md-input-container>
+
+      <md-input-container flex>
+            <label>stripezegofee</label>
+              <input type="text" ng-model="item.stripezegofee"> 
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>extprice</label>
+              <input type="text" ng-model="item.extprice"> 
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>passprice</label>
+              <input type="text" ng-model="item.passprice"> 
+        </md-input-container> 
+
+        <md-input-container flex>
+            <label>driverprice</label>
+              <input type="text" ng-model="item.driverprice"> 
+        </md-input-container>
+ <md-input-container flex>
+            <label>discount</label>
+              <input type="text" ng-model="item.discount"> 
+        </md-input-container>
+
+
+      
+
+      </div>
+
+
+        <md-button type="submit" class="md-raised md-primary" aria-label="Submit"
+                   ng-disabled="user.$invalid || user.$pristine">
+            Salva
+        </md-button>
+    </form>
+
+</div>
+
+  </md-dialog-content>
+</md-dialog>

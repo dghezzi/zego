@@ -1,0 +1,228 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Tables</span>
+            </div>
+            <div class="title">Datatable</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button"
+                       href="https://l-lin.github.io/angular-datatables"
+                       target="_blank">
+                <md-icon md-font-icon="icon-link"></md-icon>
+                <span>Reference</span>
+            </md-button>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+
+
+    <div class="content">
+
+
+
+        <div class="md-title mb-32">Edit user</div>
+        <div class="white-bg md-whiteframe-4dp">
+
+
+          <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+              <md-tab label="Dati utente">
+
+
+          <div layout="row">
+
+              <!-- BASIC FORM -->
+              <div class="form-wrapper md-whiteframe-1dp" flex="60">
+
+                  <form name="user" class="md-inline-form" novalidate>
+
+                      <div layout="column" layout-gt-sm="row">
+                          <md-input-container flex>
+                              <input type="text" name="firstname" ng-model="vm.user.fname"
+                                     placeholder="Nome"
+                                     required>
+                              <div ng-messages="user.fname.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Inserisci il nome.</span>
+                                  </div>
+                              </div>
+                          </md-input-container>
+
+                          <md-input-container flex>
+                              <input type="text" name="lastname" ng-model="vm.user.lname" placeholder="Cognome"
+                                     required>
+                              <div ng-messages="user.lname.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Inserisci il cognome.</span>
+                                  </div>
+                              </div>
+                          </md-input-container>
+                      </div>
+
+                      <div layout="column" layout-gt-sm="row">
+                          <md-input-container flex>
+                              <input type="email" name="email" ng-model="vm.user.email"
+                                     placeholder="Email"
+                                     required>
+                              <div ng-messages="user.email.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Inserisci la mail.</span>
+                                  </div>
+                              </div>
+                          </md-input-container>
+
+                      </div>
+
+
+                      <div layout="column" layout-gt-xs="row">
+                          <md-input-container flex>
+                              <label>City</label>
+                              <input type="text" name="city" ng-model="vm.user.city">
+                          </md-input-container>
+
+                          <md-input-container flex>
+                              <label>State</label>
+                              <md-select ng-model="vm.user.state">
+                                  <md-option ng-repeat="state in vm.states" value="{{state.abbrev}}">
+                                      {{state.abbrev}}
+                                  </md-option>
+                              </md-select>
+                          </md-input-container>
+
+                          <md-input-container flex>
+                              <label>Postal Code</label>
+                              <input name="postalcode" ng-model="vm.user.postalCode" placeholder="12345"
+                                     required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                              <div ng-messages="user.postalcode.$error" role="alert" multiple>
+                                  <div ng-message="required"><span>You must supply a postal code.</span></div>
+                                  <div ng-message="pattern"><span>That doesn't look like a valid postal code.</span></div>
+                                  <div ng-message="md-maxlength">
+                                      <span>Postal code can't be longer than 5 characters.</span>
+                                  </div>
+                              </div>
+                          </md-input-container>
+                      </div>
+
+
+                      <div layout="column" layout-gt-xs="row">
+                          <md-input-container flex>
+                              <label>Prefisso</label>
+                              <input type="text" name="city" ng-model="vm.user.prefix">
+                          </md-input-container>
+
+                          <md-input-container flex>
+                              <label>Telefono</label>
+                              <input type="text" name="city" ng-model="vm.user.mobile">
+                          </md-input-container>
+
+
+                      </div>
+
+                      <md-input-container class="md-block">
+                          <label>Biography</label>
+                          <textarea ng-model="vm.user.biography" md-maxlength="150" max-rows="5"></textarea>
+                      </md-input-container>
+
+                      <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                                 ng-disabled="user.$invalid || user.$pristine">
+                          Submit
+                      </md-button>
+                  </form>
+
+              </div>
+              <!-- / BASIC FORM -->
+
+              <!-- BASIC FORM DATA -->
+              <div class="form-wrapper form-data-wrapper md-whiteframe-1dp" flex="40">
+                  <div class="form-title">Form ng-model data</div>
+
+
+
+                                    <md-list flex class="flex-gt-sm-100">
+                                      <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+                     <md-icon   class="ng-scope md-default-theme" >
+                       <i class="icon icon-cellphone-android s40"></i>
+                     </md-icon>
+
+
+                                        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+                                          <h3 class="ng-binding">{{vm.user.vapp}} </h3>
+                                          <p class="ng-binding"> Versione app </p>
+                                        </div>
+
+                                      <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+                        </md-list-item>
+
+
+                        <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md">
+                  <md-icon   class="ng-scope md-default-theme" >
+                  <i class="icon icon-cellphone-android s40"></i>
+                  </md-icon>
+
+
+                          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+                            <h3 class="ng-binding">{{vm.user.vos}} </h3>
+                            <p class="ng-binding"> Versione Sistema operativo </p>
+                          </div>
+
+                        <div class="md-secondary-container"><!-- ngIf: phone.options.actionIcon --></div>
+                  </md-list-item>
+
+                                    </md-list>
+
+
+                                    
+                  <p>
+                    <strong>Ultimo login : </strong>{{vm.user.lastseen | date : 'medium'}}
+                  </p>
+                  <p>
+                    <strong>Data inserimento : </strong>{{vm.user.insdate | date : 'medium'}}
+                  </p>
+
+                  <p>
+                    <strong>Data modifica : </strong>{{vm.user.modddate | date : 'medium'}}
+                  </p>
+                  <p>
+                    <strong>Data modifica : </strong>{{vm.user.modddate | date : 'medium'}}
+                  </p>
+
+
+
+                  <div class="json-data-wrapper">
+                      <pre>{{vm.user | json}}</pre>
+                  </div>
+              </div>
+              <!-- / BASIC FORM DATA -->
+          </div>
+
+
+        </md-tab>
+
+        <md-tab label="Dati driver">
+
+        </md-tab>
+
+      </md-tabs>
+    </md-content>
+
+
+
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

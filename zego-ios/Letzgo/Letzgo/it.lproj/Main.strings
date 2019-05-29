@@ -1,0 +1,249 @@
+
+/* Class = "UIButton"; normalTitle = "Accedi"; ObjectID = "0r1-h7-QIz"; */
+"0r1-h7-QIz.normalTitle" = "Accedi";
+
+/* Class = "UILabel"; text = "Inserisci il tuo numero di telefono"; ObjectID = "1GQ-Eq-yLK"; */
+"1GQ-Eq-yLK.text" = "Inserisci il tuo numero di telefono";
+
+/* Class = "UILabel"; text = "Tutorial"; ObjectID = "1fY-f6-IAG"; */
+"1fY-f6-IAG.text" = "Tutorial";
+
+/* Class = "UITextField"; placeholder = "nome"; ObjectID = "3BO-JW-TZG"; */
+"3BO-JW-TZG.placeholder" = "nome";
+
+/* Class = "UILabel"; text = "Completa"; ObjectID = "4Jf-OR-6Od"; */
+"4Jf-OR-6Od.text" = "Completa";
+
+/* Class = "UILabel"; text = "333 1234567"; ObjectID = "67h-PH-3lI"; */
+"67h-PH-3lI.text" = "333 1234567";
+
+/* Class = "UILabel"; text = "Sito web Zego"; ObjectID = "75V-xa-nfk"; */
+"75V-xa-nfk.text" = "Sito web Zego";
+
+/* Class = "UILabel"; text = "Aderisco ai termini del servizio"; ObjectID = "9he-tj-U2M"; */
+"9he-tj-U2M.text" = "Aderisco ai termini del servizio";
+
+/* Class = "UILabel"; text = "Modifica telefono"; ObjectID = "BmS-ws-w8U"; */
+"BmS-ws-w8U.text" = "Modifica telefono";
+
+/* Class = "UILabel"; text = "I miei passaggi"; ObjectID = "CJe-Nn-60z"; */
+"CJe-Nn-60z.text" = "I miei passaggi";
+
+/* Class = "UILabel"; text = "Completa"; ObjectID = "CXn-6e-a8M"; */
+"CXn-6e-a8M.text" = "Completa";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "CyC-di-Yz7"; */
+"CyC-di-Yz7.text" = "9";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "DFe-Vs-DSH"; */
+"DFe-Vs-DSH.text" = "9";
+
+/* Class = "UILabel"; text = "Inserisci il tuo numero di telefono"; ObjectID = "DeW-y9-TV8"; */
+"DeW-y9-TV8.text" = "Inserisci il tuo numero di telefono";
+
+/* Class = "UILabel"; text = "Pagamento"; ObjectID = "DsU-Hi-VWM"; */
+"DsU-Hi-VWM.text" = "Pagamento";
+
+/* Class = "UITextField"; placeholder = "cognome"; ObjectID = "Dy8-XQ-XY6"; */
+"Dy8-XQ-XY6.placeholder" = "cognome";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "EQJ-U3-9rp"; */
+"EQJ-U3-9rp.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Salta"; ObjectID = "EeH-l0-Dpu"; */
+"EeH-l0-Dpu.normalTitle" = "Salta";
+
+/* Class = "UITextField"; placeholder = "inserisci codice promo"; ObjectID = "FJf-gm-zTQ"; */
+"FJf-gm-zTQ.placeholder" = "inserisci codice promo";
+
+/* Class = "UILabel"; text = "Modifica foto profilo"; ObjectID = "GSl-4R-8UA"; */
+"GSl-4R-8UA.text" = "Modifica foto profilo";
+
+/* Class = "UILabel"; text = "Nome e Cognome"; ObjectID = "GhF-sX-929"; */
+"GhF-sX-929.text" = "Nome e Cognome";
+
+/* Class = "UILabel"; text = "MAP"; ObjectID = "Go1-LN-kYp"; */
+"Go1-LN-kYp.text" = "MAP";
+
+/* Class = "UITextField"; placeholder = "cognome"; ObjectID = "HAW-Xo-8Vy"; */
+"HAW-Xo-8Vy.placeholder" = "cognome";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "HNY-TN-hAt"; */
+"HNY-TN-hAt.text" = "9";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "HuV-om-RsE"; */
+"HuV-om-RsE.normalTitle" = "Avanti";
+
+/* Class = "UILabel"; text = "Hai un codice promozionale? Inseriscilo ora"; ObjectID = "ISs-WJ-N9N"; */
+"ISs-WJ-N9N.text" = "Hai un codice promozionale? Inseriscilo ora";
+
+/* Class = "UILabel"; text = "ti manderemo un SMS di verifica"; ObjectID = "JLB-mL-SRc"; */
+"JLB-mL-SRc.text" = "ti manderemo un SMS di verifica";
+
+/* Class = "UILabel"; text = "Registrati"; ObjectID = "MFr-5R-HZJ"; */
+"MFr-5R-HZJ.text" = "Registrati";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "MdI-Ie-KEm"; */
+"MdI-Ie-KEm.normalTitle" = "Avanti";
+
+/* Class = "UIButton"; normalTitle = "Diventa Driver"; ObjectID = "NkN-nC-M9y"; */
+"NkN-nC-M9y.normalTitle" = "Diventa Driver";
+
+/* Class = "UITextField"; placeholder = "cognome"; ObjectID = "OH3-o1-FJZ"; */
+"OH3-o1-FJZ.placeholder" = "cognome";
+
+/* Class = "UILabel"; text = "Completa"; ObjectID = "OgF-Gs-CG1"; */
+"OgF-Gs-CG1.text" = "Completa";
+
+/* Class = "UIButton"; normalTitle = "Salva"; ObjectID = "Oxk-YG-WeQ"; */
+"Oxk-YG-WeQ.normalTitle" = "Salva";
+
+/* Class = "UILabel"; text = "Inviato un SMS a 349 3448124, inserisci il PIN qui sotto."; ObjectID = "Pjk-yM-Nrd"; */
+"Pjk-yM-Nrd.text" = "Inviato un SMS a 349 3448124, inserisci il PIN qui sotto.";
+
+/* Class = "UIButton"; normalTitle = "Nuova foto"; ObjectID = "QwW-OC-JFq"; */
+"QwW-OC-JFq.normalTitle" = "Nuova foto";
+
+/* Class = "UIButton"; normalTitle = "Registrati"; ObjectID = "RH3-77-xQ3"; */
+"RH3-77-xQ3.normalTitle" = "Registrati";
+
+/* Class = "UILabel"; text = "+39"; ObjectID = "TWR-MX-VUg"; */
+"TWR-MX-VUg.text" = "+39";
+
+/* Class = "UILabel"; text = "l'email inserita appartiene ad un altro utente"; ObjectID = "Uwx-y4-kCa"; */
+"Uwx-y4-kCa.text" = "l'email inserita appartiene ad un altro utente";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "VEV-Rr-Z5e"; */
+"VEV-Rr-Z5e.placeholder" = "email";
+
+/* Class = "UILabel"; text = "+39"; ObjectID = "YAH-50-NyE"; */
+"YAH-50-NyE.text" = "+39";
+
+/* Class = "UILabel"; text = "Codice Promo"; ObjectID = "YaM-Z6-Ew2"; */
+"YaM-Z6-Ew2.text" = "Codice Promo";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "YeO-Lu-GyB"; */
+"YeO-Lu-GyB.text" = "Label";
+
+/* Class = "UILabel"; text = "ti manderemo un SMS di verifica"; ObjectID = "aF2-fa-wMB"; */
+"aF2-fa-wMB.text" = "ti manderemo un SMS di verifica";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "anh-Ax-ipZ"; */
+"anh-Ax-ipZ.normalTitle" = "Avanti";
+
+/* Class = "UIButton"; normalTitle = "Completa con Facebook"; ObjectID = "arY-kC-gk5"; */
+"arY-kC-gk5.normalTitle" = "Completa con Facebook";
+
+/* Class = "UILabel"; text = "Info Legali"; ObjectID = "au0-2c-2MF"; */
+"au0-2c-2MF.text" = "Info Legali";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bBI-Wq-vB5"; */
+"bBI-Wq-vB5.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Salva"; ObjectID = "bBp-qa-iaP"; */
+"bBp-qa-iaP.normalTitle" = "Salva";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "c7S-4W-h61"; */
+"c7S-4W-h61.text" = "Info";
+
+/* Class = "UIButton"; normalTitle = "Salta"; ObjectID = "cEq-xt-x8C"; */
+"cEq-xt-x8C.normalTitle" = "Salta";
+
+/* Class = "UIButton"; normalTitle = "Salva"; ObjectID = "cEr-4L-2oT"; */
+"cEr-4L-2oT.normalTitle" = "Salva";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "cih-jl-fCq"; */
+"cih-jl-fCq.normalTitle" = "Avanti";
+
+/* Class = "UIButton"; normalTitle = "Conferma"; ObjectID = "ckd-wP-ktm"; */
+"ckd-wP-ktm.normalTitle" = "Conferma";
+
+/* Class = "UILabel"; text = "Inserisci una carta di credito"; ObjectID = "cuW-zv-I10"; */
+"cuW-zv-I10.text" = "L’app verifica la carta con un’operazione di 1€ che non prevede addebito. Potresti ricevere un SMS";
+
+/* Class = "UILabel"; text = "ti manderemo un SMS di verifica"; ObjectID = "diZ-bU-oGU"; */
+"diZ-bU-oGU.text" = "ti manderemo un SMS di verifica";
+
+/* Class = "UILabel"; text = "9"; ObjectID = "eE4-fv-07m"; */
+"eE4-fv-07m.text" = "9";
+
+/* Class = "UILabel"; text = "+39"; ObjectID = "f94-bW-Z7d"; */
+"f94-bW-Z7d.text" = "+39";
+
+/* Class = "UIButton"; normalTitle = "Invia Ancora"; ObjectID = "gTv-LV-9Dz"; */
+"gTv-LV-9Dz.normalTitle" = "Invia Ancora";
+
+/* Class = "UILabel"; text = "PIN di verifica"; ObjectID = "gg1-GF-Xuh"; */
+"gg1-GF-Xuh.text" = "PIN di verifica";
+
+/* Class = "UILabel"; text = "Inserisci il tuo numero di telefono"; ObjectID = "h8t-ja-bPc"; */
+"h8t-ja-bPc.text" = "Inserisci il tuo numero di telefono";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "i9r-G6-b0e"; */
+"i9r-G6-b0e.text" = "Info";
+
+/* Class = "UIButton"; normalTitle = "Accedi con Facebook"; ObjectID = "iIZ-8w-MFB"; */
+"iIZ-8w-MFB.normalTitle" = "Accedi con Facebook";
+
+/* Class = "UIButton"; normalTitle = "Salta"; ObjectID = "iOb-fZ-5CQ"; */
+"iOb-fZ-5CQ.normalTitle" = "Salta";
+
+/* Class = "UILabel"; text = "l'email inserita appartiene ad un altro utente"; ObjectID = "iz2-xQ-gId"; */
+"iz2-xQ-gId.text" = "l'email inserita appartiene ad un altro utente";
+
+/* Class = "UILabel"; text = "Problemi nella ricezione del codice"; ObjectID = "jh1-DF-JcM"; */
+"jh1-DF-JcM.text" = "Problemi nella ricezione del codice";
+
+/* Class = "UILabel"; text = "FAQ"; ObjectID = "jh4-Td-r0s"; */
+"jh4-Td-r0s.text" = "FAQ";
+
+/* Class = "UILabel"; text = "LUCA7907"; ObjectID = "k3F-Oy-kGk"; */
+"k3F-Oy-kGk.text" = "LUCA7907";
+
+/* Class = "UITextField"; placeholder = "nome"; ObjectID = "kiX-EH-V1A"; */
+"kiX-EH-V1A.placeholder" = "nome";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kun-Lz-1O3"; */
+"kun-Lz-1O3.text" = "Label";
+
+/* Class = "UILabel"; text = "Offri passaggi"; ObjectID = "lnW-r0-i1T"; */
+"lnW-r0-i1T.text" = "Offri passaggi";
+
+/* Class = "UILabel"; text = "Profilo"; ObjectID = "n8w-Ge-cRT"; */
+"n8w-Ge-cRT.text" = "Profilo";
+
+/* Class = "UILabel"; text = "Pagamento"; ObjectID = "nTa-pU-56p"; */
+"nTa-pU-56p.text" = "Pagamento";
+
+/* Class = "UILabel"; text = "Il PIN inserito non è corretto"; ObjectID = "oS9-S0-vbl"; */
+"oS9-S0-vbl.text" = "Il PIN inserito non è corretto";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qPQ-Ec-Mt5"; */
+"qPQ-Ec-Mt5.text" = "Label";
+
+/* Class = "UILabel"; text = "Profilo"; ObjectID = "qgO-iV-ssr"; */
+"qgO-iV-ssr.text" = "Profilo";
+
+/* Class = "UILabel"; text = "Promo"; ObjectID = "udU-Ay-RDl"; */
+"udU-Ay-RDl.text" = "Promo";
+
+/* Class = "UILabel"; text = "333 1234567"; ObjectID = "urf-u6-zUD"; */
+"urf-u6-zUD.text" = "333 1234567";
+
+/* Class = "UITextField"; placeholder = "nome"; ObjectID = "uyq-Ym-snf"; */
+"uyq-Ym-snf.placeholder" = "nome";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "v1M-vd-xdf"; */
+"v1M-vd-xdf.normalTitle" = "Avanti";
+
+/* Class = "UILabel"; text = "Accedi"; ObjectID = "vFq-gK-aJp"; */
+"vFq-gK-aJp.text" = "Accedi";
+
+/* Class = "UIButton"; normalTitle = "Avanti"; ObjectID = "w3m-G2-GVh"; */
+"w3m-G2-GVh.normalTitle" = "Avanti";
+
+/* Class = "UILabel"; text = "333 1234567"; ObjectID = "xXl-lG-U43"; */
+"xXl-lG-U43.text" = "333 1234567";
+
+/* Class = "UILabel"; text = "tap to share"; ObjectID = "xwG-Bw-4Hc"; */
+"xwG-Bw-4Hc.text" = "Consiglia e ricevi 5€";

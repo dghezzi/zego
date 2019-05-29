@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+    android:id="@+id/answer_text_view"
+    Font:customfont="Raleway-light.ttf"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/black_text"
+    android:textSize="19sp"
+    android:layout_marginLeft="10dp"
+    android:layout_centerVertical="true"
+    tools:text="risposta uno"
+    />
+
+</android.support.percent.PercentRelativeLayout>

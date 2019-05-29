@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageButton
+        android:id="@+id/driver_my_position_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight = "8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/price_slider"
+        android:src="@drawable/localize"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.TipSelectorView
+        android:id="@+id/price_slider"
+        android:visibility="gone"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_above="@+id/info_ride"
+        android:layout_width="match_parent"
+        app:layout_heightPercent="16%"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.DriverOnRideInfoView
+        android:id="@+id/info_ride"
+        android:layout_above="@+id/pudo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.StartStopView
+        android:id="@+id/pudo_layout"
+        android:layout_above="@+id/end_trip_button"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFakeToastView
+        android:id="@+id/toast_view_msg"
+        android:visibility="gone"
+        android:layout_above="@+id/price_slider"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/end_trip_button"
+        android:layout_width="match_parent"
+        android:padding="4dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/end_trip"
+        android:textAllCaps="false"
+        android:textSize="19sp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/green_button_selector"
+        android:layout_height="45dp" />
+
+</merge>

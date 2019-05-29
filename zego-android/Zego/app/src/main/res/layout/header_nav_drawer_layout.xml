@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:id="@+id/header_content_layout"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:id="@+id/profile_image"
+            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_placeholder"/>
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="0.5"-->
+        <!--android:layout_height="wrap_content">-->
+        <!---->
+        <!--</RelativeLayout>-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content">
+
+            <it.sharethecity.mobile.letzgo.customviews.BoldRelewayTextView
+                android:id="@+id/user_full_name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/full_name_nav_bar_size"
+                tools:text = "Lorenzo Mosti"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:textColor="@color/gray_keyboard_button"/>
+
+            <it.sharethecity.mobile.letzgo.customviews.LightRelewayTextView
+                android:id="@+id/rating_nav_bar_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                tools:text ="Rating:3.78"
+                android:gravity="center"
+                android:textSize="@dimen/mobile_nav_bar_size"
+                android:textColor="@color/gray_button"/>
+
+
+                <it.sharethecity.mobile.letzgo.customviews.BoldRelewayTextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/promo_code_text_view"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/promo_code_nav_dimen"
+                    tools:text="euyew34-48234234"
+                    android:background="@drawable/rounded_green_present_background"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tap_to_share"/>
+
+
+
+
+                <it.sharethecity.mobile.letzgo.customviews.RegularRelewayTextView
+                    android:id="@+id/tap_here_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/darker_green_text"
+
+                    android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/header_content_layout"
+        android:background="@color/gray_text"/>
+</RelativeLayout>

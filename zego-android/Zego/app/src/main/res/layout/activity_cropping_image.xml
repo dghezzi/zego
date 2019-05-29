@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout"
+    android:background="@color/black_t"
+    >
+
+
+    <com.albinmathew.photocrop.photoview.PhotoView
+        android:id="@+id/iv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center" />
+
+
+    <it.sharethecity.mobile.letzgo.customviews.MyCropOverlayView
+        android:id="@+id/crop_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:guideLines="false"
+        app:drawCircle="false"
+        android:layout_centerInParent="true"
+        app:borderColor="@color/gray_text"
+        app:overlayColor="@color/black_t"
+        app:marginSide="20dp"
+        app:marginTop="50dp" />
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:background="@drawable/green_button_selector"
+        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
+        android:text="@string/save_image"
+        android:textAllCaps="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/green_button_selector"
+        android:text="@string/annulla"
+        android:textColor="@android:color/white"
+        android:layout_height="35dp"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/progress_bar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        android:background="@color/green_zego_with_alpha"
+        android:layout_centerInParent="true"
+        wheel:matProg_barColor="@android:color/white"
+        wheel:matProg_progressIndeterminate="true" />
+
+</RelativeLayout>

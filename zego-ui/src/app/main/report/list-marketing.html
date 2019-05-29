@@ -1,0 +1,99 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Report Marketing</span>
+            </div>
+            <div class="title">Report Marketing</div>
+        </div>
+
+
+    </div>
+    <!-- / HEADER -->
+
+
+
+        <md-toolbar>
+            <div class="md-toolbar-tools text-right">
+              <span flex></span>
+
+            </div>
+          </md-toolbar>
+
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+        <div class="white-bg md-whiteframe-4dp">
+
+        <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+                      <div layout="column" layout-gt-sm="row">
+          <md-input-container flex>
+            <label class="md-no-float">Da</label>
+            <md-datepicker ng-model="da" name="dateField"
+            md-max-date="a" md-open-on-focus ></md-datepicker>
+
+          </md-input-container >
+
+          <md-input-container flex  >
+            <label class="md-no-float">A</label>
+            <md-datepicker ng-model="a" name="dateField"
+            md-min-date="da" class="md-no-float" md-open-on-focus></md-datepicker>
+
+          </md-input-container >
+
+</div>
+
+
+                      <div layout="column" layout-gt-sm="row">
+                   <md-button class="md-raised reference-button" href="{{apibase}}export/mkt/user/{{daf}}/{{af}}" target="_blank">Anagrafica Utenti</md-button>
+                  <md-button class="md-raised reference-button" href="{{apibase}}export/mkt/ride/{{daf}}/{{af}}" target="_blank">Anagrafica Ride</md-button>
+                   <md-button class="md-raised reference-button" href="{{apibase}}export/mkt/link/{{daf}}/{{af}}" target="_blank">Anagrafica Ingaggi</md-button>
+                    <md-button class="md-raised reference-button" href="{{apibase}}export/mkt/promo/{{daf}}/{{af}}" target="_blank">Anagrafica Promo</md-button>
+                    <md-button class="md-raised reference-button" href="{{apibase}}export/mkt/promocomplex/{{daf}}/{{af}}" target="_blank">Utilizzo Promo</md-button>
+                    <md-button class="md-raised reference-button" href="{{apibase}}export/mkt/signup/{{daf}}/{{af}}" target="_blank">Registrazioni Utenti</md-button>
+          </div>
+
+        </div>
+        </div>
+
+        <div class="white-bg md-whiteframe-4dp">
+
+        <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+                      <div layout="column" layout-gt-sm="row">
+                        <br/><br/>
+          <md-input-container flex="20">
+            <label class="md-no-float">Zona</label>
+            <md-select ng-model="city">
+            <md-option ng-value="0">Tutte</md-option>
+              <md-option ng-repeat="zona in zone"  ng-value="zona.id" >
+              {{zona.name}}
+              </md-option>
+
+            </md-select>
+        </md-input-container>
+
+</div>
+
+
+                      <div layout="column" layout-gt-sm="row">
+                   <md-button ng-disabled="city == undefined" class="md-raised reference-button" href="{{apibase}}export/mkt/ridecomplex/{{city}}/{{daf}}/{{af}}" target="_blank">Analisi Ride Per Zona</md-button>
+
+          </div>
+
+        </div>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

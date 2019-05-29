@@ -1,0 +1,38 @@
+<resources>
+  <!-- Default screen margins, per the Android Design guidelines. -->
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="button_text_size">22sp</dimen>
+  <dimen name="text_right_size_header">20sp</dimen>
+  <dimen name="title_text_view_size">22sp</dimen>
+  <dimen name="keyboard_number_size">33sp</dimen>
+  <dimen name="tel_number_size">22sp</dimen>
+  <dimen name="fb_text_size">19sp</dimen>
+  <dimen name="form_text_size">22sp</dimen>
+  <dimen name="hint_promoCode_size">22sp</dimen>
+  <dimen name="cc_number_size">18sp</dimen>
+  <dimen name="full_name_nav_bar_size">20sp</dimen>
+  <dimen name="mobile_nav_bar_size">18sp</dimen>
+  <dimen name="promo_code_nav_dimen">18sp</dimen>
+  <dimen name="text_size_lable_nav_drawer">22sp</dimen>
+  <dimen name="text_size_form_profile_edit_text">22sp</dimen>
+  <dimen name="profile_form_row_height">70dp</dimen>
+  <dimen name="edit_form_dimen">40dp</dimen>
+  <dimen name="hud_dimen">80dp</dimen>
+  <dimen name="edit_tel_number_size">26sp</dimen>
+  <dimen name="profile_image_dimen">100dp</dimen>
+  <dimen name="cancel_img_keyboar_dimen">50dp</dimen>
+
+  <dimen name="car_dimen">28dp</dimen>
+  <dimen name="car_dimeh">35dp</dimen>
+  <dimen name="marker_pickup_height">55dp</dimen>
+  <dimen name="marker_pickup_width">41dp</dimen>
+  <dimen name="marker_dropoff_height">55dp</dimen>
+  <dimen name="marker_dropoff_width">47dp</dimen>
+
+  <dimen name="country_flag_width">36dp</dimen>
+  <dimen name="country_flag_height">31.5dp</dimen>
+
+  <dimen name="num_passenger_image_width">68dp</dimen>
+  <dimen name="num_passenger_image_height">34dp</dimen>
+</resources>

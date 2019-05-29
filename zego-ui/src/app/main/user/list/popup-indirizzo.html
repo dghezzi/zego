@@ -1,0 +1,37 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content style="width:600px">
+     <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+
+       <ui-gmap-marker
+             idKey="'ciao'"
+             coords='{latitude : item.lat,longitude : item.lng}'
+
+             >
+      </ui-gmap-marker>
+
+     </ui-gmap-google-map>
+
+
+     <md-list flex class="flex-gt-sm-100">
+       <md-list-item class="md-2-line md-no-proxy md-with-secondary ng-scope _md" >
+         <div class="md-list-item-text">
+           <h3 class="ng-binding">{{item.type}} / {{item.address}}</h3>
+           <p class="ng-binding">Inserito : {{item.insdate * 1000 | date : 'medium'}}  Lat : {{item.lat}}  Lng : {{item.lng}}</p>
+         </div>
+       </md-list-item>
+     </md-list>
+
+
+
+  </md-dialog-content>
+</md-dialog>

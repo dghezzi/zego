@@ -1,0 +1,104 @@
+<div id="login" class="flex-scrollable" layout="column" ms-scroll>
+    <div id="login-form-wrapper" layout="column" layout-align="center center">
+        <div id="login-form" class="md-whiteframe-8dp">
+            <div class="logo md-accent-bg">
+              <img src="/assets/images/logos/zego.png">
+                <span></span>
+            </div>
+
+            <!--<div class="title" translate="LOGIN.TITLE">Log in to your account</div>-->
+
+
+            <form name="loginForm" ng-submit="avanti()" novalidate>
+              <div ng-hide="step==2">
+
+                <div style="text-align:center">
+                  <a href="" class="btn facebook-login" ng-click="facebookLogin()">Facebook login</a>
+                </div>
+
+
+                <md-input-container class="md-block" md-no-float ng-show="step==1" style="text-align:center" >
+                    <p style="text-align:center">o <br>inserisci il tuo numero di telefono</p>
+
+                  <input type="text" id="numeroTelefono" ng-model="vm.form.phone" ng-intl-tel-input autocomplete="off">
+                  <!--  <input type="phone" name="phone" ng-model="vm.form.phone" placeholder="Phone number" required>
+                    <div ng-messages="loginForm.email.$error" role="alert" multiple>
+                        <div ng-message="required">
+                            <span >Phne number is required</span>
+                        </div>
+                        <div ng-message="pattern">
+                            <span >Must be a valid phone number</span>
+                        </div>
+                    </div>-->
+                </md-input-container>
+              </div>
+
+
+                <md-input-container class="md-block" md-no-float ng-show="step==2">
+                  <p>Inserisci il pin</p>
+                    <input type="password" name="password" ng-model="vm.form.pin" placeholder="Pin"
+
+                           required>
+                    <div ng-messages="loginForm.password.$error" role="alert">
+                        <div ng-message="required">
+                            <span >Inserisci il pin</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <div class="remember-forgot-password" layout="row" layout-xs="column"
+                     layout-align="space-between center" ng-show="step==2">
+                    <!--<md-checkbox class="remember-me" ng-model="data.cb1" aria-label="Remember Me">
+                        <span translate="LOGIN.REMEMBER_ME">Remember Me</span>
+                    </md-checkbox>-->
+
+                    <a href="" class="forgot-password md-accent-color" ng-click="resendPin()"
+                       >Invia nuovo pin</a>
+                </div>
+                 <!--ng-disabled="!vm.form.phone || vm.form.phone.length < 3"-->
+                <md-button type="submit" class="md-raised md-accent submit-button" aria-label="LOG IN"
+
+                            ng-show="step==1">
+                    AVANTI
+                </md-button>
+
+                <md-button type="submit" class="md-raised md-accent submit-button" aria-label="LOG IN"
+                           ng-disabled="!userselected || !vm.form.pin"
+                           translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN" ng-show="step==2">
+                    LOG IN
+                </md-button>
+            </form>
+
+
+            <!--
+            <div class="separator">
+                <span class="text" translate="LOGIN.OR">OR</span>
+            </div>
+
+
+
+            <md-button class="md-raised google">
+                <div layout="row" layout-align="center center">
+                <span>
+                    <md-icon md-font-icon="icon-google-plus" class="s16"></md-icon>
+                    <span translate="LOGIN.WITH_GOOGLE">Log in with Google</span>
+                </span>
+                </div>
+            </md-button>
+
+            <md-button class="md-raised facebook">
+                <div layout="row" layout-align="center center">
+                <span>
+                    <md-icon md-font-icon="icon-facebook" class="s16"></md-icon>
+                    <span translate="LOGIN.WITH_FACEBOOK">Log in with Facebook</span>
+                </span>
+                </div>
+            </md-button>
+-->
+          <!--  <div class="register" layout="row" layout-sm="column" layout-align="center center">
+                <span class="text" translate="LOGIN.DONT_HAVE_ACCOUNT">Don't have an account?</span>
+                <a class="link" ui-sref="app.pages_auth_register" translate="LOGIN.CREATE_ACCOUNT">Create an account</a>
+            </div>-->
+        </div>
+    </div>
+</div>

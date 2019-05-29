@@ -1,0 +1,36 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+
+
+  <!-- CONTENT -->
+
+
+  <div style="position:absolute;height:100%;width:100%;" class="mappa-driver">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+
+    </ui-gmap-google-map>
+
+    <md-toolbar>
+      <div class="md-toolbar-tools text-right">
+        <span flex></span>
+       <!--
+        <md-button ng-class="{'md-raised' : filtroDriver == 'tutti' }" ng-click="filtra('tutti')">Visualizza tutti</md-button>
+        <md-button ng-class="{'md-raised' : filtroDriver == 'idle' }" ng-click="filtra('idle')">Visualizza idle</md-button>
+        <md-button ng-class="{'md-raised' : filtroDriver == 'ingaggiati' }" ng-click="filtra('ingaggiati')">Visualizza ingaggiati</md-button>
+      -->
+      <span flex></span>
+
+      </div>
+    </md-toolbar>
+
+  </div>
+
+
+
+
+
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

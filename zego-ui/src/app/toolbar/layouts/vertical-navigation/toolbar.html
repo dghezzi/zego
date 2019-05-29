@@ -1,0 +1,23 @@
+<div layout="row" layout-align="start center">
+    <div layout="row" layout-align="start center" flex>
+        <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')"
+                   hide-gt-sm aria-label="Toggle navigation" translate
+                   translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
+            <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
+        </md-button>
+
+        <div class="toolbar-separator"></div>
+    </div>
+
+    <div layout="row" layout-align="start center">
+      <md-progress-circular id="toolbar-progress" ng-disabled="!$root.loadingProgress"  class="md-accent" md-diameter="32">
+      </md-progress-circular>
+
+      <div class="toolbar-separator"></div>
+
+ 
+
+
+
+    </div>
+</div>

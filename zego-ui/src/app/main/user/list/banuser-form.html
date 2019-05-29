@@ -1,0 +1,59 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content>
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+    <form name="lang" ng-submit="salva()" class="md-inline-form" novalidate>
+
+      <div layout="column" layout-gt-xs="row">
+
+        <md-input-container flex>
+
+            <p>
+              Stai per bannare l'utente
+
+            </p>
+            <p>
+              Inserisci una motivazione e continua
+            </p>
+
+        </md-input-container>
+
+      </div>
+ 
+      <div layout="column" layout-gt-xs="row">
+         
+
+           <md-input-container flex>
+              <label>Motivo</label>
+              <md-select ng-model="banreason">
+                  <md-option ng-repeat="m in motivazioniBan" ng-value="m.label">
+                      {{m.label}}
+                  </md-option>
+              </md-select>
+          </md-input-container>
+
+      </div>
+
+
+ 
+
+        <md-button type="submit" class="md-raised md-primary" aria-label="Submit"
+                   ng-disabled="user.$invalid || user.$pristine">
+            Salva
+        </md-button>
+    </form>
+
+</div>
+
+  </md-dialog-content>
+</md-dialog>

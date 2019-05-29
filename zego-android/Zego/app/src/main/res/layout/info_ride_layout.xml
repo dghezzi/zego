@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/cc_layout"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/cc_number_layout"
+            app:layout_widthPercent="50%"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/cc_image_view"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                android:layout_height="@dimen/height_info_ride_img"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cardgrey"/>
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/cc_number_text_view"
+                Font:customfont="Raleway-Italic.ttf"
+                android:layout_width="match_parent"
+                android:layout_height = "@dimen/height_info_ride_img"
+                android:textColor="@color/gray_text"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:minTextSize="10dp"
+                android:ellipsize="end"
+                android:layout_below="@+id/cc_image_view"
+                android:textSize="13dp"
+                android:gravity="center"
+                android:text = "-"
+                />
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/money_layout"
+            android:layout_toRightOf="@+id/cc_number_layout"
+            app:layout_widthPercent="50%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/money_image_view"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                android:layout_height="@dimen/height_info_ride_img"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cashgrey"/>
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/money_text_view"
+                Font:customfont="Raleway-Italic.ttf"
+                android:layout_width="match_parent"
+                android:layout_height = "@dimen/height_info_ride_img"
+                android:textColor="@color/gray_text"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_below="@+id/money_image_view"
+                android:textSize="13dp"
+                android:gravity="center"
+                android:text = "@string/contanti"
+                />
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="@color/gray_text"/>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/passengers_layout"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/passengers_content_layout"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/passengers_image_view"
+                android:layout_height="@dimen/height_info_ride_img"
+                android:layout_width="match_parent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                />
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/passengers_text_view"
+                Font:customfont="Raleway-Regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_height = "wrap_content"
+                android:textColor="@color/gray_text"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="@dimen/eta_console_text_size"
+                android:visibility="gone"
+                android:layout_below="@+id/passengers_image_view"
+                android:layout_centerHorizontal="true"
+                android:text = "@string/passengers"
+                />
+
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:background="@color/gray_text"/>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/estimated_price_layout"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/estimated_price_content_layout"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/estimated_price_text_view"
+                Font:customfont="Raleway-SemiBold.ttf"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_height = "wrap_content"
+                android:textColor="@color/darker_green_text"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="@dimen/estimated_price_text_size_info_ride"
+                android:layout_centerHorizontal="true"
+                tools:text = "30,45 €"
+                />
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/original_price_text_view"
+                Font:customfont="Raleway-Regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_height = "wrap_content"
+                android:textColor="@color/gray_text"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:visibility="gone"
+                android:textSize="@dimen/edit_price_text_size_info_ride"
+                android:layout_below="@+id/estimated_price_text_view"
+                android:layout_centerHorizontal="true"
+                />
+
+        </android.support.percent.PercentRelativeLayout>
+    </android.support.percent.PercentRelativeLayout>
+
+</merge>

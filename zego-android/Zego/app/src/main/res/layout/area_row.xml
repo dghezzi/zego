@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<it.sharethecity.mobile.letzgo.customviews.MyFontTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/area_text_view"
+    android:gravity="center"
+    Font:customfont="Raleway-Regular.ttf"
+    android:textColor="@color/darker_green_text"
+    android:textSize="@dimen/area_text_size"
+    tools:text="Milano"
+    android:layout_height="@dimen/area_row_height" />
+

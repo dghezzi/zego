@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/backgound_view"
+        android:layout_width ="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@android:color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_text"/>
+
+    </RelativeLayout >
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/person_profile_image_layout"
+            android:layout_marginLeft="5dp"
+            app:layout_widthPercent="26%"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/grenn_circle_stroke"/>
+
+            <ImageView
+                android:id="@+id/person_profile_image_view"
+                android:padding="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user_placeholder"/>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_toRightOf="@+id/person_profile_image_layout"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:id="@+id/new_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srb_starSize="30dp"
+                android:layout_centerInParent="true"
+                app:srb_numberOfStars="5"
+                app:srb_rating="5"
+                app:srb_stepSize="1"
+                app:srb_borderColor="@color/gray_text"
+                app:srb_fillColor="@color/green_zego"
+                />
+
+            <!--<android.support.v7.widget.AppCompatRatingBar-->
+                <!--android:id="@+id/rating_bar"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:paddingLeft="-3.5dp"-->
+                <!--android:progressTint="@color/green_zego"-->
+                <!--android:progressBackgroundTint="@color/gray_text"-->
+                <!--android:secondaryProgressTint="@color/gray_text"-->
+                <!--android:scaleX="0.85"-->
+                <!--android:scaleY="0.85"-->
+                <!--android:numStars="5"-->
+                <!--android:stepSize="1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"/>-->
+
+        </RelativeLayout>
+
+
+
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</merge>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageButton
+        android:id="@+id/driver_my_position_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight = "8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/eta_info_layout"
+        android:src="@drawable/localize"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"/>
+
+    <RelativeLayout
+        android:id="@+id/eta_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="6dp"
+        android:layout_above="@+id/info_rider_view"
+        android:background="@android:color/white">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <RelativeLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/driver_eta_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:id="@+id/eta_layout"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/driver_arrives_in_label"
+                        Font:customfont="Raleway-Regular.ttf"
+                        android:textSize="16sp"
+                        android:clickable="true"
+                        android:textStyle="bold"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_centerVertical="true"
+                        app:minTextSize="@dimen/min_text_size"
+                        tools:text = "@string/driver_arrives_in"
+                        android:textColor="@color/black_text"
+                        android:layout_width="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content"/>
+
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/eta_value_text_view"
+                        Font:customfont="Raleway-SemiBold.ttf"
+                        android:textSize="17sp"
+                        android:clickable="true"
+                        android:layout_centerVertical="true"
+                        tools:text = "45 min"
+                        app:minTextSize="@dimen/min_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/driver_arrives_in_label"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/green_zego"
+                        android:layout_width="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/cancel_term"
+                android:layout_below="@+id/driver_eta_layout"
+                Font:customfont="Raleway-Regular.ttf"
+                android:textSize="12sp"
+                android:clickable="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                app:minTextSize="@dimen/min_text_size"
+                android:singleLine="true"
+                android:text = "@string/two_min_to_cancel"
+                android:textColor="@color/black_text"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_text"/>
+
+    </RelativeLayout>
+
+    <it.sharethecity.mobile.letzgo.customviews.DriverInfoView
+        android:layout_above="@+id/address_layout"
+        android:id="@+id/info_rider_view"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:id="@+id/address_layout"
+        android:layout_above="@+id/buttons_layout"
+        android:padding="10dp"
+        android:background="@android:color/white"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/pallino"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:padding="3dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/puntogrigio"/>
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/puaddr_req_text_view"
+            Font:customfont="Raleway-Regular.ttf"
+            android:textSize="@dimen/abort_passenger_address_text_size"
+            app:minTextSize="@dimen/min_text_size"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:text = "via san piero a caggiana"
+            android:layout_toRightOf="@+id/pallino"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black_text"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/buttons_layout"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="60dp">
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/abort_req_text_view"
+            Font:customfont="Raleway-SemiBold.ttf"
+            android:textSize="@dimen/abort_text_view_size"
+            android:clickable="true"
+            android:textStyle="bold"
+            android:text = "@string/cancel"
+            android:layout_toRightOf="@+id/pickup_indicator"
+            android:layout_toLeftOf="@+id/pickup_cancel_img"
+            android:textColor="@color/red_cancel"
+            app:layout_widthPercent="40%"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:id="@+id/call_button"
+            app:layout_widthPercent="60%"
+            android:clickable="true"
+            android:background="@android:color/white"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <RelativeLayout
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                    android:id="@+id/call_req_text_view"
+                    Font:customfont="Raleway-SemiBold.ttf"
+                    android:textSize="@dimen/abort_text_view_size"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:text = "@string/call"
+                    android:layout_toRightOf="@+id/pickup_indicator"
+                    android:layout_toLeftOf="@+id/pickup_cancel_img"
+                    android:textColor="@color/green_zego"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/phone_img"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/call_req_text_view"
+                    android:layout_centerVertical="true"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tel_icon"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</merge>

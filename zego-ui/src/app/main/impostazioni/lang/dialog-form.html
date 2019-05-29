@@ -1,0 +1,54 @@
+<md-dialog>
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{titoloDialog}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="/assets/angular-material-assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <md-dialog-content>
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+    <div ng-show="errore && errore!=''">
+      <h3>{{errore}}</h3>
+      <md-button ng-click="errore = ''">OK</md-button>
+    </div>
+    <form name="lang" ng-submit="salva()" class="md-inline-form" novalidate ng-show="!errore || errore==''">
+
+
+
+
+      <div layout="column" layout-gt-xs="row">
+          <md-input-container flex>
+              <label>Scegli la lingua da aggiungere</label>
+              <md-select ng-model="linguaSelezionata.lang">
+                  <md-option ng-repeat="lingua in lingueDisponibili" ng-value="lingua.lang">
+                      {{lingua.lang}}
+                  </md-option>
+              </md-select>
+          </md-input-container>
+      </div>
+
+      <div layout="column" layout-gt-xs="row">
+          <md-input-container flex>
+              <label>Isocode</label>
+              <input type="text" ng-model="linguaSelezionata.isocode" maxlength="2">
+          </md-input-container>
+      </div>
+
+
+
+      <span ng-show="messaggioErrore">{{messaggioErrore}}</span>
+        <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                   ng-disabled="user.$invalid || user.$pristine">
+            Salva
+        </md-button>
+    </form>
+
+</div>
+
+  </md-dialog-content>
+</md-dialog>

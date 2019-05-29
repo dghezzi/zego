@@ -1,0 +1,79 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+
+
+  <!-- CONTENT -->
+
+
+
+  <ui-gmap-google-map center='map.center' zoom='map.zoom' options='map.options'>
+
+    <ui-gmap-marker
+          idKey="'AIzaSyBwEMG-7Gep-5USloI52JL41Ws-7orG9w4'"
+          coords='{latitude : item.lat,longitude : item.lng}'
+
+          >
+   </ui-gmap-marker>
+
+  </ui-gmap-google-map>
+
+
+  <md-toolbar>
+    <div class="md-toolbar-tools text-right">
+      <span flex></span>
+      <small class="data-filtro" ng-show="filtermode && filtermode!=''">{{filtermode}} </small>
+      <small ng-show="riderequests"> {{riderequests.length}} risultati trovati</small>
+
+    <span flex></span>
+
+  </div>
+  </md-toolbar>
+  <div layout="row" flex class="content" style="z-index:100" >
+
+<h3>Filtra</h3>
+
+</div>
+  <div layout="row" flex="80" class="content" style="z-index:100" >
+
+          <md-input-container flex>
+            <label>Da</label>
+            <md-datepicker ng-model="vm.intervallo.filter.range.reqdate.from" name="dateField"
+            md-max-date="vm.intervallofilter.range.reqdate.to" md-open-on-focus ></md-datepicker>
+
+          </md-input-container >
+          <md-input-container flex  >
+            <label>A</label>
+            <md-datepicker ng-model="vm.intervallo.filter.range.reqdate.to" name="dateField"
+            md-min-date="vm.intervallo.filter.range.reqdate.from" class="md-no-float" md-open-on-focus></md-datepicker>
+
+          </md-input-container >
+      <md-input-container flex>
+        <label>Stato</label>
+        <md-select ng-model="vm.generic.simple.status">
+
+            <md-option ng-repeat="request in requestStatusLabel" ng-value="$index">
+                {{request}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+          </div>
+  <div layout="row" flex class="content" style="z-index:100" >
+          <div>
+          <md-button class="md-raised md-primary" ng-click="filtraIntervallo()">Filtra</md-button>
+        </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

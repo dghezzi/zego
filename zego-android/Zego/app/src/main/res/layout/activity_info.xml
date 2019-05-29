@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.InfoActivity">
+
+    <include layout="@layout/header" android:id="@+id/header"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/faq_button"
+            android:textSize="20sp"
+            android:gravity="center"
+            Font:customfont="Raleway-Italic.ttf"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:text="@string/faq"
+            android:layout_height="@dimen/info_cell_height" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:visibility="gone"
+            android:id="@+id/tutorial_button"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/tutorial"
+            Font:customfont="Raleway-Italic.ttf"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_cell_height" />
+        <View
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/web_site_button"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/web_site"
+            Font:customfont="Raleway-Italic.ttf"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_cell_height" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/info_legali_button"
+            android:textSize="20sp"
+            android:gravity="center"
+            Font:customfont="Raleway-Italic.ttf"
+            android:text="@string/tec"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_cell_height" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/privacy"
+            android:textSize="20sp"
+            android:gravity="center"
+            Font:customfont="Raleway-Italic.ttf"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:text="@string/privacy"
+            android:layout_height="@dimen/info_cell_height" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+            android:id="@+id/contact_us"
+            android:textSize="20sp"
+            android:gravity="center"
+            Font:customfont="Raleway-Italic.ttf"
+            android:textColor="@color/gray_text"
+            android:layout_width="match_parent"
+            android:text="@string/contact_us"
+            android:layout_height="@dimen/info_cell_height" />
+
+    </LinearLayout>
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/app_version_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        Font:customfont="Raleway-SemiBold.ttf"
+        android:textSize="10sp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        tools:text="V.1.0.0"/>
+
+</RelativeLayout>

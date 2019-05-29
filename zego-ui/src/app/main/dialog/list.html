@@ -1,0 +1,88 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Gestione dialog</span>
+            </div>
+            <div class="title">Gestione dialog</div>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-raised reference-button md-primary"
+                      ng-click="showAdvanced(event)">
+                <md-icon md-font-icon="icon-plus"></md-icon>
+                <span>Aggiungi dialog</span>
+            </md-button>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+
+        <div class="white-bg md-whiteframe-4dp">
+            <table   class="simple row-border hover" ms-responsive-table>
+              <thead>
+
+                    <tr>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Tipo</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Titolo</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Valido da</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Valido fino a </span>
+                            </div>
+                        </th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr ng-repeat="appversion in vm.dialogList">
+                      <td title="'Versione'">
+
+                          {{appversion.type == 'tc' ? 'Termini e condizioni' : appversion.type}}
+
+                      </td>
+                      <td>
+
+                          {{appversion.title}}
+
+                      </td>
+
+                        <td>{{ appversion.validfrom * 1000| date : 'medium' }}</td>
+                        <td><span ng-show="appversion.validto">{{ appversion.validto * 1000| date : 'medium' }}</span></td>
+
+
+
+                        <td>
+                          <md-button ng-click="modifica(event,appversion)">Modifica</md-button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

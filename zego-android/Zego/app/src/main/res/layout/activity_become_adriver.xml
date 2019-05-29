@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_become_adriver"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.sharethecity.mobile.letzgo.activities.BecomeADriverActivity">
+
+    <include layout="@layout/header" android:id="@+id/header"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/become_drive_title_text_view"
+        android:layout_below="@+id/header"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        Font:customfont="Raleway-SemiBold.ttf"
+        android:textColor="@color/gray_text_app"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/become_driver_title"
+        />
+
+    <ListView
+        android:id="@+id/areas_list_view"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/become_drive_title_text_view"
+        android:divider="@color/gray_text"
+        android:dividerHeight="0.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+        android:id="@+id/driver_data_info_text"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        Font:customfont="Raleway-SemiBold.ttf"
+        android:textColor="@color/gray_text_app"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="@dimen/no_ride_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:visibility="gone"
+        android:id="@+id/progress_wheel"
+        android:layout_width="@dimen/hud_dimen"
+        android:layout_height="@dimen/hud_dimen"
+        android:layout_centerInParent="true"
+        wheel:matProg_barColor="@android:color/white"
+        android:background="@color/green_zego_with_alpha"
+        wheel:matProg_progressIndeterminate="true" />
+
+
+    <Button
+        android:id="@+id/load_documents_button"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        android:background="@drawable/green_button_selector"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/button_text_size"
+        android:layout_width="match_parent"
+        android:text="@string/load_documents"
+        android:layout_height="45dp" />
+
+</RelativeLayout>

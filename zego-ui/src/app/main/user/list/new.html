@@ -1,0 +1,245 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+
+      <div class="title row" layout-align="start center">
+        <div layout="column" style="margin-bottom: 30px;" layout-gt-sm="row">
+          <div flex>
+
+            <figure class="user-img" ng-click="vediFoto(event)">
+
+
+              <img src="{{vm.user.img ? vm.user.img : '/assets/images/userplaceholder.png'}}">
+            </figure>
+          </div>
+          <span flex style="display: flex;justify-content: center;align-items: center;text-align: left">
+            {{vm.user.fname}} {{vm.user.lname}}
+          </span>
+
+
+         <div style="visibility: hidden">
+           <div class="md-dialog-container" id="myDialog">
+             <md-dialog layout-padding>
+               <figure class="user-img-lg">
+                 <img src="{{vm.user.img ? vm.user.img : '/assets/images/userplaceholder.png'}}">
+               </figure>
+
+               <div class="row">
+
+                <md-button class="md-raised md-primary">Elimina</md-button>
+                <md-button ng-click="chiudiFoto()">Chiudi</md-button>
+              </div>
+             </md-dialog>
+           </div>
+         </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- / HEADER -->
+
+  <!-- CONTENT -->
+
+
+
+  <md-toolbar>
+    <div class="md-toolbar-tools text-right">
+      <span flex></span>
+
+
+      <md-button class="md-raised md-primary reference-button"  ng-click="salva()" ng-if="navigazione.mode == 'new' ">
+        <span>Salva</span>
+      </md-button>
+
+
+
+    <span flex></span>
+
+  </div>
+  </md-toolbar>
+
+
+  <div class="content" style="z-index:100">
+    <div class="user-status">
+      <i class="icon " ng-class="{'draft icon-timer' : vm.user.status == 0,'icon-check ok' : vm.user.status == 1,'icon-block-helper bannato' : vm.user.status == 2}"></i>
+      <md-tooltip>
+        {{vm.user.status == 0 ? 'Utente non approvato' : (vm.user.status == 1 ? 'Utente valido' : 'Utente bannato' )}}
+      </md-tooltip>
+    </div>
+
+
+    <div class="white-bg md-whiteframe-4dp" layout="row">
+
+
+      <md-content flex="80">
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Dati utente">
+
+
+            <div layout="row">
+
+              <!-- BASIC FORM -->
+              <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+
+<br>
+<br>
+
+                <form id="formUser" name="formUser" class="md-inline-form" novalidate>
+
+
+                  <div layout="column" layout-gt-sm="row">
+                    <md-input-container flex>
+                     <label>Tipo</label>
+                        <md-select placeholder="Tipo" ng-model="vm.user.utype">
+
+                          <md-option ng-value="'user'">
+                             User
+                          </md-option>
+                          <md-option ng-value="'admin'">
+                             Admin
+                          </md-option>
+                        </md-select>
+
+                  </md-input-container>
+
+
+                </div>
+                <br>
+                <div layout="column" layout-gt-sm="row" ng-if="vm.user.utype == 'admin'">
+
+                     <md-input-container flex>
+                        <input type="password" name="firstname" ng-model="vm.user.password"
+                        placeholder="Password" required
+                        >
+
+                    </md-input-container>
+
+                </div>
+                <div layout="column" layout-gt-sm="row">
+                  <md-input-container flex>
+                    <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.user.fname"
+                    placeholder="Nome"
+                    >
+                    <div ng-messages="user.fname.$error"
+                    role="alert">
+                    <div ng-message="required">
+                      <span>Inserisci il nome.</span>
+                    </div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex>
+                  <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="vm.user.lname" placeholder="Cognome"
+                  >
+                  <div ng-messages="user.lname.$error"
+                  role="alert">
+                  <div ng-message="required">
+                    <span>Inserisci il cognome.</span>
+                  </div>
+                </div>
+              </md-input-container>
+
+
+            </div>
+
+            <div layout="column" layout-gt-sm="row">
+
+              <md-input-container  flex>
+                  <label>Sesso</label>
+                  <md-select placeholder="Sesso" ng-model="vm.user.gender">
+                    <md-option ng-value="null">
+                       Non selezionato
+                    </md-option>
+                    <md-option ng-value="'male'">
+                       Uomo
+                    </md-option>
+                    <md-option ng-value="'female'">
+                       Donna
+                    </md-option>
+                  </md-select>
+              </md-input-container>
+
+
+              <md-input-container flex>
+                <input ng-readonly="navigazione.mode=='info'" type="email" required name="email" ng-model="vm.user.email"
+                placeholder="Email"
+                required>
+                <div ng-messages="user.email.$error"
+                role="alert">
+                <div ng-message="required">
+                  <span>Inserisci la mail.</span>
+                </div>
+              </div>
+            </md-input-container>
+
+
+
+
+
+        </div>
+
+
+
+<div layout="column" layout-gt-xs="row">
+  <md-input-container flex>
+    <label>Prefisso</label>
+    <input ng-readonly="navigazione.mode=='info'" required type="text" name="city" ng-model="vm.user.prefix">
+  </md-input-container>
+
+  <md-input-container flex>
+    <label>Telefono</label>
+    <input ng-readonly="navigazione.mode=='info'" required type="text" name="city" ng-model="vm.user.mobile">
+  </md-input-container>
+
+
+</div>
+
+
+
+
+
+
+</form>
+
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+
+
+</md-tab>
+
+</md-tabs>
+</md-content>
+
+
+
+
+<div class="form-wrapper form-data-wrapper md-whiteframe-1dp">
+
+
+
+</div>
+
+
+
+</div>
+
+</div>
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

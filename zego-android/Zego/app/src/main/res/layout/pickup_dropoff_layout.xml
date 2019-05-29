@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/track_image"
+        android:layout_width="0.5dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="17dp"
+        android:background="@color/gray_text"
+        android:layout_centerVertical="true"
+        />
+
+
+    <LinearLayout
+
+        xmlns:Font="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <ImageButton
+                android:id="@+id/pickup_indicator"
+                android:layout_marginRight="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:src="@drawable/puntogrigio"/>
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/pickup_addr_text_view"
+                Font:customfont="Raleway-Regular.ttf"
+                android:textSize="17sp"
+                android:clickable="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:ellipsize="end"
+                app:minTextSize="@dimen/min_text_size"
+                tools:text = "via san piero a caggiana"
+                android:layout_toRightOf="@+id/pickup_indicator"
+                android:layout_toLeftOf="@+id/pickup_cancel_img"
+                android:textColor="@color/black_text"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"/>
+            <ImageButton
+                android:id="@+id/pickup_cancel_img"
+                android:layout_marginRight="5dp"
+                android:padding="3dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/cancel_x"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="45dp"
+            android:background="@color/gray_text"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:layout_height="0dp">
+            <ImageButton
+                android:id="@+id/dropoff_indicator"
+                android:layout_marginRight="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:src="@drawable/puntoverde"/>
+            <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                android:id="@+id/dropoff_add_text_view"
+                Font:customfont="Raleway-Regular.ttf"
+                android:textSize="17sp"
+                android:clickable="true"
+                android:layout_toRightOf="@+id/dropoff_indicator"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:ellipsize="end"
+                app:minTextSize="@dimen/min_text_size"
+                android:layout_toLeftOf="@+id/dropoff_cancel_img"
+                android:textColor="@color/black_text"
+                android:layout_width="match_parent"
+                android:hint="@string/search_destination_address"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"/>
+            <ImageButton
+                android:id="@+id/dropoff_cancel_img"
+                android:padding="3dp"
+                android:visibility="invisible"
+                android:layout_marginRight="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/cancel_x"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_text"/>
+    </LinearLayout>
+
+
+</merge>

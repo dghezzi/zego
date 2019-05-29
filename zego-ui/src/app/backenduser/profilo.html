@@ -1,0 +1,725 @@
+  <div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page " ng-class="{'form-check-mod' :navigazione.mode == 'info' }">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+
+      <div class="title row" layout-align="start center">
+        <div layout="column" style="margin-bottom: 30px;" layout-gt-sm="row">
+          <div flex>
+
+            <!--<figure class="user-img">
+
+              <i class="icon icon-eye" ng-if="navigazione.mode=='edit'" ng-click="vediFoto(event)">
+                <md-tooltip>Elimina foto utente</md-tooltip>
+              </i>
+              <img src="{{vm.user.img ? vm.user.img : '/assets/images/userplaceholder.png'}}">
+            </figure>-->
+
+          </div>
+          <span flex style="display: flex;justify-content: center;align-items: center;text-align: left">
+            {{vm.user.fname}} {{vm.user.lname}}
+
+            <!--{{vm.user.refcode}}-->
+          </span>
+
+
+         <!--<div style="visibility: hidden">
+           <div class="md-dialog-container" id="myDialog">
+             <md-dialog layout-padding>
+               <figure class="user-img-lg">
+                 <img src="{{vm.user.img ? vm.user.img : '/assets/images/userplaceholder.png'}}">
+               </figure>
+
+               <div class="row">
+
+                <md-button class="md-raised md-primary">Elimina</md-button>
+                <md-button ng-click="chiudiFoto()">Chiudi</md-button>
+              </div>
+             </md-dialog>
+           </div>
+         </div>-->
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="start center">
+
+
+      <!--
+      <md-button class="md-raised md-primary reference-button" ng-click="salva()" ng-if="navigazione.mode == 'new' ">
+        <span>Salva</span>
+      </md-button>-->
+
+      <!--<md-menu md-position-mode="target-right target" ng-if="navigazione.mode != 'new' ">
+        <md-button aria-label="Open phone interactions menu" class="md-raised md-primary reference-button" ng-click="$mdOpenMenu($event)">
+          <span>Azioni</span>
+        </md-button>
+
+
+        <md-menu-content width="4">-->
+
+          <!--<md-menu-item ng-show="navigazione.mode != 'edit'" >
+            <md-button ng-click="attivaModifica()">
+              <md-icon class="icon icon-pencil"></md-icon> Modifica utente
+            </md-button>
+          </md-menu-item>
+
+          <md-menu-item ng-show="navigazione.mode == 'edit'">
+            <md-button ng-click="salvaModifica()">
+              <md-icon class="icon icon-floppy"></md-icon> Salva utente
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-show="navigazione.mode == 'edit'">
+            <md-button ng-click="annullaModifica()">
+              <md-icon class="icon icon-cancel"></md-icon> Annulla modifica
+            </md-button>
+          </md-menu-item>
+
+          <md-menu-divider></md-menu-divider>
+-->
+
+
+
+        <!--  <md-menu-item ng-show="vm.user.status !=2">
+            <md-button ng-disabled="navigazione.mode == 'edit'" ng-click="bannaUtente(event)">
+              <md-icon class="icon icon-block-helper"></md-icon> Banna utente
+            </md-button>
+          </md-menu-item>
+
+          <md-menu-item ng-show="vm.user.status !=2">
+            <md-button  ng-click="inviaPin(event)">
+              <md-icon class="icon icon-message-processing"></md-icon> Invia nuovo pin
+            </md-button>
+          </md-menu-item>
+
+
+
+          <md-menu-item ng-show="vm.user.status ==2"  >
+            <md-button ng-disabled="navigazione.mode == 'edit'"   ng-click="debannaUtente(event)">
+              <md-icon class="icon icon-block-helper"></md-icon> Togli ban
+            </md-button>
+          </md-menu-item>
+
+
+
+
+          <md-menu-item>
+            <md-button ng-disabled="navigazione.mode == 'edit'" ng-click="eliminaUtente()">
+              <md-icon class="icon icon-trash"></md-icon> Elimina utente
+            </md-button>
+          </md-menu-item>
+
+
+          <md-menu-divider></md-menu-divider>
+
+        </md-menu-content>
+      </md-menu>-->
+
+
+    </div>
+  </div>
+  <!-- / HEADER -->
+
+  <!-- CONTENT -->
+
+
+
+  <md-toolbar>
+    <div class="md-toolbar-tools text-right">
+      <span flex></span>
+
+
+
+
+      <md-button class="md-raised md-primary reference-button"  ng-click="effettuaRichiesta()" ng-show="(driverdata.status==1 || driverdata.status==4) && driverdata.status !=3">
+        <span>Invia richiesta</span>
+      </md-button>
+
+
+      <!--<md-button ng-click="attivaModifica()" ng-show="navigazione.mode != 'edit'">
+        <md-icon class="icon icon-pencil"></md-icon> Modifica utente
+      </md-button>-->
+
+      <md-button ng-click="formUser.$valid && salvaModifica()" ng-show="navigazione.mode == 'edit'" ng-show="driverdata.status!=1 && driverdata.status !=3">
+
+        <md-icon class="icon icon-floppy"></md-icon> Salva modifiche
+      </md-button>
+
+      <!--<md-button class="md-button md-raised" ng-click="annullaModifica()" ng-show="navigazione.mode == 'edit'">
+        <md-icon class="icon icon-cancel"></md-icon> Annulla modifica
+      </md-button>-->
+
+
+    <span flex></span>
+
+  </div>
+  </md-toolbar>
+
+
+  <div class="content" style="z-index:100">
+    <!--<div class="user-status">
+      <i class="icon " ng-class="{'draft icon-timer' : vm.user.status == 0,'icon-check ok' : vm.user.status == 1,'icon-block-helper bannato' : vm.user.status == 2}"></i>
+      <md-tooltip>
+        {{vm.user.status == 0 ? 'Utente non approvato' : (vm.user.status == 1 ? 'Utente valido' : 'Utente bannato' )}}
+      </md-tooltip>
+    </div>-->
+
+
+    <div class="white-bg md-whiteframe-4dp" layout="row">
+
+
+      <md-content flex="100" class="easy-reading">
+
+        <p style="padding:2em;text-align:center" ng-show="driverdata.status == 5">Warning: "La tua richiesta è stata inoltrata correttamente, riceverai una mail di conferma al termine della verifica dei tuoi dati"</p>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Dati utente">
+
+
+
+
+            <div layout="row">
+
+              <!-- BASIC FORM -->
+              <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+
+<br>
+<br>
+                <form id="formUser" name="formUser" class="md-inline-form">
+
+
+                <div layout="column" layout-gt-sm="row">
+                  <md-input-container flex>
+                    <label>Nome</label>
+                    <input required ng-readonly="driverdata.status==2 || driverdata.status==5" type="text" name="firstname" ng-model="vm.user.fname"
+                    placeholder="Nome"
+                    >
+                    <div ng-messages="user.fname.$error"
+                    role="alert">
+                    <div ng-message="required">
+                      <span>Inserisci il nome.</span>
+                    </div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex>
+                  <label>Cognome</label>
+                  <input required ng-readonly="driverdata.status==2 || driverdata.status==5" type="text" name="lastname" ng-model="vm.user.lname" placeholder="Cognome"
+                  >
+                  <div ng-messages="user.lname.$error"
+                  role="alert">
+                  <div ng-message="required">
+                    <span>Inserisci il cognome.</span>
+                  </div>
+                </div>
+              </md-input-container>
+
+
+
+            </div>
+
+            <div layout="column" layout-gt-sm="row">
+              <md-input-container flex="10" ng-if="driverdata.status !=2">
+                <label class="md-no-float">Data di nascita</label>
+                <md-datepicker ng-required="true" md-current-view="year" required ng-readonly="driverdata.status!=2" ng-model="vm.user.birthdate"   md-open-on-focus></md-datepicker>
+
+              </md-input-container >
+              <md-input-container flex="10" ng-if="driverdata.status ==2">
+
+                <input type="text"  readonly placeholder="Data di nascita"  value="{{vm.user.birthdate | date : 'dd-MMM-yyyy'}}">
+              </md-input-container >
+              <!--<div flex>
+              <md-radio-group ng-model="data.group1">
+                 <md-radio-button value="Apple" class="md-primary"> Nato in italia</md-radio-button>
+                 <md-radio-button value="Banana"> Nato all'estero </md-radio-button>
+
+               </md-radio-group>
+             </div>-->
+             <md-input-container flex="40">
+               <!--<label >Comune di nascita</label>-->
+               <!--<input  type="text" name="lastname" ng-model="driverdata.birthcity" placeholder="Comune di nascita"
+               >-->
+
+                 <md-autocomplete  md-min-length="2" ng-model="driverdata.birthcity" md-selected-item="driverdata.birthcity" md-search-text="searchText" md-items="item in getCities(searchText)" md-item-text="item.name"
+                   md-floating-label="Comune di nascita" ng-readonly="driverdata.status==2 || driverdata.status==5"
+                 >
+                 <span md-highlight-text="searchText">{{item.name}}</span>
+                 </md-autocomplete>
+
+
+
+
+             </md-input-container >
+
+
+                              <!--  <md-input-container flex>
+                                  <label >Nazione</label>
+                                  <input ng-readonly="driverdata.status==2 || driverdata.status==5" type="text" name="lastname" ng-model="driverdata.birthcountry" placeholder="Nazione di nascita"
+                                  >-->
+
+
+                                  <md-input-container flex ng-if="driverdata.status !=2 &&  driverdata.status!=5">
+                                        <label>Nazione</label>
+                                        <md-select ng-readonly="driverdata.status==2 || driverdata.status==5" ng-model="driverdata.birthcountry">
+                                        <md-option ng-repeat="state in stati" ng-value="state.name">
+                                        {{state.name}}
+                                      </md-option>
+                                    </md-select>
+
+
+                                </md-input-container >
+
+                                  <md-input-container flex ng-if="driverdata.status ==2 || driverdata.status==5">
+                                        <label>Nazione</label>
+                                        <input ng-readonly="driverdata.status==2 || driverdata.status==5" ng-model="driverdata.birthcountry">
+
+
+
+                                </md-input-container >
+
+
+             <!--<md-input-container flex>
+                   <label>Stato di nascita</label>
+                   <md-select ng-model="driverdata.birthcountry">
+                   <md-option ng-repeat="state in stati" value="{{state.abbrev}}">
+                   {{state.abbrev}}
+                 </md-option>
+               </md-select>
+             </md-input-container>-->
+
+            </div>
+            <div layout="column" layout-gt-sm="row">
+              <md-input-container flex>
+                <label >Codice fiscale</label>
+                <input type="text" name="cf" ng-model="driverdata.cf" ng-readonly="driverdata.status==2 || driverdata.status==5" placeholder="Codice fiscale" cf
+                >
+
+                <div ng-messages="formUser.cf.$error"
+                    role="alert">
+
+                    <div ng-message="cf">
+                      <span>Questo campo deve contenere un codice fiscale valido</span>
+                    </div>
+                  </div>
+
+              </md-input-container >
+
+
+
+
+              <!--<md-input-container flex>
+                <label >Area di competenza</label>
+                <input type="text" name="lastname" ng-model="driverdata.area" ng-readonly="driverdata.status==2 || driverdata.status==5" placeholder="Area di competenza"
+                >
+
+              </md-input-container >-->
+
+
+            </div>
+
+
+
+
+          <div layout="column" layout-gt-sm="row">
+
+            <md-input-container flex>
+              <label >Indirizzo di residenza</label>
+              <input  type="text" name="lastname" ng-model="driverdata.address" placeholder="Indirizzo di residenza"
+              >
+
+            </md-input-container >
+                          <md-input-container md-no-float flex>
+
+
+                                          <md-autocomplete required md-min-length="2" ng-model="driverdata.city" md-selected-item="driverdata.city" md-search-text="cercaTestoRes" md-items="item in getCitiesRes(cercaTestoRes)" md-item-text="item.name"
+                                            md-floating-label="Comune di residenza" md-nofloat
+                                          >
+                                          <span md-highlight-text="searchText">{{item.name}}</span>
+                                        </md-autocomplete>
+                                      </md-input-container >
+
+                                      <md-input-container flex>
+                                        <label >CAP</label>
+                                        <input required  type="text" name="cap" ng-model="driverdata.cap" placeholder="CAP" ng-pattern="/^[0-9]*$/"
+                                        >
+ <div ng-messages="formUser.cap.$error"
+                    role="alert">
+                    <div ng-message="pattern">
+                      <span>Inserisci solo cifre numeriche</span>
+                    </div>
+                  </div>
+                                      </md-input-container >
+                        </div>
+
+
+
+                        <div layout="column" layout-gt-sm="row">
+
+                          <md-input-container flex>
+                            <label >IBAN per accredito</label>
+                           <input  type="text" name="iban" ng-model="driverdata.iban" placeholder="Iban per accredito" ng-iban />
+            <div ng-messages="formUser.iban.$error"
+                    role="alert">
+
+                    <div ng-message="ngIban">
+                      <span>Questo campo deve contenere un IBAN valido</span>
+                    </div>
+                  </div>
+                            <span class="error">{{ibanerror}}</span>
+
+                          </md-input-container >
+                        </div>
+
+
+
+                        <div layout="column" layout-gt-sm="row">
+
+                          <md-input-container flex>
+                           <md-checkbox md-no-ink ng-model="vm.user.cardonly" ng-true-value="1" ng-false-value="0" >
+Solo pagamenti con carte di credito
+</md-checkbox>
+
+                          </md-input-container >
+                        </div>
+
+
+
+
+</form>
+
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+
+
+</md-tab>
+
+
+
+
+
+<md-tab label="Dati veicolo" ng-disabled="!vm.user || !driverdata">
+
+
+
+            <div layout="row">
+<div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+
+
+            </div>
+            </div>
+
+                  <div layout="row">
+
+                    <!-- BASIC FORM -->
+                    <div class="form-wrapper md-whiteframe-1dp" flex="100">
+
+
+
+      <br>
+      <br>
+
+                      <form id="formVeicolo" name="formVeicolo" class="md-inline-form" >
+
+                        <div layout="column" layout-gt-sm="row">
+                          <div flex>
+                            <figure class="car-img">
+                              <img  ng-src="{{driverdata.carimg}}">
+                            </figure>
+                          </div>
+
+                          <div flex>
+                            <md-button ng-click="nuovaCarImg()" ng-show="driverdata.carimg && driverdata.carimg!=''">Cambia immagine veicolo</md-button>
+
+                            <div ng-show="!driverdata.carimg || driverdata.carimg == ''">
+                                    <div class="" flex="80">
+
+                                            <h3  class="ng-binding">Immagine veicolo</h3>
+                                            <p>La dimensione massima per l'immagine del veicolo è di 5 MB.</p>
+
+                                            <h3 style="" >
+                                                <input   type="file" name="" data-id="{{allegato.id}}" onchange="angular.element(this).scope().carImgCambiato(this)">
+
+                                                 <div layout="row" ng-show="false" ng-show="uploadInCorso[allegato.id]">
+                                                     <div flex="20">
+                                                      <md-progress-circular  md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                                     </div>
+                                                     <div flex="80" style="text-align:left">Upload del file in corso</div>
+                                                  </div>
+
+                                            </h3>
+
+
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <br><br>
+      <div layout="column" layout-gt-sm="row">
+        <md-input-container flex>
+          <label >Targa automobile</label>
+          <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="driverdata.plate" placeholder="Targa automobile"
+          >
+
+        </md-input-container >
+        <md-input-container flex>
+          <label >Modello autoveicolo</label>
+          <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="driverdata.model" placeholder="Modello autoveicolo"
+          >
+
+        </md-input-container >
+
+        <md-input-container flex>
+              <label>Brand</label>
+              <md-select  ng-model="driverdata.brand">
+              <md-option ng-repeat="m in listaManufacturer" ng-value="m.manufacturer">
+              {{m.manufacturer}}
+            </md-option>
+          </md-select>
+
+
+      </md-input-container >
+
+      <!--
+        <md-input-container flex>
+          <label >Marca Autoveicolo</label>
+          <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="driverdata.brand" placeholder="Marca Autoveicolo"
+          >
+
+        </md-input-container >
+-->
+      </div>
+        <div layout="column" layout-gt-sm="row">
+          <md-input-container flex>
+            <label >Colore Autoveicolo</label>
+            <input ng-readonly="navigazione.mode=='info'" type="text" name="lastname" ng-model="driverdata.color" placeholder="Colore Autoveicolo"
+            >
+
+          </md-input-container >
+
+          <md-input-container flex>
+            <label >Posti</label>
+            <input   type="text" name="lastname" ng-model="driverdata.seat" placeholder="Posti"
+            >
+
+          </md-input-container >
+
+          <md-input-container flex>
+            <label >Anno</label>
+            <input   type="text" name="lastname" ng-model="driverdata.year" placeholder="Anno"
+            >
+
+          </md-input-container >
+
+
+
+
+
+
+      </div>
+</form>
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+</md-tab>
+
+
+
+
+<md-tab label="Documenti" ng-disabled="!vm.user || !driverdata">
+
+
+
+                  <div layout="row">
+
+
+                    <!-- BASIC FORM -->
+                    <div class="form-wrapper md-whiteframe-1dp" flex="100">
+      <br>
+      <br>
+
+                      <form id="formDocumenti" name="formDriver" class="md-inline-form" novalidate>
+
+
+                        <md-input-container flex>
+                          <label class="md-no-float">Scadenza patente</label>
+                          <md-datepicker ng-required="true" md-current-view="year" ng-model="driverdata.docexpdate" name="dateField" placeholder="Scadenza patente"
+                           md-open-on-focus ></md-datepicker>
+
+
+
+                        </md-input-container >
+
+                        {{messaggioAggiornaPatente}}
+
+
+                        <p>La dimensione massima per i documenti da caricare è di 5 MB.</p>
+
+                        <div layout="column documento" layout-gt-sm="row"  >
+
+                        <div class="padding-top-15" flex="20" style="max-width:50px">
+                                 <div layout="column" layout-gt-sm="row">
+
+
+                                 <div flex style="text-align: center">
+                                <i class="icon icon-file switch s20" ng-class="{'active' : driverdata.insuranceimg && driverdata.insuranceimg!=''}"  >
+                                  <md-tooltip md-direction="top">
+                                   {{allegato.file ?'File caricato' : 'File non caricato'}}
+                                  </md-tooltip>
+
+                                </i>
+                                </div>
+                             </div>
+                        </div>
+
+                          <div class="" flex="80">
+                              <div layout="row">
+                                  <h3 flex="50" class="ng-binding">Foto patente fronte</h3>
+
+
+                                  <h3 style="text-align: right;" flex="50">
+                                      <input   type="file" name="" ng-show="!driverdata.insuranceimg || driverdata.insuranceimg==''"  data-id="{{allegato.id}}" onchange="angular.element(this).scope().assicurazioneCambiato(this)">
+                                      <div ng-show="driverdata.insuranceimg && driverdata.insuranceimg!=''">
+                                         <a class="btn small" href="{{driverdata.insuranceimg}}" target="_blank">Vedi documento</a>
+                                          <a class="btn small" href="" ng-click="driverdata.insuranceimg=''" target="_blank" ng-show="driverdata.status !=2 && driverdata.insuranceimg!=''"><i class="icon icon-delete"></i></a>
+                                      </div>
+
+                                       <div layout="row" ng-show="false" ng-show="uploadInCorso[allegato.id]">
+                                           <div flex="20">
+                                            <md-progress-circular  md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                           </div>
+                                           <div flex="80" style="text-align:left">Upload del file in corso</div>
+                                        </div>
+
+                                  </h3>
+                              </div>
+
+                          </div>
+                      </div>
+
+
+
+
+
+
+                      <div layout="column documento" layout-gt-sm="row"  >
+
+                      <div class="padding-top-15" flex="20" style="max-width:50px">
+                               <div layout="column" layout-gt-sm="row">
+
+
+                               <div flex style="text-align: center">
+                              <i class="icon icon-file switch s20" ng-class="{'active' : driverdata.docimg && driverdata.docimg!=''}"  >
+                                <md-tooltip md-direction="top">
+                                 {{allegato.file ?'File caricato' : 'File non caricato'}}
+                                </md-tooltip>
+
+                              </i>
+                              </div>
+                           </div>
+                      </div>
+
+                        <div class="" flex="80">
+                            <div layout="row">
+                                <h3 flex="50" class="ng-binding">Foto patente retro </h3>
+
+
+                                <h3 style="text-align: right;" flex="50">
+                                    <input   type="file" name="" ng-show="!driverdata.docimg || driverdata.docimg==''"  data-id="{{allegato.id}}" onchange="angular.element(this).scope().patenteCambiato(this)">
+                                    <div ng-show="driverdata.docimg && driverdata.docimg!=''">
+                                       <a class="btn small" href="{{driverdata.docimg}}" target="_blank">Vedi documento</a>
+                                       <a class="btn small" href="" ng-click="driverdata.docimg=''" target="_blank" ng-show="driverdata.status !=2 && driverdata.docimg!=''"><i class="icon icon-delete"></i></a>
+                                    </div>
+
+                                     <div layout="row" ng-show="false" ng-show="uploadInCorso[allegato.id]">
+                                         <div flex="20">
+                                          <md-progress-circular  md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                         </div>
+                                         <div flex="80" style="text-align:left">Upload del file in corso</div>
+                                      </div>
+
+                                </h3>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div ng-show="(driverdata.insuranceimg && driverdata.insuranceimg!='') && (driverdata.docimg && driverdata.docimg!='') && driverdata.status==1">
+
+                      <h4>Il nostro personale sta verificando i documenti che hai caricato. Ti faremo sapere presto l'esito</h4>
+                    </div>
+
+                    <div ng-show="driverdata.status==2 && driverdata.docok==1">
+                      <h3>Complimenti, hai caricato tutti i tuoi documenti, il tuo profilo driver è attivo.</h3>
+
+                    </div>
+
+
+                      <div ng-show="driverdata.status==4">
+                        <h3>Devi ricaricare i documenti.</h3>
+
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+</div>
+<!-- / BASIC FORM -->
+
+<!-- BASIC FORM DATA -->
+
+<!-- / BASIC FORM DATA -->
+</div>
+</md-tab>
+
+
+
+
+
+
+
+
+</md-tabs>
+</md-content>
+
+
+
+
+</div>
+
+</div>
+<!-- / CONTENT -->
+<!--<div class="json-data-wrapper">
+<pre>{{vm.user | json}}</pre>
+</div>-->
+</div>

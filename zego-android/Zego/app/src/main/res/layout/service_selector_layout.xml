@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:Font="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gray_rounded_corners_rect_with_stroke"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/female_driver_layout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <View
+                    android:id="@+id/femaleTypeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/tap_effect_service_selector"/>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/female_driver_icon_layout"
+                    app:layout_widthPercent="28%"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/pink_driver_icon"
+                        app:layout_widthPercent="50%"
+                        app:layout_heightPercent="50%"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/female_driver_icon_layout"
+                    android:orientation="vertical"
+                    android:paddingRight="5dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/pinkZego"
+                        android:text="@string/pink_driver"
+                        android:textColor="@color/pink"
+                        Font:customfont="Raleway-Light.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/pinkZegoRide"
+                        android:text="@string/female_driver"
+                        android:textColor="@color/black_text"
+                        Font:customfont="Raleway-Light.ttf"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        app:minTextSize="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray_text"/>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/premium_driver_layout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <View
+                    android:id="@+id/premiumTypeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/tap_effect_service_selector"/>
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/premium_driver_icon_layout"
+                    app:layout_widthPercent="28%"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/control_car"
+                        app:layout_widthPercent="50%"
+                        app:layout_heightPercent="50%"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/premium_driver_icon_layout"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingRight="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/controlZego"
+                        android:text="@string/premium"
+                        android:textColor="@color/orange_simbolo"
+                        Font:customfont="Raleway-Light.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:text="@string/checked_by_zego"
+                        android:id="@+id/controlZegoRide"
+                        android:textColor="@color/black_text"
+                        Font:customfont="Raleway-Light.ttf"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        app:minTextSize="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/zego_driver_layout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <View
+                    android:id="@+id/zegoStandardButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:layout_margin="5dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/tap_effect_service_selector"/>
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/zego_driver_icon_layout"
+                    app:layout_widthPercent="28%"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/standard_icon"
+                        app:layout_widthPercent="50%"
+                        app:layout_heightPercent="50%"/>
+
+                </android.support.percent.PercentRelativeLayout>
+
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/gray_text"/>
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/zego_driver_icon_layout"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingRight="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/standardZego"
+                        android:text="@string/zego"
+                        android:textColor="@color/green_zego"
+                        Font:customfont="Raleway-Light.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <it.sharethecity.mobile.letzgo.customviews.MyFontTextView
+                        android:id="@+id/standardZegoRide"
+                        android:text="@string/standard_zego_driver"
+                        android:textColor="@color/black_text"
+                        Font:customfont="Raleway-Light.ttf"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        app:minTextSize="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+

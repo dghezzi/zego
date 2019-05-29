@@ -1,0 +1,322 @@
+
+
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+      <div class="breadcrumb" layout="row" layout-align="start center">
+        <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+        <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+        <span class="parent">Drivers</span>
+      </div>
+      <div class="title">Drivers</div>
+      <br>
+
+    </div>
+
+
+    <!--<div layout="row" layout-align="start center">
+    <md-button class="md-raised primary-button md-primary"
+    href="/user/new">
+    <md-icon md-font-icon="icon-plus"></md-icon>
+    <span>Aggiungi utente</span>
+  </md-button>
+</div>-->
+
+</div>
+<!-- / HEADER -->
+
+
+<md-toolbar>
+  <div class="md-toolbar-tools text-right">
+    <span flex></span>
+
+
+  <span flex></span>
+
+  <md-button ng-click="exportAll()" class="md-fab md-mini md-primary md-hue-2" aria-label="Eat cake">
+    <md-tooltip  >Esporta</md-tooltip>
+    <i class="icon icon-export"></i>
+
+
+  </md-button>
+<span style="width:30px"></span>
+
+</div>
+</md-toolbar>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="white-bg md-whiteframe-4dp dataTables_wrapper">
+     <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Lista Driver">
+
+
+    <div class="top">
+      <button class="btn btn-filtri  font-size-12" ng-click="filtriVisibili = !filtriVisibili" ng-class="{'aperto' : filtriVisibili}">
+        <i class="icon icon-filter-variant font-size-12"></i>
+        {{!filtriVisibili ? 'Mostra filtri' : 'Nascondi filtri'}}</button>
+
+
+        <button class="btn  font-size-12 right" ng-show="filtriVisibili " ng-click="vm.filter = {}">
+          <i class="icon icon-filter-remove-outline font-size-12" ></i> Resetta filtri</button>
+
+
+
+          <button class="btn btn-save font-size-12 right" ng-show="filtriVisibili" ng-click="salvaFiltri()">
+            <i class="icon icon-content-save font-size-12"></i> Salva e filtra</button>
+
+            <form novalidate ng-submit="salvaFiltri()" form-wrapper flex="100" class="form-filter" style="font-size:1em" ng-show="filtriVisibili">
+              <md-container layout-padding layout-gt-sm="row">
+                <div flex="60">
+                    <h4>Dati driver</h4>
+                    <div layout="column" layout-gt-sm="row">
+                      <md-input-container flex>
+                        <label>Città</label>
+                        <input ng-readonly="navigazione.mode=='info'" type="text" name="firstname" ng-model="vm.filter.like.area"
+                        placeholder="Città"
+                        >
+                      </md-input-container>
+
+                    </div>
+
+
+                    <div layout="column" layout-gt-sm="row">
+
+
+
+                      <!--<md-input-container  flex>
+                          <label>Candrive</label>
+                          <md-select placeholder="Tipo" ng-model="vm.filter.simple.candrive">
+                            <md-option ng-value="undefined">
+                               Tutti
+                            </md-option>
+                            <md-option ng-value="0">
+                               NO
+                            </md-option>
+                            <md-option ng-value="1">
+                               SI
+                            </md-option>
+                          </md-select>
+                      </md-input-container>
+                    -->
+
+
+                      <md-input-container  flex>
+                          <label>Stato</label>
+                          <md-select placeholder="Stato" ng-model="vm.filter.simple.status">
+                            <md-option ng-value="$index + 1" ng-repeat="s in status" >
+                               {{s}}
+                            </md-option>
+
+                          </md-select>
+                      </md-input-container>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+              </md-container>
+            </form>
+          </div>
+          <md-container ng-hide="true" layout-padding layout-gt-sm="row">
+
+            <div class="filtri-selezionati" layout-padding ng-repeat="(chiave,filtro) in vm.filter" class="row" ng-if="vm.filter[chiave]!=undefined && vm.filter[chiave]!= null">
+              <label>{{chiave}} : {{filtro }}<i ng-click="vm.filter[chiave]=null" class="icon icon-cancel">
+                <md-tooltip>Rimuovi filtro</md-tooltip>
+              </i></label>
+            </div>
+          </md-container>
+
+
+          <div class="table-progress" ng-class="{'loading' : loadingTable}">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+
+          <table class="simple responsive row-border hover" id="tabella" ng-table="tabella" ms-responsive-table >
+            <!--<thead>
+
+              <tr>
+                <th class="secondary-text">
+                  <div class="table-header">
+
+                  </div>
+                </th>
+                <th class="secondary-text" ng-show="tableColumns.refcode">
+                  <div class="table-header">
+                    <span class="column-title">Ref code</span>
+                  </div>
+                </th>
+                <th class="secondary-text" ng-show="tableColumns.fullname">
+                  <div class="table-header">
+                    <span class="column-title">Nome</span>
+                  </div>
+                </th>
+                <th class="secondary-text" ng-show="tableColumns.country">
+                  <div class="table-header">
+                    <span class="column-title">Paese</span>
+                  </div>
+                </th>
+                <th class="secondary-text" ng-show="tableColumns.phone">
+                  <div class="table-header">
+                    <span class="column-title">Cellulare</span>
+                  </div>
+                </th>
+
+                <th class="secondary-text" ng-show="tableColumns.email">
+                  <div class="table-header">
+                    <span class="column-title">Email</span>
+                  </div>
+                </th>
+                <th class="secondary-text" ng-show="tableColumns.insdate">
+                  <div class="table-header">
+                    <span class="column-title">Iscritto</span>
+                  </div>
+                </th>
+                <th class="secondary-text" ng-show="tableColumns.lastseen">
+                  <div class="table-header">
+                    <span class="column-title">Ultimo login</span>
+                  </div>
+                </th>
+
+              </tr>
+
+            </thead>-->
+            <tbody>
+              <tr ng-repeat="user in $data">
+
+                <!--<td><a ui-sref="app.useredit({id: user.id})">{{ user.id }}</a></td>-->
+
+
+                <td >
+                  <i class="icon icon-nest-thermostat switch" ng-class="{'active' : user.usercandrive}">
+                    <md-tooltip md-direction="top">
+                      {{user.usercandrive ? 'Può guidare' : 'Non può guidare'}}
+                    </md-tooltip>
+                  </i>
+
+
+                  </td>
+
+
+                  <td title="'Nome'"     ng-show="tableColumns.fullname">{{ user.userfname }} {{user.userlname}}</td>
+
+
+                  <td title="'Status'"   sortable="'status'"    >
+                  {{status[user.status]}}
+                  </td>
+
+
+
+                   <td title="'Email'"     ng-show="tableColumns.email">{{ user.useremail}}</td>
+
+
+
+                   <td title="'Area'"  sortable="'area'"   >{{ user.area}}</td>
+
+
+
+                  <td title="'Data richiesta'" sortable="'insdate'" ng-show="tableColumns.insdate">{{ user.insdate * 1000 | date : 'medium' }}</td>
+
+
+                  <td title="'Ultimo login'"  ng-show="tableColumns.lastseen">{{ user.userlastseen * 1000 | date : 'medium' }}</td>
+
+
+                  <td title="'Azioni'" class="azioni" header-class="azioni">
+                    <md-button class="md-icon-button launch" ui-sref="app.useredit({id: user.uid})"><i class="icon icon-pencil"></i>
+                    </md-button>
+
+                  </td>
+
+
+                </tr>
+              </tbody>
+            </table>
+
+
+
+      <!--      <div class="bottom">
+              <div class="left">
+                <div class="length">
+
+                  <div class="dataTables_length" id="DataTables_Table_0_length">
+                    <label>Visualizza <select name="asd" ng-model="pagination.num">
+                      <option ng-value="5">5</option>
+                      <option ng-value="10" selected>10</option>
+                      <option ng-value="25">25</option>
+                      <option ng-value="50">50</option>
+                      <option ng-value="100">100</option>
+                    </select> Risultati</label></div>
+
+
+
+                  </div></div>
+                  <div class="right">
+                    <div class="pagination">
+                      <div class="dataTables_paginate paging_simple" id="DataTables_Table_0_paginate">
+                        <a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" id="DataTables_Table_0_previous" ng-hide="pagination.page == 0 " ng-click="vm.prevPage()"><i class="icon icon-chevron-left"></i> Pagina precedente</a>
+                        Pagina {{pagination.page + 1}}
+                        <a class="paginate_button next" aria-controls="DataTables_Table_0" ng-hide="vm.users.length < pagination.num " ng-click="vm.nextPage()" tabindex="0" id="DataTables_Table_0_next">Prossima pagina
+                          <i class="icon icon-chevron-right"></i>
+                        </a>
+                      </div></div></div></div>
+
+-->
+                    </md-tab>
+                    <md-tab label="Carica Pagamenti">
+<div layout="row">
+
+              <!-- BASIC FORM -->
+              <div class="form-wrapper md-whiteframe-1dp" flex="100">
+Caricare un file csv con il seguente formato:<br/>
+id, amount, date, cro<br/>
+1, 12.12, 12/12/2017, 09870f809sa890as<br/>
+2, 14.12, 16/12/2017, fassasafafsfsafs<br/>
+...<br/>
+<ng-csv-import content="csv.content"
+  material
+  md-button-title="Carica File"
+  header="true"
+  separator="','"
+  result="csv.result"
+  ></ng-csv-import>
+
+<div ng-show="false">
+<table class="simple responsive row-border hover" id="tabella" ng-table="tabella" ms-responsive-table >
+  <thead>
+    <td>ID</td>
+    <td>Amount</td>
+    <td>Date</td>
+    <td>CRO</td>
+  </thead>
+  <tr ng-repeat="r in csv.result">
+      <td>{{r}}</td>
+      <td>{{r.amount}}</td>
+      <td>{{r.date}}</td>
+      <td>{{r.cro}}</td>
+  </tr>
+
+</table>
+</div>
+<md-button ng-disabled="!csv.result" ng-click="inviaCsv()">Invia</md-button>
+</div>
+</div>
+                  </md-tab>
+                  </md-tabs>
+                    </div>
+
+
+
+
+                  </div>
+                  <!-- / CONTENT -->
+
+                </div>

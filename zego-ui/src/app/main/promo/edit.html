@@ -1,0 +1,313 @@
+
+
+<form name="form" ng-submit="salva()">
+
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+
+      <div class="title row" layout-align="start center">
+        <div layout="column" style="margin-bottom: 30px;" layout-gt-sm="row">
+
+          <span flex style="display: flex;justify-content: center;align-items: center;text-align: left">
+          Edit promo
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="start center">
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+  <md-toolbar>
+      <div class="md-toolbar-tools text-right">
+        <span flex></span>
+        <md-button type="submit" class="md-raised"  >
+          <span>Salva</span>
+        </md-button>
+
+
+        <span flex></span>
+
+      </div>
+    </md-toolbar>
+
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Dati promo">
+
+  <div class="content" layout-padding>
+
+
+    <div flex layout="row">
+
+      <div flex layout="column">
+          <h3>Info promo</h3>
+
+            <div   layout="row">
+                  <md-input-container  flex>
+
+                      <label>First only?</label>
+                      <md-select required placeholder="Firt only?" ng-model="item.firstonly">
+                        <md-option ng-value="0">
+                           NO
+                        </md-option>
+                        <md-option ng-value="1">
+                           SI
+                        </md-option>
+
+
+
+                      </md-select>
+                  </md-input-container>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div   layout="row">
+                <md-input-container flex>
+                  <label>Titolo della promo</label>
+                  <input required type="text" name="name" ng-model="item.promotitle" placeholder="Titolo della promo"
+                  >
+                </md-input-container>
+
+              <md-input-container  flex>
+
+                  <label>Tipo</label>
+                  <md-select required placeholder="Tipo" ng-model="item.type">
+                    <md-option ng-value="'percent'">
+                       Percent
+                    </md-option>
+                    <md-option ng-value="'euro'">
+                       Euro
+                    </md-option>
+                    <md-option ng-value="'wallet'">
+                       Wallet
+                    </md-option>
+                    <md-option ng-value="'freeride'">
+                       Freeride
+                    </md-option>
+
+
+                  </md-select>
+              </md-input-container>
+        </div>
+        <div  >
+          <md-input-container class="md-block">
+            <label>Codice della promo</label>
+            <input required type="text" name="name" ng-model="item.code" placeholder="Codice della promo"
+            >
+          </md-input-container>
+
+        </div>
+
+        <div  >
+          <md-input-container class="md-block">
+           <label>Descrizione</label>
+           <textarea required ng-model="item.promodesc" placeholder="Descrizione" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+         </md-input-container>
+
+        </div>
+
+      </div>
+
+
+
+
+            <div flex layout="column">
+
+              <h3>Periodo di visibilità</h3>
+              <div flex layout="row">
+                <md-input-container >
+                  <label class="md-no-float">Abilitata da</label>
+                  <md-datepicker name="enablestart" required ng-readonly="driverdata.docok==1" ng-model="item.enablestart"   md-open-on-focus></md-datepicker>
+                      <div ng-messages="form.enablestart.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Scegli una data</span>
+                                  </div>
+                              </div>
+                </md-input-container >
+                <md-input-container >
+                  <label class="md-no-float">fino a </label>
+                  <md-datepicker name="enablestop" required ng-readonly="driverdata.docok==1" ng-model="item.enablestop"   md-open-on-focus></md-datepicker>
+                  <div ng-messages="form.enablestop.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Scegli una data</span>
+                                  </div>
+                              </div>
+                </md-input-container >
+
+              </div>
+
+
+              <h3>Periodo di validità</h3>
+              <div flex layout="row">
+                <md-input-container >
+                  <label class="md-no-float">Valida da</label>
+                  <md-datepicker name="validfrom" required ng-readonly="driverdata.docok==1" ng-model="item.validfrom"   md-open-on-focus></md-datepicker>
+                  <div ng-messages="form.validfrom.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Scegli una data</span>
+                                  </div>
+                              </div>
+                </md-input-container >
+                <md-input-container >
+                  <label class="md-no-float">fino a </label>
+                  <md-datepicker name="validto" required ng-readonly="driverdata.docok==1" ng-model="item.validto"   md-open-on-focus></md-datepicker>
+
+                   <div ng-messages="form.validto.$error"
+                                   role="alert">
+                                  <div ng-message="required">
+                                      <span>Scegli una data</span>
+                                  </div>
+                              </div>
+
+
+                </md-input-container >
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+                        <div flex layout="row">
+                        <div flex layout="column">
+
+
+
+
+
+                          <h3>Valore promo</h3>
+                          <p ng-show="item.type=='euro'">Inserisci il valore dello sconto espresso in euro
+                          </p>
+                          <p ng-show="item.type=='percent'">Inserisci la percentuale da scontare
+                          </p>
+                          <p ng-show="item.type=='wallet'">Inserisci il valore del wallet
+                          </p>
+                          <md-input-container class="md-icon-left">
+                            <md-icon class="icon icon-percent" ng-show="item.type=='percent'"></md-icon>
+                            <md-icon class="icon icon-currency-eur" ng-show="item.type=='euro'"></md-icon>
+                            <md-icon class="icon icon-wallet-travel" ng-show="item.type=='wallet'"></md-icon>
+
+
+                            <input required type="text" name="name" ng-model="item.value" placeholder="Valore promo">
+
+                          </md-input-container>
+
+
+                          <p>Lo sconto si applica solo alla fee lasciando inalterato il rimborso driver?</p>
+                          <md-switch ng-model="item.feeonly" aria-label="Switch 2" ng-true-value="1" ng-false-value="0" >
+                            {{!item.feeonly ? 'NO' : 'SI'}}
+                          </md-switch>
+
+
+
+
+
+
+                    </div>
+
+
+                <div flex layout="column">
+
+                  <h3>Utilizzi</h3>
+
+                    <md-input-container  >
+                      <label>Numero massimo di utilizzi</label>
+                      <input required type="number" name="name" ng-model="item.maxusages" placeholder="Numero massimo di utilizzi"
+                      >
+                    </md-input-container>
+                    <md-input-container  >
+                      <label>Numero massimo di utilizzi per utente</label>
+                      <input required  type="number" name="name" ng-model="item.maxperuser" placeholder="Numero massimo di utilizzi per utente"
+                      >
+                    </md-input-container>
+
+                    <md-input-container   ng-show="item.currentusages!=undefined">
+                      <label>Numero di utilizzi correnti</label>
+                      <input readonly type="text" name="name" ng-model="item.currentusages" placeholder="Numero di utilizzi correnti"
+                      >
+                    </md-input-container>
+
+
+
+
+                </div>
+                </div>
+
+
+
+
+                <div  >
+                  <md-input-container class="md-block">
+                   <label>Note</label>
+                   <textarea  ng-model="item.note" placeholder="Note" md-maxlength="256" rows="5" md-select-on-focus></textarea>
+                 </md-input-container>
+
+                  </div>
+
+  </div>
+
+</md-tab>
+<md-tab label="Utenti associati">
+  <div layout-padding>
+    <h2>Upload file ID da associare</h2>
+    <p>Il file deve essere in formato .csv e contenere un ID per riga, senza intestazione</p>
+    <input ng-show="userPromoDaInviare.length == 0" type="file" name="" onchange="angular.element(this).scope().importaId(this)">
+
+    <div ng-show="userPromoDaInviare.length > 0">
+      <p>Verranno importati {{userPromoDaInviare.length}} utenti da assegnare alla promo.</p>
+      <p>L'operazione potrebbe richiedere fino a qualche minuto</p>
+      <p>Intendi procedere?</p>
+      <md-button class="md-primary md-raised" ng-click="inviaListaId()">Procedi, importa gli utenti</md-button>
+      <md-button class="md-raised" ng-click="userPromoDaInviare = []">No, annulla</md-button>
+    </div>
+
+    <div class="risultato-importazione" ng-repeat="r in risultatiImportazioni">
+        {{r}}
+    </div>
+  </div>
+
+    <div layout-padding>
+  <h2>Lista utenti associati</h2>
+  </div>
+  <table class="simple responsive row-border hover" ng-table="tabellaUtenti" ms-responsive-table>
+    <tbody>
+      <tr ng-repeat="utente in $data">
+        <td title="'Nome utente'" sortable="'uid'" filter="{'uid':'text'}"><a ui-sref="app.useredit({id:utente.uid})">{{utente.user.fname}} {{utente.user.lname}} {{utente.uid}}</a></td>
+        <td title="'Redeem'">{{utente.redeemdate * 1000 | date : 'medium'}}</td>
+        <td title="'Scadenza'">{{utente.expirydate * 1000 | date : 'medium'}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</md-tab>
+</md-tabs>
+
+</div>
+
+</form>

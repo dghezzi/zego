@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="zego-libPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>it.elbuild.zego.entities.Location</class>
+    <class>it.elbuild.zego.entities.Errormsg</class>
+    <class>it.elbuild.zego.entities.Blacklist</class>
+    <class>it.elbuild.zego.entities.Creditcard</class>
+    <class>it.elbuild.zego.entities.Banhistory</class>
+    <class>it.elbuild.zego.entities.Conf</class>
+    <class>it.elbuild.zego.entities.Address</class>
+    <class>it.elbuild.zego.entities.User</class>
+    <class>it.elbuild.zego.entities.Pin</class>
+    <class>it.elbuild.zego.entities.Apitest</class>
+    <class>it.elbuild.zego.entities.Appversion</class>
+    <class>it.elbuild.zego.entities.Lang</class>
+    <class>it.elbuild.zego.entities.Dialog</class>
+    <class>it.elbuild.zego.entities.Service</class>
+    <class>it.elbuild.zego.entities.Zone</class>
+    <class>it.elbuild.zego.entities.Feedback</class>
+    <class>it.elbuild.zego.entities.Riderequest</class>
+    <class>it.elbuild.zego.entities.RiderequestDrivers</class>
+    <class>it.elbuild.zego.entities.ZoneService</class>
+    <class>it.elbuild.zego.entities.Driverdata</class>
+    <class>it.elbuild.zego.entities.City</class>
+    <class>it.elbuild.zego.entities.Promo</class>
+    <class>it.elbuild.zego.entities.Userpromo</class>
+    <class>it.elbuild.zego.entities.Area</class>
+    <class>it.elbuild.zego.entities.Useraction</class>
+    <class>it.elbuild.zego.entities.Fraud</class>
+    <class>it.elbuild.zego.entities.Payment</class>
+    <class>it.elbuild.zego.entities.Nextipcall</class>
+    <class>it.elbuild.zego.entities.VertexNeighbors</class>
+    <class>it.elbuild.zego.entities.Vertex</class>
+    <class>it.elbuild.zego.entities.Notifications</class>
+    <class>it.elbuild.zego.entities.Nation</class>
+    <class>it.elbuild.zego.entities.Paymentaction</class>
+    <class>it.elbuild.zego.entities.legacy.Zgcity</class>
+    <class>it.elbuild.zego.entities.legacy.Zgpromo</class>
+    <class>it.elbuild.zego.entities.legacy.ZgriderequestDrivers</class>
+    <class>it.elbuild.zego.entities.legacy.Zguser</class>
+    <class>it.elbuild.zego.entities.legacy.Zgride</class>
+    <class>it.elbuild.zego.entities.legacy.ZguserPromo</class>
+    <class>it.elbuild.zego.entities.legacy.ZgpromoCodes</class>
+    <class>it.elbuild.zego.entities.legacy.Zgdriver</class>
+    <class>it.elbuild.zego.entities.legacy.ZguserProfile</class>
+    <class>it.elbuild.zego.entities.legacy.Zgfeedback</class>
+    <class>it.elbuild.zego.entities.legacy.Zgcountry</class>
+    <class>it.elbuild.zego.entities.legacy.Zgridepayment</class>
+    <class>it.elbuild.zego.entities.legacy.Zgcar</class>
+    <class>it.elbuild.zego.entities.legacy.Zgriderequest</class>
+    <class>it.elbuild.zego.entities.legacy.Zgdrivrating</class>
+    <class>it.elbuild.zego.entities.legacy.Zgpassrating</class>
+    <class>it.elbuild.zego.entities.legacy.Manufacturer</class>
+    <class>it.elbuild.zego.entities.Exportrequest</class>
+    <class>it.elbuild.zego.entities.Exportdriver</class>
+    <class>it.elbuild.zego.entities.Exportquadratura</class>
+    <class>it.elbuild.zego.entities.Exportlink</class>
+    <class>it.elbuild.zego.entities.Errordata</class>
+    <class>it.elbuild.zego.entities.Thirdparty</class>
+    <class>it.elbuild.zego.entities.Userlogin</class>
+    <class>it.elbuild.zego.entities.Driveravailability</class>
+    <class>it.elbuild.zego.entities.Cash</class>
+    <class>it.elbuild.zego.entities.Exportcash</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/zego?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value="zego"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="zego"/>
+    </properties>
+  </persistence-unit>
+</persistence>
