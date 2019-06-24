@@ -5,7 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-
+    <style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+</style>
 {% seo %}
   </head>
 
@@ -16,6 +25,10 @@
         {{ content }}
       </section>
     </div>
+    
+<div class="footer">
+  <p><a href="https://github.com/dghezzi/zego">share the city srl</a> – vat IT08370570965</p>
+</div>
 
   </body>
 </html>
